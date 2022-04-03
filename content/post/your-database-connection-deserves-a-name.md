@@ -445,8 +445,6 @@ Here are a few suggestions:
 * [MediaWiki](https://www.mediawiki.org/wiki/API:Etiquette#The_User-Agent_header "API:Etiquette of MediaWiki"): `clientname/version (contact information e.g. username, email)`
 * [GitHub API](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#user-agent-required "User-Agent section @ GitHub API docs"): your GitHub username, or the name of your application
 
-➡️ Checkout [screenshots and code examples for HTTP at Github](https://github.com/andygrunwald/your-connection-deserves-a-name/tree/main/http).
-
 ## You know a system that supports connection naming?
 
 I would love to hear from you.

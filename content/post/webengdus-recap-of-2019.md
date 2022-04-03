@@ -7,7 +7,7 @@ images = [
     "/img/posts/webengdus-recap-of-2019/web-engineering-duesseldorf-may-peakwork-matthias-endler-zach-leatherman.png",
     "/img/posts/webengdus-recap-of-2019/web-engineering-duesseldorf-january-trivago-with-christian-schaefer.jpg",
     "/img/posts/webengdus-recap-of-2019/web-engineering-duesseldorf-april-sipgate-with-lauren-robinson.jpg",
-    "/img/posts/webengdus-recap-of-2019/webengdus-logo-banner.png"
+    "/img/posts/webengdus-recap-of-2019/web-engineering-duesseldorf-logo-banner.png"
 ]
 keywords = [
     "meetup",
@@ -64,7 +64,7 @@ What is a meetup without content? Content is king. Therefore, special **Thanks**
 
 - [Arndt Droullier](https://twitter.com/arndtdr "Arndt Droullier at twitter")
 - [Christian Schaefer](https://twitter.com/derSchepp "Christian Schaefer at twitter")
-- [Mete Bulutay](https://twitter.com/mbulutay "Mete Bulutay at twitter")
+- [Mete Bulutay](https://www.linkedin.com/in/mete-bulutay/ "Mete Bulutay at LinkedIn")
 - [Christoph Jerolimov](https://twitter.com/jerolimov "Christoph Jerolimov at twitter")
 - [Sebastian Golasch](https://twitter.com/asciidisco "Sebastian Golasch at twitter")
 - [Marcus Weiner](https://twitter.com/mraerino "Marcus Weiner at twitter")
@@ -115,8 +115,10 @@ And in 2020, we will continue!
 
 If you want to be part of this,
 
-- by speaking at the Meetup, fill out the [Call for Speakers-Form](https://forms.gle/EzeQeijuZtNebMmS7 "Call for Speakers-Form for Web Engineering Düsseldorf")
-- by hosting us in your venue or provide other sponsoring, fill out the [I want to sponsor you-Form](https://forms.gle/gS4qYiBu7jLWGtc56 "I want to sponsor the Web Engineering Düsseldorf Form")
+- by speaking at the Meetup
+- by hosting us in your venue or provide other sponsoring
+
+contact us via email andygrunwald@gmail.com.
 
 We hope to see you soon at one of our [next meetups](https://www.meetup.com/Web-Engineering-Duesseldorf/events/ "Next Web Engineering Düsseldorf Meetup Events")!
 

@@ -1,8 +1,8 @@
 +++
 draft = false
 
-title = "Migrate your local PHP 7.2 setup to Homebrew v1.5.*"
-description = "A small guide on how you migrate your local Homebrew PHP setup while updating to Homebrew v1.5."
+title = "Migrate your local PHP 7.2 setup to Homebrew v1.5"
+description = "A small guide on how you migrate your local Homebrew PHP setup while updating to Homebrew v1.5"
 images = []
 keywords = [
     "php",

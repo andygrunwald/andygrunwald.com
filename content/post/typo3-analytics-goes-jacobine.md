@@ -102,7 +102,7 @@ origin git@github.com:andygrunwald/Jacobine.git (fetch)
 origin git@github.com:andygrunwald/Jacobine.git (push)
 ```
 
-Please pay attention to the name of your remote (origin or maybe [upstream](https://docs.github.com/en/github/collaborating-with-pull-requests/working-with-forks/syncing-a-fork "Syncing a fork at GitHub documentation")) and the protocol you use (*git://* or *https://*).
+Please pay attention to the name of your remote (origin or maybe [upstream](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork "Syncing a fork at GitHub documentation")) and the protocol you use (*git://* or *https://*).
 
 The ecosystem around *Jacobine* (the [web frontend](https://github.com/andygrunwald/Jacobine-Web-Frontend "Jacobinee Web Frontend at GitHub"), the [vagrant machine](https://github.com/andygrunwald/Jacobine-Vagrant "Jacobine Virtual Machine at GitHub") and the [chef cookbook](https://github.com/andygrunwald/chef-jacobine "Chef cookbook for Jacobine at GitHub")) will be renamed in the following days.
 

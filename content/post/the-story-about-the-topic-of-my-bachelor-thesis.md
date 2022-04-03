@@ -85,7 +85,7 @@ Here is a small list of this paper (if you want more, just ping me ;)):
 * [Will My Patch Make It? And How Fast? Case Study on the Linux Kernel](https://dergipark.org.tr/tr/download/article-file/729012 "Paper Will My Patch Make It? And How Fast? Case Study on the Linux Kernel")
 
 At [1st & 2nd February 2014 the FOSDEM event](https://fosdem.org/2014/ "FOSDEM 2014") retakes places in Brussels, Belgium.
-Due to the communication at the [MetricsGrimoire mailinglist](https://lists.libresoft.es/listinfo/metrics-grimoire "MetricsGrimoire mailinglist") i knew that people from [Bitergia](https://bitergia.com/ "Bitergia") ([@jgbarah](https://twitter.com/jgbarah/ "Jesus M Gonzalez-Barahona at twitter"), [@sanacl](https://twitter.com/sanacl "Luis Cañas-Díaz at twitter"), [@dizquierdo](https://twitter.com/dizquierdo "Daniel Izquierdo at twitter"), etc.) were there as well.
+Due to the communication at the MetricsGrimoire mailinglist i knew that people from [Bitergia](https://bitergia.com/ "Bitergia") ([@jgbarah](https://twitter.com/jgbarah/ "Jesus M Gonzalez-Barahona at twitter"), [@sanacl](https://twitter.com/sanacl "Luis Cañas-Díaz at twitter"), [@dizquierdo](https://twitter.com/dizquierdo "Daniel Izquierdo at twitter"), etc.) were there as well.
 I [twittered that I want to meet them](https://twitter.com/andygrunwald/status/428850540228132864 "Contacting Bitergia via twitter") and ~1 hour later we had a lovely chat in the cafeteria of the University of Brussels.
 I showed and talked about the concepts of TYPO3-Analysis and got positive feedback.
 
@@ -94,7 +94,7 @@ I learned about ...
 - new tools (CVSAnaly, Bicho, ...)
 - a new programing language (Python)
 - a lot of programming experience
-- concepts with new tools (TYPO3-Analytics, [RabbitMQ](https://www.rabbitmq.com/ "Message queue system RabbitMQ"), [supervisord](https://supervisord.org/ "Software supervisord"), [Vagrant](https://www.vagrantup.com/ "Software Vagrant"), [Chef](https://www.chef.io/products/chef-infra "Software Chef")...)
+- concepts with new tools (TYPO3-Analytics, [RabbitMQ](https://www.rabbitmq.com/ "Message queue system RabbitMQ"), [supervisord](http://supervisord.org/ "Software supervisord"), [Vagrant](https://www.vagrantup.com/ "Software Vagrant"), [Chef](https://www.chef.io/products/chef-infra "Software Chef")...)
 - new friendly and interesting people (Jesus, Luis, Daniel, ...)
 - a fresh business concept (Bitergia)
 - much new knowledge about an exciting research field I did not know before (Mining Software Repositories)
