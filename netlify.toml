@@ -1,0 +1,9 @@
+# [[redirects]]
+# from = "/episodes/0"
+# to = "/podcast/episode/00-developer-fangen-bei-0-an-zu-zählen?pk_campaign=shortlink"
+# status = 301
+# force = true
+
+[build]
+publish = "dist/"
+command = "astro build"
