@@ -39,23 +39,30 @@ if (content.showHeaderImage && content.images.length > 0) {
   hasImage = true
 	imageWidthClass = "lg:w-2/5";
 	imagePaddingLeftClass = "lg:pl-10";
+
 	// Just picking the first image
 	imagePath = content.images[0]
 }
 
+let metaTagImage = "";
+// Image selection for meta tags
+if (content.images.length > 0) {
+	// Just picking the first image
+	metaTagImage = content.images[0]
+}
+
+// <Debug foo={content} />
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- TODO Image -->
-		<MainHead title={title} description={content.description} image="" {canonicalURL} />
+		<MainHead title={title} description={content.description} image={metaTagImage} {canonicalURL} />
 	</head>
   <body class="antialiased bg-body text-body font-body">
     <div>
       <Nav title={title} />
-	  
-	    <Debug foo={content} />
 
       <section class="relative py-20">
         <div class="container px-4 mx-auto">
