@@ -26,6 +26,7 @@ $ make build
 - Blogpost: Style code`
 - Astro Image integration
 - Cleanup the /public-folder (check which asset we really need)
+- Show image caption, especially here: https://andygrunwald.com/blog/web-engineering-dus-recap-of-2019/
 
 ### Public Speaking
 
