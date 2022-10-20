@@ -36,7 +36,6 @@ const { title, description, image, canonicalURL } = Astro.props as Props;
 
 <link rel="canonical" href={canonicalURL} />
 
-<!-- 
 <meta property="og:url" content={canonicalURL} >
 <meta property="og:type" content="website">
 <meta property="og:title" content={title} />
@@ -50,5 +49,5 @@ const { title, description, image, canonicalURL } = Astro.props as Props;
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 {image && (<meta name="twitter:image" content={new URL(image, canonicalURL)}>)}
--->
+
 <script src="/js/main.js" is:inline></script>
