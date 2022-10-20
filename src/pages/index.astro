@@ -1,0 +1,45 @@
+---
+import MainHead from '../components/MainHead.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import BlogPostPreviewListing from '../components/BlogPostPreviewListing.astro'
+
+let title = 'Andy Grunwald - Software Engineer and Engineering Culture';
+let description = 'TODO';
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+		<MainHead title={title} description={description} image="" {canonicalURL} />
+	</head>
+  <body class="antialiased bg-body text-body font-body">
+    <div>
+      <Nav title={title} />
+
+      <section class="relative pb-20"><!-- lg:pb-40 -->
+        <img class="lg:hidden absolute bottom-0 left-0 -mb-20" src="/images/icons/dots/blue-dot-left-bars.svg" alt="">
+        <div class="relative container pt-12 px-4 mx-auto text-center">
+          <span class="text-blue-400 font-semibold text-3xl">
+            Andy Grunwald
+          </span>
+          <h2 class="mt-8 mb-8 lg:mb-12 text-4xl lg:text-6xl font-semibold">
+            Software Engineer and Engineering Manager.
+          </h2>
+          <p class="max-w-3xl mx-auto mb-8 lg:mb-12 text-xl text-gray-500">
+            I manage Site Reliability Engineers at <a href="https://aiven.io/" class="hover:underline text-red-300" title="Aiven">Aiven</a>, talk about Software Engineering in the <a href="https://engineeringkiosk.dev/" class="hover:underline text-red-300" title="Engineering Kiosk Podcast">Engineering Kiosk Podcast</a>, and share knowledge via the <a href="https://www.meetup.com/web-engineering-duesseldorf/" class="hover:underline text-red-300" title="Web Engineering Meetup Düsseldorf">Web Engineering Meetup Düsseldorf</a>.
+          </p>
+          <a class="inline-block w-full md:w-auto mb-2 md:mb-0 px-8 py-4 mr-4 text-sm font-medium leading-normal bg-red-400 hover:bg-red-300 text-white rounded transition duration-200" href="/#blog">
+            Checkout my articles
+          </a>
+        </div>
+      </section>
+
+      <BlogPostPreviewListing numberOfItems=3 />
+
+      <Footer />
+    </div>
+  </body>
+</html>

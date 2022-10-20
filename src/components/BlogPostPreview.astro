@@ -1,0 +1,119 @@
+---
+export interface Props {
+	post: any;
+	n: number;
+}
+
+import Markdown from '@astrojs/markdown-component';
+import { formatDate } from "../scripts/date.js"
+import { Debug } from 'astro/components';
+
+const { post, n } = Astro.props;
+
+
+/*
+import Markdown from '@astrojs/markdown-component';
+import { URLify } from "../scripts/urlify.js"
+import { formatDate } from "../scripts/date.js"
+
+import '../styles/blogpost-preview.scss';
+
+// n represents the number of the post to display.
+// Why does this matter?
+// In a list of post previews, we need to add a few css classes, depending on the screen size.
+// 
+// Default value is n = 0
+// In a list of posts, we start counting at 0
+let cssClass = "";
+switch (n) {
+  case 3:
+    cssClass = "mb-8 lg:mb-0";
+    break;
+  case 4:
+    cssClass = "mb-8 md:mb-0";
+    break;
+  case 5:
+    cssClass = "";
+    break;
+  default:
+    cssClass = "mb-8";
+}
+
+let tags = frontmatter.tags.map((element) => URLify(element));
+*/
+
+// Check if we have an image
+let hasImage = false;
+let imagePath = "";
+let imageWidthClass = "";
+let imagePaddingLeftClass = "";
+if (post.frontmatter.images.length > 0) {
+	hasImage = true
+	imageWidthClass = "lg:w-2/5";
+	imagePaddingLeftClass = "lg:pl-10";
+	// Just picking the first image
+	imagePath = post.frontmatter.images[0]
+}
+//<Debug foo={post.frontmatter.images} />
+---
+
+{n % 2 == 0 &&
+
+
+<div class="flex flex-wrap items-center -mx-4 mb-16">
+	<div class={"w-full px-4 " + imageWidthClass}>
+		<div class="text-left">
+			{post.frontmatter.categories.map((category) => <span class="inline-block mb-3 mr-2 text-xs px-2 py-1 bg-blue-50 rounded uppercase text-blue-400 font-semibold">
+					{category}
+				</span>
+			)}
+			<h2 class="mb-4 text-3xl font-semibold font-heading">
+				<a href={post.url} title={post.frontmatter.title} class="hover:underline hover:text-red-300">
+					{post.frontmatter.title}
+				</a>
+			</h2>
+			<span class="inline-block mb-6 text-xs text-gray-500">
+				<time class="date" datetime={post.frontmatter.pubDate}>{formatDate(post.frontmatter.pubDate)}</time>
+			</span>
+			<Markdown class="text-xl text-gray-500">{post.frontmatter.description}</Markdown>
+		</div>
+	</div>
+	{hasImage && <div class="order-first lg:order-last w-full lg:w-3/5 px-4 mb-8 lg:mb-0">
+		<div class="h-96">
+			<a href={post.url} title={post.frontmatter.title}>
+				<img class="w-full h-full object-cover rounded-lg" src={imagePath} alt="">
+			</a>
+		</div>
+	</div>}
+</div>
+}
+
+{n % 2 == 1 &&
+<div class="flex flex-wrap items-center -mx-4 mb-16">
+	{hasImage && <div class="w-full lg:w-3/5 px-4 mb-8 lg:mb-0">
+		<div class="h-96">
+			<a href={post.url} title={post.frontmatter.title}>
+				<img class="w-full h-full object-cover rounded-lg" src={imagePath} alt="">
+			</a>
+		</div>
+	</div>}
+	<div class={"w-full px-4 " + imageWidthClass}>
+		<div class={"text-left" + imagePaddingLeftClass}>
+			{post.frontmatter.categories.map((category) => <span class="inline-block mb-3 mr-2 text-xs px-2 py-1 bg-blue-50 rounded uppercase text-blue-400 font-semibold">
+					{category}
+				</span>
+			)}
+			<h2 class="mb-4 text-3xl font-semibold font-heading">
+				<a href={post.url} title={post.frontmatter.title} class="hover:underline hover:text-red-300">
+					{post.frontmatter.title}
+				</a>
+			</h2>
+			<span class="inline-block mb-6 text-xs text-gray-500">
+				<time class="date" datetime={post.frontmatter.pubDate}>{formatDate(post.frontmatter.pubDate)}</time>	
+			</span>
+			<Markdown class="text-xl text-gray-500">{post.frontmatter.description}</Markdown>
+		</div>
+	</div>
+</div>
+
+}

@@ -1,0 +1,27 @@
+---
+import MainHead from '../../components/MainHead.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import BlogPostPreviewListing from '../../components/BlogPostPreviewListing.astro'
+
+let title = 'Andy Grunwald - Software Engineer and Engineering Culture';
+let description = 'TODO';
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+		<MainHead title={title} description={description} image="" {canonicalURL} />
+	</head>
+  <body class="antialiased bg-body text-body font-body">
+    <div>
+      <Nav title={title} />
+
+      <BlogPostPreviewListing numberOfItems=0 />
+
+      <Footer />
+    </div>
+  </body>
+</html>

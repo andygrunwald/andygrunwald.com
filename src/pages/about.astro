@@ -1,0 +1,65 @@
+---
+import MainHead from '../components/MainHead.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import BlogPostPreviewListing from '../components/BlogPostPreviewListing.astro'
+
+let title = 'Andy Grunwald - Software Engineer and Engineering Culture';
+let description = 'TODO';
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+		<MainHead title={title} description={description} image="" {canonicalURL} />
+	</head>
+  <body class="antialiased bg-body text-body font-body">
+    <div>
+      <Nav title={title} />
+
+      <!-- ----------------- -->
+      <section class="relative py-20">
+        <div class="relative container px-4 mx-auto">
+          <div class="flex flex-wrap items-center -mx-4">
+            <div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+              <div class="max-w-lg">
+                <span class="text-xs text-blue-400 font-semibold">
+                  Who is Andy?
+                </span>
+                <h2 class="mt-8 mb-6 lg:mb-10 lg:pr-8 text-4xl font-semibold">
+                  Andy Grunwald
+                </h2>
+                <p class="mb-6 lg:mb-6 text-xl text-gray-500">
+                  I’m a Software Engineer, 
+                  <a href="https://localhost.engineering/" title="localhost conference - A conference for people who create the internet" class="text-red-500 underline hover:no-underline">conference</a> and <a href="https://www.meetup.com/web-engineering-duesseldorf/" title="Web Engineering Meetup Düsseldorf - WebEngDUS" class="text-red-500 underline hover:no-underline">meetup organizer</a>, 
+                  and open source enthusiast with a passion for on Backend, Infrastructure, Reliability and Engineering Culture.
+                </p>
+                <p class="mb-6 lg:mb-6 text-xl text-gray-500">
+                  I am working at <a href="https://aiven.io/" title="Aiven - Data infrastructure made simple" class="text-red-500 underline hover:no-underline">Aiven</a> as an Engineering Manager, leading a team of Site Reliability Engineers.
+                </p>
+                <p class="mb-6 lg:mb-6 text-xl text-gray-500">
+                  I enjoy running side projects to learn new things.
+                  Nowadays, I am talking about Software Engineering in the <a href="https://engineeringkiosk.dev/" title="Engineering Kiosk - Der deutschsprachige Software-Engineering-Podcast" class="text-red-500 underline hover:no-underline">Engineering Kiosk Podcast</a>
+                  and building <a href="https://app.sourcectl.dev/" title="sourcectl - A data driven approach for your Open Source and Inner Source environment" class="text-red-500 underline hover:no-underline">sourcectl</a>, a platform to analyze and improve your open source and inner source environment.
+                </p>
+                <p class="mb-2 lg:mb-2 text-xl text-gray-500">
+                  Want to chat? Reach out via <a href="mailto:andygrunwald@gmail.com" class="text-red-500 underline hover:no-underline">Email</a>, 
+                  <a href="https://twitter.com/andygrunwald" title="Andy Grunwald / @andygrunwald on twitter" class="text-red-500 underline hover:no-underline">Twitter</a>, 
+                  <a href="https://github.com/andygrunwald" title="Andy Grunwald / @andygrunwald on GitHub" class="text-red-500 underline hover:no-underline">GitHub</a>, 
+                  or <a href="https://www.linkedin.com/in/andy-grunwald-09aa265a/" title="Andy Grunwald on LinkedIn" class="text-red-500 underline hover:no-underline">LinkedIn</a>.
+                </p>
+              </div>
+            </div>
+            <div class="relative w-full lg:w-1/2 px-4">
+              <img class="lg:h-128 rounded-xl object-cover" src="/images/andy-grunwald-opengraph.png" alt="Andy Grunwald" title="Andy Grunwald">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  </body>
+</html>
