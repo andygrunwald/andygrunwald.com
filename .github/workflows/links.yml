@@ -33,4 +33,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         with:
-          args: "--verbose --no-progress './dist/**/*.html' './dist/**/*.xml'"
+          args: "--no-progress './dist/**/*.html' './dist/**/*.xml'"
