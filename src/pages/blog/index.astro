@@ -4,14 +4,14 @@ import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import BlogPostPreviewListing from '../../components/BlogPostPreviewListing.astro'
 
-let title = 'Andy Grunwald - Software Engineer and Engineering Culture';
-let description = 'TODO';
+let title = 'Blog by Andy Grunwald - Software Engineer and Engineering Manager';
+let description = 'I am a Software Engineer, conference and meetup organizer, and open source enthusiast with a passion for on Backend, Infrastructure, Reliability and Engineering Culture.';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 <!DOCTYPE html>
 <html lang="en">
   <head>
-		<MainHead title={title} description={description} image="" {canonicalURL} />
+		<MainHead title={title} description={description} image="/images/andy-grunwald-opengraph.png" {canonicalURL} />
 	</head>
   <body class="antialiased bg-body text-body font-body">
     <div>
