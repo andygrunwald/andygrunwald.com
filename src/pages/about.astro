@@ -2,14 +2,11 @@
 import MainHead from '../components/MainHead.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-import BlogPostPreviewListing from '../components/BlogPostPreviewListing.astro'
 
 let title = 'Andy Grunwald - Software Engineer and Engineering Culture';
 let description = 'TODO';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-
 ---
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,7 +16,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <div>
       <Nav title={title} />
 
-      <!-- ----------------- -->
       <section class="relative py-20">
         <div class="relative container px-4 mx-auto">
           <div class="flex flex-wrap items-center -mx-4">

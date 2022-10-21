@@ -28,6 +28,8 @@ $ make build
 - Cleanup the /public-folder (check which asset we really need)
 - Show image caption, especially here: https://andygrunwald.com/blog/web-engineering-dus-recap-of-2019/
 - Add link checker / lychee 
+- Search for TODOs in code
+- Compare old and new sitemap for links
 
 ### Public Speaking
 
@@ -43,6 +45,19 @@ We deactivated the public speaking section because
 Right now, the public speaking section is deactivated.
 The content can be found in the `other/` folder.
 At some point in time, I want to revisit this.
+
+#### Implement cloud flare caching purge
+
+Previously in GitHub actions
+
+```yaml
+- name: Purging Cloudflare cache
+    uses: jakejarvis/cloudflare-purge-action@master
+    if: github.ref == 'refs/heads/main'
+    env:
+    CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
+    CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
+```
 
 ## Contributions welcome
 

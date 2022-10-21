@@ -1,62 +1,11 @@
 ---
 export interface Props {
-	//quote: string;
 	from: string;
 }
 
 import Markdown from '@astrojs/markdown-component';
-import { formatDate } from "../scripts/date.js"
-import { Debug } from 'astro/components';
 
 const { from } = Astro.props;
-
-
-/*
-import Markdown from '@astrojs/markdown-component';
-import { URLify } from "../scripts/urlify.js"
-import { formatDate } from "../scripts/date.js"
-
-import '../styles/blogpost-preview.scss';
-
-// n represents the number of the post to display.
-// Why does this matter?
-// In a list of post previews, we need to add a few css classes, depending on the screen size.
-// 
-// Default value is n = 0
-// In a list of posts, we start counting at 0
-let cssClass = "";
-switch (n) {
-  case 3:
-    cssClass = "mb-8 lg:mb-0";
-    break;
-  case 4:
-    cssClass = "mb-8 md:mb-0";
-    break;
-  case 5:
-    cssClass = "";
-    break;
-  default:
-    cssClass = "mb-8";
-}
-
-let tags = frontmatter.tags.map((element) => URLify(element));
-*/
-
-// Check if we have an image
-/*
-let hasImage = false;
-let imagePath = "";
-let imageWidthClass = "";
-let imagePaddingLeftClass = "";
-if (post.frontmatter.images.length > 0) {
-	hasImage = true
-	imageWidthClass = "lg:w-2/5";
-	imagePaddingLeftClass = "lg:pl-10";
-	// Just picking the first image
-	imagePath = post.frontmatter.images[0]
-}
-*/
-//<Debug foo={post.frontmatter.images} />
 ---
 <div class="quote max-w-3xl mx-auto">
 	<div class="pt-10 pb-6 px-8 mb-3 bg-gray-50 rounded-lg">

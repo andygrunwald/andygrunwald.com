@@ -6,41 +6,8 @@ export interface Props {
 
 import Markdown from '@astrojs/markdown-component';
 import { formatDate } from "../scripts/date.js"
-import { Debug } from 'astro/components';
 
 const { post, n } = Astro.props;
-
-
-/*
-import Markdown from '@astrojs/markdown-component';
-import { URLify } from "../scripts/urlify.js"
-import { formatDate } from "../scripts/date.js"
-
-import '../styles/blogpost-preview.scss';
-
-// n represents the number of the post to display.
-// Why does this matter?
-// In a list of post previews, we need to add a few css classes, depending on the screen size.
-// 
-// Default value is n = 0
-// In a list of posts, we start counting at 0
-let cssClass = "";
-switch (n) {
-  case 3:
-    cssClass = "mb-8 lg:mb-0";
-    break;
-  case 4:
-    cssClass = "mb-8 md:mb-0";
-    break;
-  case 5:
-    cssClass = "";
-    break;
-  default:
-    cssClass = "mb-8";
-}
-
-let tags = frontmatter.tags.map((element) => URLify(element));
-*/
 
 // Check if we have an image
 let hasImage = false;
@@ -54,9 +21,7 @@ if (post.frontmatter.images.length > 0) {
 	// Just picking the first image
 	imagePath = post.frontmatter.images[0]
 }
-//<Debug foo={post.frontmatter.images} />
 ---
-
 {n % 2 == 0 &&
 <div class="flex flex-wrap items-center -mx-4 mb-16">
 	<div class={"w-full px-4 " + imageWidthClass}>

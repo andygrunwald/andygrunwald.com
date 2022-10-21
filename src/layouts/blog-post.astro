@@ -2,7 +2,6 @@
 import MainHead from '../components/MainHead.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-import { Debug } from 'astro/components';
 import { formatDate } from "../scripts/date.js"
 
 import '../styles/blogpost.scss';
@@ -12,25 +11,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 let title = "".concat(content.title, " - Andy Grunwald");
 
-//let encodedUrl = encodeURI(canonicalURL);
-/*
-import Markdown from '@astrojs/markdown-component';
-
-import MainHead from '../components/MainHead.astro';
-import Nav from '../components/Nav.astro';
-import Footer from '../components/Footer.astro';
-import { URLify } from "../scripts/urlify.js"
-import { formatDate } from "../scripts/date.js"
-
-const { content } = Astro.props;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-
-
-let social_text = "Den Blog-Post vom Engineering Kiosk fand ich ganz interessant. Schau doch mal rein und lass mich wissen, was du darüber denkst: " + content.title;
-let encoded_social_text = encodeURI(social_text);
-
-let tags = content.tags.map((element) => URLify(element));
-*/
 let hasImage = false;
 let imagePath = "";
 let imageWidthClass = "";
@@ -50,10 +30,7 @@ if (content.images.length > 0) {
 	// Just picking the first image
 	metaTagImage = content.images[0]
 }
-
-// <Debug foo={content} />
 ---
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -90,43 +67,6 @@ if (content.images.length > 0) {
 			      </article>
 			      <hr />
 		      </div>
-        </div>
-      </section>
-
-	  <section class="py-20">
-        <div class="container px-4 mx-auto">
-          <div class="max-w-2xl mx-auto">
-            <h2 class="mb-10 text-3xl font-semibold font-heading">When I was a developer</h2>
-            <p class="mb-8 text-xl text-gray-500">Building websites from wireframes that I had received.</p>
-            <ul>
-              <li class="flex mb-8 items-center">
-                <span class="flex-shrink-0 flex mr-4 items-center justify-center w-8 h-8 bg-blue-400 rounded-full text-gray-50 font-semibold font-heading">1</span>
-                <h3 class="text-2xl">How will this design scale when I shrink the browser window?</h3>
-              </li>
-              <li class="flex mb-8 items-center">
-                <span class="flex-shrink-0 flex mr-4 items-center justify-center w-8 h-8 bg-blue-400 rounded-full text-gray-50 font-semibold font-heading">2</span>
-                <h3 class="text-2xl">What happens when this shape is filled out incorrectly?</h3>
-              </li>
-              <li class="flex mb-8 items-center">
-                <span class="flex-shrink-0 flex mr-4 items-center justify-center w-8 h-8 bg-blue-400 rounded-full text-gray-50 font-semibold font-heading">3</span>
-                <h3 class="text-2xl">What are the options in this sorting filter, and what do they do?</h3>
-              </li>
-            </ul>
-            <p class="mb-6 text-xl text-gray-500">These types of questions led me to miss numerous deadlines</p>
-          </div>
-        </div>
-      </section>
-
-	  <section class="py-20">
-        <div class="container px-4 mx-auto">
-          <div class="max-w-2xl mx-auto">
-            <h2 class="mb-10 text-3xl font-semibold font-heading">When I was a developer</h2>
-            <p class="mb-10 text-xl text-gray-500">These types of questions led me to miss numerous deadlines</p>
-            <div class="h-112 mb-10">
-              <img class="w-full h-full object-cover rounded-lg" src="https://images.unsplash.com/photo-1524508762098-fd966ffb6ef9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="">
-            </div>
-            <p class="mb-6 text-xl text-gray-500">These types of questions led me to miss numerous deadlines</p>
-          </div>
         </div>
       </section>
 

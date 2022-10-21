@@ -14,9 +14,6 @@ const allPosts = (await Astro.glob('../pages/blog/*.{md,mdx}')).sort(
 	(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
 );
 
-//let allPosts = await Astro.glob('../pages/blog/*.md');
-//allPosts.sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
-
 // Default wise list all items, only limit it if requested
 let postsToShow = allPosts;
 let showAllButton = false;
@@ -24,17 +21,10 @@ if (numberOfItems > 0) {
 	postsToShow = allPosts.slice(0, numberOfItems);
 	showAllButton = true;
 }
-
 ---
-
 <section class="py-20">
 	<div class="container px-4 mx-auto">
 		<div class="mb-20">
-			<!--
-			<span class="text-xs text-blue-400 font-semibold">
-				blog
-			</span>
-			-->
 			<h2 class="mt-8 mb-10 text-4xl font-semibold font-heading" id="blog">
 				things i wrote about
 			</h2>
