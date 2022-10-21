@@ -71,6 +71,13 @@ article {
             </div>
             */
         }
+
+        code {
+            @apply text-red-300;
+            @apply bg-gray-50;
+            @apply border-gray-200;
+            @apply p-1;
+        }
     }
 
     .quote {
@@ -96,6 +103,14 @@ article {
             a {
                 @apply hover:underline;
                 @apply text-red-300;
+            }
+
+            ul {
+                @apply mt-2;
+
+                li {
+                    @apply ml-6;
+                }
             }
         }
     }
@@ -133,9 +148,12 @@ article {
         @apply mb-6;
         @apply bg-gray-50;
         @apply rounded-lg;
+        @apply text-xl;
+        @apply text-gray-500;
 
         p {
-            @apply text-2xl;
+            //@apply text-2xl;
+            @apply text-xl;
             @apply leading-loose;
             /*
             @apply mb-4;
