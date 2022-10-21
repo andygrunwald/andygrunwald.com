@@ -33,4 +33,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         with:
-          args: "--no-progress './dist/**/*.html' './dist/**/*.xml'"
+          args: "--no-progress './dist/**/*.html' './dist/**/*.xml' --exclude 'fonts\\.gstatic\\.com' --exclude 'www\\.linkedin\\.com/in/' --exclude 'php@7.2'"
