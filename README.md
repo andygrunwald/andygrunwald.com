@@ -27,6 +27,7 @@ $ make build
 - Astro Image integration
 - Cleanup the /public-folder (check which asset we really need)
 - Show image caption, especially here: https://andygrunwald.com/blog/web-engineering-dus-recap-of-2019/
+- Add link checker / lychee 
 
 ### Public Speaking
 
