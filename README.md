@@ -42,19 +42,6 @@ Right now, the public speaking section is deactivated.
 The content can be found in the `other/` folder.
 At some point in time, I want to revisit this.
 
-#### Implement cloud flare caching purge
-
-Previously in GitHub actions
-
-```yaml
-- name: Purging Cloudflare cache
-    uses: jakejarvis/cloudflare-purge-action@master
-    if: github.ref == 'refs/heads/main'
-    env:
-    CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
-    CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
-```
-
 ## Contributions welcome
 
 Feel free to contribute if you found a typo, want to fix something, or hand in a suggestion to change a blog post.
