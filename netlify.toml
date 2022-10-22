@@ -63,4 +63,4 @@ publish = "dist/"
 command = "astro build"
 
 [[plugins]]
-package = "./plugins/netlify-purge-cloudflare-on-deploy"
+package = "netlify-purge-cloudflare-on-deploy"
