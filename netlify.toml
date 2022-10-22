@@ -1,8 +1,62 @@
-# [[redirects]]
-# from = "/episodes/0"
-# to = "/podcast/episode/00-developer-fangen-bei-0-an-zu-zählen?pk_campaign=shortlink"
-# status = 301
-# force = true
+[[redirects]]
+from = "/blog/a-review-on-atomic-habits-an-easy-and-proven-way-to-build-good-habits-and-break-bad-ones/"
+to = "/blog/book-review-on-atomic-habits-by-james-clear/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/a-review-on-inspired-how-to-create-tech-products-customers-love/"
+to = "/blog/book-review-on-inspired-how-to-create-tech-products-customers-love-by-marty-cagan/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/a-review-on-rework/"
+to = "/blog/book-review-on-rework-by-david-heinemeier-hansson-and-jason-fried/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/i-cant-wash-my-cloth-without-open-source/"
+to = "/blog/i-cant-wash-my-clothes-without-open-source/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/2015/06/20/resources-to-learn-golang/"
+to = "/blog/resources-to-learn-golang/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/the-story-about-the-topic-of-my-bachelor-thesis/"
+to = "/blog/the-story-of-my-bachelor-thesis-about-software-repository-mining/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/things-with-buzzers-building-them/"
+to = "/blog/things-with-buzzers-building-your-own-game-show-buzzers/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/things-with-buzzers-playing-jeopardy/"
+to = "/blog/things-with-buzzers-playing-a-jeopardy-game/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/your-datastore-connection-deserves-a-name/"
+to = "/blog/your-database-connection-deserves-a-name/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/your-connection-deserves-a-name/"
+to = "/blog/your-database-connection-deserves-a-name/"
+status = 301
+force = true
 
 [build]
 publish = "dist/"
