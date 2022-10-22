@@ -4,8 +4,6 @@ import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 import image from '@astrojs/image';
 
-// TODO Use Image component properly
-
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://andygrunwald.com',
