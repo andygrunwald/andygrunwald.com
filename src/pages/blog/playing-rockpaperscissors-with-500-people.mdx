@@ -30,10 +30,16 @@ tags: [
 pubDate: 2019-08-22
 lastmod: 2021-07-09T16:00:00+02:00
 
-showHeaderImage: true
+showHeaderImage: false
 ---
 import BlogPostImage from '../../components/BlogPostImage.astro';
+import Figure from '../../components/Figure.astro';
 import YouTube from '../../components/YouTube.astro';
+
+<BlogPostImage
+    path="/images/posts/playing-rock-paper-scissors-with-500-people/rock-paper-scissors-game-rules.png"
+    alt="Rock Paper Scissors: The game rules - Three actions, simple rules."
+    title="Rock Paper Scissors: The game rules - Three actions, simple rules." />
 
 **tl;dr**: We played Rock–Paper–Scissors with 500 people in ~06:40 minutes to kick off a tech conference. It was a well-received energizer game and provided a lot of fun to all attendees.
 
@@ -58,7 +64,7 @@ The idea was born to **scale this up to 500 people and start the conference with
 We played the standard version of [Rock paper scissors](#rock-paper-scissors-gameplay).
 But how did we scaled this game up to 500 people and finished it in under seven minutes?
 
-<BlogPostImage
+<Figure
     path="/images/posts/playing-rock-paper-scissors-with-500-people/rock-paper-scissors-group-game-play.png"
     alt="Rock Paper Scissors: The group gameplay - Every loser joins the winner as a fan and cheers them up during the next game to continue the winning streak."
     title="Rock Paper Scissors: The group gameplay - Every loser joins the winner as a fan and cheers them up during the next game to continue the winning streak." />
@@ -72,7 +78,7 @@ By this technique, we divided the crowd by two in every round. In the first roun
 
 To execute this with 500 people, we had to apply one organizational trick: **Divide it!**.
 
-<BlogPostImage
+<Figure
     path="/images/posts/playing-rock-paper-scissors-with-500-people/rock-paper-scissors-group-seating-area.png"
     alt="Rock Paper Scissors: How we divided the location into four areas to play the game with 500 people and used volunteers to help out."
     title="Rock Paper Scissors: How we divided the location into four areas to play the game with 500 people and used volunteers to help out." />
@@ -104,7 +110,7 @@ Here are some impressions of the event.
 
 <YouTube id="-be2fD5neGU" description="The official event video from trivago" />
 
-<BlogPostImage
+<Figure
     path="/images/posts/playing-rock-paper-scissors-with-500-people/rock-paper-scissors-collage.png"
     alt="Rock Paper Scissors: Pictures from a game, the empty room and Wolfgang and me."
     title="Rock Paper Scissors: Top: Area winners are playing; Lower left: The location; Lower right: Wolfgang and Andy before the game." />
@@ -132,7 +138,7 @@ Based on the actions, the winner will be determined:
 * Paper beats rock
 * Rock beats scissor
 
-<BlogPostImage
+<Figure
     path="/images/posts/playing-rock-paper-scissors-with-500-people/rock-paper-scissors-game-rules.png"
     alt="Rock Paper Scissors: The game rules - Three actions, simple rules."
     title="Rock Paper Scissors: The game rules - Three actions, simple rules." />

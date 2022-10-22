@@ -37,7 +37,12 @@ article {
 
     .video-description {
         @apply text-center;
-        @apply py-2;
+
+        p {
+            @apply text-base;
+            @apply text-gray-500;
+            @apply pt-3;
+        }
     }
 
     p {
@@ -69,6 +74,7 @@ article {
         @apply text-base;
         @apply text-gray-500;
         @apply text-center;
+        @apply pt-3;
     }
 
     .quote {

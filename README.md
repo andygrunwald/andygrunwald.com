@@ -21,8 +21,8 @@ $ make build
 
 ### Unsorted
 
-- Show image caption, especially here: https://andygrunwald.com/blog/web-engineering-dus-recap-of-2019/
 - Cleanup the /public-folder (check which asset we really need)
+- Fix Footer on mobile view
 - Add "Projects" page
 - Add "Work with me" page
 - Use Astro Image component properly

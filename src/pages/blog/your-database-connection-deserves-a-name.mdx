@@ -45,6 +45,7 @@ lastmod: 2021-08-20T18:25:00+02:00
 showHeaderImage: false
 ---
 import BlogPostImage from '../../components/BlogPostImage.astro';
+import Figure from '../../components/Figure.astro';
 import Quote from '../../components/Quote.astro';
 
 <BlogPostImage
@@ -90,7 +91,7 @@ The reality often is:
 This may lead to a situation where one application requests many compute resources from the database by inefficient queries.
 At the same time, other applications might suffer from unexpected behavior or a partial outage due to limited resources available on the database to serve the requests.
 
-<BlogPostImage
+<Figure
     path="/images/posts/your-database-connection-deserves-a-name/perfect-engineering-world-vs-reality-shared-database.png"
     alt="A perfect world where everyone has its own database vs. Reality where databases are shared."
     title="A perfect world where everyone has its own database vs. Reality where databases are shared." />
@@ -173,7 +174,7 @@ client, err := mongo.Connect(ctx, options.Client().ApplyURI(dsn))
 
 To see which clients are connected, you can query [`db.currentOp()`](https://docs.mongodb.com/manual/reference/method/db.currentOp/):
 
-<BlogPostImage
+<Figure
     path="/images/posts/your-database-connection-deserves-a-name/mongodb-db.currentOp-result.png"
     alt="MongoDB: Output of db.currentOp() including the `appName` setting"
     title="MongoDB: Output of db.currentOp() including the `appName` setting" />
@@ -425,7 +426,7 @@ client, err := amqp.DialConfig("amqp://guest:guest@127.0.0.1:5672/", config)
 
 In the UI of Rabbit under the Connection tab, you can see all connected clients, including their names:
 
-<BlogPostImage
+<Figure
     path="/images/posts/your-database-connection-deserves-a-name/rabbitmq-connection-client-name.png"
     alt="RabbitMQ Connections: Showing clients name under the IP address"
     title="RabbitMQ Connections: Showing clients name under the IP address" />
