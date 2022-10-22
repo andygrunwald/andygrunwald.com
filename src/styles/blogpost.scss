@@ -65,6 +65,12 @@ article {
         }
     }
 
+    figcaption {
+        @apply text-base;
+        @apply text-gray-500;
+        @apply text-center;
+    }
+
     .quote {
         div {
             p {

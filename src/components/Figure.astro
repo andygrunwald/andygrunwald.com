@@ -1,0 +1,21 @@
+---
+export interface Props {
+	path: string;
+	title: string;
+	alt: string;
+	link?: string
+}
+
+const { path, title, alt, link } = Astro.props;
+---
+<div class="mb-10">
+	<figure>
+		{ link && <a href={link}>
+			<img src={path} alt={alt} title={title} class="w-full h-full object-cover rounded-lg" />
+		</a> }
+		{ !link && <img src={path} alt={alt} title={title} class="w-full h-full object-cover rounded-lg" /> }
+		<figcaption>
+			{title}
+		</figcaption>
+	</figure>
+</div>
