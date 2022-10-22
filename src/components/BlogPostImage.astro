@@ -1,0 +1,12 @@
+---
+export interface Props {
+	path: string;
+	alt: string;
+	title: string;
+}
+
+const { path, alt, title } = Astro.props;
+---
+<div class="mb-10">
+	<img class="w-full h-full object-cover rounded-lg" src={path} alt={alt} title={title} />
+</div>

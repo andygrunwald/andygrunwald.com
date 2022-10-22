@@ -1,0 +1,36 @@
+name: Links
+
+on:
+  #push:
+  #  branches:
+  #    - main
+  pull_request:
+  schedule:
+    - cron: "5 1 * * *" # Run nightly
+  workflow_dispatch:
+
+jobs:
+  linkChecker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Run make clean
+        run: make clean
+
+      - name: Run make init
+        run: make init
+
+      - name: Run make build
+        run: make build
+
+      - name: Link Checker
+        id: lychee
+        uses: lycheeverse/lychee-action@v1.5.1
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        with:
+          args: "--no-progress './dist/**/*.html' './dist/**/*.xml' --exclude 'fonts\\.gstatic\\.com' --exclude 'www\\.linkedin\\.com/in/' --exclude 'php@7.2'"

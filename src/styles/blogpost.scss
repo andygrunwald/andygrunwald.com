@@ -1,0 +1,147 @@
+/**
+ * Used to style a single blog post.
+ * Due to the Markdown convertion, be have static HTML.
+*/
+article {
+    h2 {
+        @apply mt-16;
+        @apply mb-8;
+        @apply text-3xl;
+        @apply font-semibold;
+        @apply font-heading;
+    }
+
+    h3 {
+        @apply mb-6;
+        @apply text-2xl;
+        @apply font-semibold;
+        @apply font-heading;
+    }
+
+    h4 {
+        @apply mb-4;
+        @apply text-xl;
+        @apply font-semibold;
+        @apply font-heading;
+    }
+    
+    hr {
+        @apply mb-6;
+    }
+
+    pre.astro-code {
+        @apply px-6;
+        @apply py-6;
+        @apply mb-6;
+    }
+
+    .video-description {
+        @apply text-center;
+
+        p {
+            @apply text-base;
+            @apply text-gray-500;
+            @apply pt-3;
+        }
+    }
+
+    p {
+        @apply mb-6;
+        @apply text-xl;
+        @apply text-gray-500;
+
+        a {
+            @apply hover:underline;
+            @apply text-red-300;
+        }
+
+        img {
+            @apply w-full;
+            @apply h-full;
+            @apply object-cover;
+            @apply rounded-lg;
+        }
+
+        code {
+            @apply text-red-300;
+            @apply bg-gray-50;
+            @apply border-gray-200;
+            @apply p-1;
+        }
+    }
+
+    figcaption {
+        @apply text-base;
+        @apply text-gray-500;
+        @apply text-center;
+        @apply pt-3;
+    }
+
+    .quote {
+        div {
+            p {
+                @apply text-2xl;
+                @apply leading-loose;
+            }
+        }
+    }
+
+    ul {
+        @apply list-disc;
+        @apply px-5;
+        @apply mb-4;
+        @apply md:px-5;
+        @apply text-xl;
+        @apply text-gray-500;
+
+        li {
+            @apply mb-2;
+
+            a {
+                @apply hover:underline;
+                @apply text-red-300;
+            }
+
+            ul {
+                @apply mt-2;
+
+                li {
+                    @apply ml-6;
+                }
+            }
+        }
+    }
+
+    ol {
+        @apply list-decimal;
+        @apply px-5;
+        @apply mb-4;
+        @apply md:px-5;
+        @apply text-xl;
+        @apply text-gray-500;
+
+        li {
+            @apply mb-2;
+
+            a {
+                @apply hover:underline;
+                @apply text-red-300;
+            }
+        }
+    }
+    
+    blockquote {
+        @apply py-10;
+        @apply px-8;
+        @apply mb-6;
+        @apply bg-gray-50;
+        @apply rounded-lg;
+        @apply text-xl;
+        @apply text-gray-500;
+
+        p {
+            @apply text-xl;
+            @apply leading-loose;
+        }
+    }
+}

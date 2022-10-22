@@ -1,13 +1,14 @@
-# [andygrunwald.com](https://andygrunwald.com)
+# [andygrunwald.com](https://andygrunwald.com/)
 
-My website [andygrunwald.com](https://andygrunwald.com) based on [Hugo](https://gohugo.io/).
+The website [andygrunwald.com](https://andygrunwald.com) based on [Astro](https://astro.build/).
 
-Most of the following chapters are for the future me, who is not able to remember all things.
+Most of the following chapters are for the future me, who cannot remember everything.
 
-## Start the server
+## Starting the development server
 
 ```sh
-$ make serve
+$ make init
+$ make run
 ```
 
 ## Render the (production) site
@@ -16,45 +17,45 @@ $ make serve
 $ make build
 ```
 
-## Start a new blog post
-
-```
-$ hugo new post/resources-to-learn-golang.md
-```
-
 ## Open TODOs
+
+### Unsorted
+
+- Fix Footer on mobile view
+- Add "Projects" page
+- Add "Work with me" page
+- Use Astro Image component properly
+- Search for TODOs in code
 
 ### Public Speaking
 
 We had a public speaking section.
 The purpose was to list the talks I gave.
 
-We deactivated the public speaking section, because
+We deactivated the public speaking section because
 - the talks are content sections
 - the content sections rendered single pages
-- we only want a list page, no single pages
+- we only want a listing page, no single pages
 - we tried headless page bundles, but then I don't know how to create a dedicated page for this
 
 Right now, the public speaking section is deactivated.
 The content can be found in the `other/` folder.
-At some point in time I want to revisit this.
+At some point in time, I want to revisit this.
 
-## Theme
+#### Implement cloud flare caching purge
 
-We used [hugo-type-theme](https://github.com/digitalcraftsman/hugo-type-theme) as a foundation (thanks for this!).
-Sadly, this theme is no longer maintained.
-We went from there and modified the original theme for our needs.
+Previously in GitHub actions
 
-### Other themes with a nice design
+```yaml
+- name: Purging Cloudflare cache
+    uses: jakejarvis/cloudflare-purge-action@master
+    if: github.ref == 'refs/heads/main'
+    env:
+    CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
+    CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
+```
 
-* [Anatole](https://themes.gohugo.io/anatole/)
-* [Clean White](https://themes.gohugo.io/hugo-theme-cleanwhite/)
-* [Noteworthy](https://themes.gohugo.io/hugo-theme-noteworthy/)
-* [Yourfolio](https://themes.gohugo.io/yourfolio/)
-* [Introduction](https://themes.gohugo.io/hugo-theme-introduction/)
-* [Initio](https://themes.gohugo.io/hugo-initio/)
+## Contributions welcome
 
-## Contribution welcome
-
-If you found a typo, want to fix something or just hand in a suggestion to change a blog post, feel free to contribute.
-[Open a new issue](https://github.com/andygrunwald/andygrunwald.github.io/issues/new) or [apply a pull request](https://github.com/andygrunwald/andygrunwald.github.io/compare).
+Feel free to contribute if you found a typo, want to fix something, or hand in a suggestion to change a blog post.
+[Open a new issue](https://github.com/andygrunwald/andygrunwald.com/issues/new) or [apply a pull request](https://github.com/andygrunwald/andygrunwald.com/compare).
