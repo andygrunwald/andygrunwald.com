@@ -21,7 +21,6 @@ $ make build
 
 ### Unsorted
 
-- Cleanup the /public-folder (check which asset we really need)
 - Fix Footer on mobile view
 - Add "Projects" page
 - Add "Work with me" page
