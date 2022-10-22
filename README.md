@@ -21,12 +21,12 @@ $ make build
 
 ### Unsorted
 
-- Use Astro Image component properly
-- Astro Image integration
-- Cleanup the /public-folder (check which asset we really need)
 - Show image caption, especially here: https://andygrunwald.com/blog/web-engineering-dus-recap-of-2019/
+- Cleanup the /public-folder (check which asset we really need)
+- Add "Projects" page
+- Add "Work with me" page
+- Use Astro Image component properly
 - Search for TODOs in code
-- Compare old and new sitemap for links
 
 ### Public Speaking
 
