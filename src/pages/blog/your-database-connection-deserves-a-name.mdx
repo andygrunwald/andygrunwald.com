@@ -201,7 +201,7 @@ or check the server logs:
 
 ### How to assign a name to your _MSSQL / SQL-Server_ connection
 
-While creating a [connection to SQL-Server, you can set an `Application Name`](https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring?view=dotnet-plat-ext-5.0).
+While creating a [connection to SQL-Server, you can set an `Application Name`](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring?view=dotnet-plat-ext-5.0).
 This is (mostly) part of the data source name (dsn)/connection string.
 
 Here is an example in Go:
@@ -359,13 +359,13 @@ postgres=# SELECT usename, application_name, client_addr, backend_type FROM pg_s
 
 ### How to assign a name to your _redis_ connection
 
-After creating a connection to [redis](https://redis.io/), send the [`CLIENT SETNAME`](https://redis.io/commands/client-setname "CLIENT SETNAME @ redis docs") command:
+After creating a connection to [redis](https://redis.io/), send the [`CLIENT SETNAME`](https://redis.io/commands/client-setname/ "CLIENT SETNAME @ redis docs") command:
 
 ```sh
 CLIENT SETNAME currency-conversion-app
 ```
 
-Via [`CLIENT LIST`](https://redis.io/commands/client-list "CLIENT LIST @ redis docs") you can see all clients, including their name:
+Via [`CLIENT LIST`](https://redis.io/commands/client-list/ "CLIENT LIST @ redis docs") you can see all clients, including their name:
 
 ```sh
 $ CLIENT LIST
@@ -377,7 +377,7 @@ id=4 addr=172.17.0.1:62676 name=stock-exchange-rates-app [...]
 
 ### How to assign a name to your _NATS_ connection
 
-While creating a connection to [NATS](https://nats.io/), you can provide [client connection name](https://docs.nats.io/developing-with-nats/connecting/name "Connection Name @ NATS docs").
+While creating a connection to [NATS](https://nats.io/), you can provide [client connection name](https://docs.nats.io/using-nats/developer/connecting/name "Connection Name @ NATS docs").
 
 This is how it looks like in Go:
 
