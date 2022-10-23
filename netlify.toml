@@ -58,6 +58,18 @@ to = "/blog/your-database-connection-deserves-a-name/"
 status = 301
 force = true
 
+[[redirects]]
+from = "/blog/migrate-your-local-php-7.2-setup-to-homebrew-v1.5."
+to = "/blog/migrate-your-local-php-7.2-setup-to-homebrew-v1.5/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/img/posts/"
+to = "/images/posts/"
+status = 301
+force = true
+
 [build]
 publish = "dist/"
 command = "astro build"
