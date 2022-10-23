@@ -65,6 +65,18 @@ status = 301
 force = true
 
 [[redirects]]
+from = "/Gerrie"
+to = "/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/default.htm"
+to = "/"
+status = 301
+force = true
+
+[[redirects]]
 from = "/img/posts/"
 to = "/images/posts/"
 status = 301
