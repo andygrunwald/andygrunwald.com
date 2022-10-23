@@ -77,8 +77,8 @@ status = 301
 force = true
 
 [[redirects]]
-from = "/img/posts/"
-to = "/images/posts/"
+from = "/img/posts/*"
+to = "/images/posts/:splat"
 status = 301
 force = true
 
