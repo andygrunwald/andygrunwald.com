@@ -71,6 +71,12 @@ status = 301
 force = true
 
 [[redirects]]
+from = "/gerrie"
+to = "/"
+status = 301
+force = true
+
+[[redirects]]
 from = "/default.htm"
 to = "/"
 status = 301
