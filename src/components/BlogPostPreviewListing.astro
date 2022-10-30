@@ -17,17 +17,22 @@ const allPosts = (await Astro.glob('../pages/blog/*.{md,mdx}')).sort(
 // Default wise list all items, only limit it if requested
 let postsToShow = allPosts;
 let showAllButton = false;
+let mainPage = true;
 if (numberOfItems > 0) {
 	postsToShow = allPosts.slice(0, numberOfItems);
 	showAllButton = true;
+	mainPage = false;
 }
 ---
 <section class="py-20">
 	<div class="container px-4 mx-auto">
 		<div class="mb-20">
-			<h2 class="mt-8 mb-10 text-4xl font-semibold font-heading" id="blog">
+			{ mainPage && <h1 class="mt-8 mb-10 text-4xl font-semibold font-heading" id="blog">
 				things i wrote about
-			</h2>
+			</h1> }
+			{ !mainPage && <h2 class="mt-8 mb-10 text-4xl font-semibold font-heading" id="blog">
+				things i wrote about
+			</h2> }
 			<p class="text-xl text-gray-500">
 				Writing is an invaluable skill that needs to be trained like every other muscle.
 				Writing forces you to think more about a topic, how to express this clearly and enable others to consume your thoughts asynchronously and at their speed.
