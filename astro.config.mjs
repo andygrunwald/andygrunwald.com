@@ -6,7 +6,7 @@ import image from '@astrojs/image';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://andygrunwald.com',
+	site: 'https://andygrunwald.com/',
 	trailingSlash: 'always',
 	integrations: [
 		tailwind(),
