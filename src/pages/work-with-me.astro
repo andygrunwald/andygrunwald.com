@@ -1,0 +1,175 @@
+---
+import MainHead from '../components/MainHead.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+let title = 'Andy Grunwald - Software Engineer and Engineering Manager';
+let description = 'I am a Software Engineer, conference and meetup organizer, and open source enthusiast with a passion for on Backend, Infrastructure, Reliability and Engineering Culture.';
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+		<MainHead title={title} description={description} image="/images/andy-grunwald-opengraph.png" {canonicalURL} />
+	</head>
+  <body class="antialiased bg-body text-body font-body">
+    <div>
+      <Nav title={title} />
+
+      <!-- 
+      <section class="relative pb-20">
+        <div class="relative container pt-12 px-4 mx-auto">
+          <h2 class="mb-8 md:mb-16 text-5xl lg:text-6xl font-semibold font-heading">Let's start something together.</h2>
+          <div class="flex flex-wrap items-center">
+            <div class="inline-block max-w-xxl mb-6 md:mb-0">
+              <p class="text-xl text-gray-500">Sometimes, you need a different perspective and new creative input from external.</p>
+              <p class="text-xl text-gray-500">Check out my areas of expertise and how I can help you below.</p>
+            </div>
+            <a class="inline-block ml-auto w-full md:w-auto px-12 py-4 text-center text-sm text-white font-medium leading-normal bg-red-400 hover:bg-red-300 rounded" href="#">Reach out now</a>
+          </div>
+        </div>
+      </section>
+      -->
+
+      <section class="bg-gray-900 py-20">
+        <div class="container px-4 mx-auto">
+          <h2 class="mb-8 md:mb-16 text-4xl lg:text-6xl font-semibold font-heading text-white">Let's start something together.</h2>
+          <div class="flex flex-wrap items-center">
+            <div class="inline-block max-w-xxl mb-6 md:mb-0">
+              <p class="text-xl text-gray-300">Sometimes, you need a different perspective and new creative input from external.</p>
+              <p class="text-xl text-gray-300">Check out my areas of expertise and how I can help you below.</p>
+            </div>
+            <a class="inline-block ml-auto w-full md:w-auto px-12 py-4 text-center text-sm text-white font-medium leading-normal bg-red-400 hover:bg-red-300 rounded transition duration-200" href="mailto:andygrunwald@gmail.com" title="Write Andy Grunwald an email">Reach out now</a>
+          </div>
+        </div>
+      </section>
+                
+      <section class="py-20">
+        <div class="container mx-auto px-4">
+          <div class="flex flex-wrap -mx-4">
+            <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-12 lg:mb-20">
+              <div class="flex">
+                <span class="flex-shrink-0 flex items-center justify-center w-12 h-12 mr-6 bg-teal-400 rounded-full">
+                  <svg width="18" height="21" viewbox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.98457 19.606C8.98457 19.606 16.6566 17.283 16.6566 10.879C16.6566 4.474 16.9346 3.974 16.3196 3.358C15.7036 2.742 9.99057 0.75 8.98457 0.75C7.97857 0.75 2.26557 2.742 1.65057 3.358C1.03457 3.974 1.31257 4.474 1.31257 10.879C1.31257 17.283 8.98457 19.606 8.98457 19.606Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M6.38599 9.87463L8.27799 11.7696L12.176 7.86963" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </span>
+                <div>
+                  <h3 class="mb-4 text-2xl font-semibold font-heading">Coaching & Mentoring</h3>
+                  <p class="text-base text-gray-500 leading-loose">
+                    1on1 guidance and upskilling for Software Engineers and Engineering Managers to support them in tackling challenges and on their journey for personal growth.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-12 lg:mb-20">
+              <div class="flex">
+                <span class="flex-shrink-0 flex items-center justify-center w-12 h-12 mr-6 bg-blue-400 rounded-full">
+                  <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10 0.750122C15.108 0.750122 19.25 4.89112 19.25 10.0001C19.25 15.1081 15.108 19.2501 10 19.2501C4.891 19.2501 0.75 15.1081 0.75 10.0001C0.75 4.89112 4.891 0.750122 10 0.750122Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M9.99512 6.20422V10.6232" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M9.995 13.7961H10.005" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </span>
+                <div>
+                  <h3 class="mb-4 text-2xl font-semibold font-heading">Engineering Leadership</h3>
+                  <p class="text-base text-gray-500 leading-loose">
+                    Mission, Vision, and Strategy for your team to provide direction and purpose. I am supporting you in fostering high-performing and highly engaging Software Engineering teams.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-12 lg:mb-20">
+              <div class="flex">
+                <span class="flex-shrink-0 flex items-center justify-center w-12 h-12 mr-6 bg-red-400 rounded-full">
+                  <svg width="18" height="20" viewbox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.4235 7.4478V5.3008C13.4235 2.7878 11.3855 0.7498 8.87249 0.7498C6.35949 0.7388 4.31349 2.7668 4.30249 5.2808V5.3008V7.4478" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.6832 19.2496H5.04224C2.94824 19.2496 1.25024 17.5526 1.25024 15.4576V11.1686C1.25024 9.07359 2.94824 7.37659 5.04224 7.37659H12.6832C14.7772 7.37659 16.4752 9.07359 16.4752 11.1686V15.4576C16.4752 17.5526 14.7772 19.2496 12.6832 19.2496Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M8.86304 12.2028V14.4238" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </span>
+                <div>
+                  <h3 class="mb-4 text-2xl font-semibold font-heading">Open Source</h3>
+                  <p class="text-base text-gray-500 leading-loose">
+                    Plans to release an Open Source Project? Challenges in adopting Open Source in your Organisation or Open Source best practices in your teams? Want to give something back to Open Source-Community? 
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-6 lg:mb-0">
+              <div class="flex">
+                <span class="flex-shrink-0 flex items-center justify-center w-12 h-12 mr-6 bg-orange-600 rounded-full">
+                  <svg width="22" height="20" viewbox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.9026 6.8512L12.4593 10.4642C11.6198 11.1302 10.4387 11.1302 9.59919 10.4642L5.11841 6.8512" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M15.9089 19C18.9502 19.0084 21 16.5095 21 13.4384V6.57001C21 3.49883 18.9502 1 15.9089 1H6.09114C3.04979 1 1 3.49883 1 6.57001V13.4384C1 16.5095 3.04979 19.0084 6.09114 19H15.9089Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </span>
+                <div>
+                  <h3 class="mb-4 text-2xl font-semibold font-heading">Cloud Infrastructure</h3>
+                  <p class="text-base text-gray-500 leading-loose">
+                    Do you need help setting up and operating your cloud infrastructure efficiently? Is your aim a self-serving platform (Platform Engineering) and high-performing Teams based on the DevOps methodology?
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-6 lg:mb-0">
+              <div class="flex">
+                <span class="flex-shrink-0 flex items-center justify-center w-12 h-12 mr-6 bg-yellow-400 rounded-full">
+                  <svg width="24" height="20" viewbox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22.5 10.8055H1.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M20.6299 6.5951V5.0821C20.6299 3.0211 18.9589 1.3501 16.8969 1.3501H15.6919" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M3.37012 6.5951V5.0821C3.37012 3.0211 5.04112 1.3501 7.10312 1.3501H8.33912" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M20.6299 10.8046V14.8786C20.6299 16.9406 18.9589 18.6116 16.8969 18.6116H15.6919" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M3.37012 10.8046V14.8786C3.37012 16.9406 5.04112 18.6116 7.10312 18.6116H8.33912" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </span>
+                <div>
+                  <h3 class="mb-4 text-2xl font-semibold font-heading">Reliability & Scaling</h3>
+                  <p class="text-base text-gray-500 leading-loose">
+                    How resilient is your application to (partial) failures? For example, how quickly and efficiently are you recovering "back to baseline" and resuming your business if you have an outage?
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-6 lg:mb-0">
+              <div class="flex">
+                <span class="flex-shrink-0 flex items-center justify-center w-12 h-12 mr-6 bg-gray-900 rounded-full">
+                  <svg width="22" height="18" viewbox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.8877 7.89673C18.2827 7.70073 19.3567 6.50473 19.3597 5.05573C19.3597 3.62773 18.3187 2.44373 16.9537 2.21973" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M18.7285 11.2502C20.0795 11.4522 21.0225 11.9252 21.0225 12.9002C21.0225 13.5712 20.5785 14.0072 19.8605 14.2812" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10.8867 11.6638C7.67273 11.6638 4.92773 12.1508 4.92773 14.0958C4.92773 16.0398 7.65573 16.5408 10.8867 16.5408C14.1007 16.5408 16.8447 16.0588 16.8447 14.1128C16.8447 12.1668 14.1177 11.6638 10.8867 11.6638Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10.8869 8.88788C12.9959 8.88788 14.7059 7.17888 14.7059 5.06888C14.7059 2.95988 12.9959 1.24988 10.8869 1.24988C8.7779 1.24988 7.0679 2.95988 7.0679 5.06888C7.0599 7.17088 8.7569 8.88088 10.8589 8.88788H10.8869Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M4.88484 7.89673C3.48884 7.70073 2.41584 6.50473 2.41284 5.05573C2.41284 3.62773 3.45384 2.44373 4.81884 2.21973" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M3.044 11.2502C1.693 11.4522 0.75 11.9252 0.75 12.9002C0.75 13.5712 1.194 14.0072 1.912 14.2812" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </span>
+                <div>
+                  <h3 class="mb-4 text-2xl font-semibold font-heading">Tech Culture</h3>
+                  <p class="text-base text-gray-500 leading-loose">
+                    A proper organizational technology culture is crucial for employee retention and growth. For example, do you have a collaborative, supportive, open- and learning-focused culture?
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <section class="bg-gray-900 py-20">
+        <div class="container px-4 mx-auto">
+          <h2 class="mb-8 md:mb-16 text-4xl lg:text-6xl font-semibold font-heading text-white">Let's start something together.</h2>
+          <div class="flex flex-wrap items-center">
+            <div class="inline-block max-w-xxl mb-6 md:mb-0">
+              <p class="text-xl text-gray-300">Drop me a line, and i will get in touch.</p>
+              <p class="text-xl text-gray-300">Let's see if we're a match and how I can help you reaching your goals.</p>
+            </div>
+            <a class="inline-block ml-auto w-full md:w-auto px-12 py-4 text-center text-sm text-white font-medium leading-normal bg-red-400 hover:bg-red-300 rounded transition duration-200" href="mailto:andygrunwald@gmail.com" title="Write Andy Grunwald an email">Reach out now</a>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  </body>
+</html>
