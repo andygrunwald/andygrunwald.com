@@ -1,9 +1,9 @@
 ---
 export interface Props {
-	from: string;
+	from?: string;
 }
 
-import Markdown from '@astrojs/markdown-component';
+import { Markdown } from 'astro-remote';
 
 const { from } = Astro.props;
 ---
@@ -16,5 +16,5 @@ const { from } = Astro.props;
 		</span>
 		<slot />
 	</div>
-	<Markdown class="text-sm text-gray-500 text-center">{from}</Markdown>
+	{from && <Markdown class="text-sm text-gray-500 text-center" content={from} />}
 </div>
