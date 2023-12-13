@@ -1,6 +1,6 @@
 import rss, { pagesGlobToRssItems } from '@astrojs/rss';
 
-export async function get() {
+export async function GET() {
     return rss({
         title: 'Andy Grunwald (andygrunwald.com)',
         description: 'Software Engineer and Engineering Manager. Open Source enthusiast with a passion for Backend, Infrastructure, Reliability and Engineering Culture.',
