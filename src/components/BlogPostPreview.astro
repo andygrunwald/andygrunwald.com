@@ -14,19 +14,19 @@ const { post, n } = Astro.props;
 <div class="flex flex-wrap items-center -mx-4 mb-20">
 	<div class="w-full px-4">
 		<div class="text-left">
-			{post.frontmatter.categories.map((category) => <span class="inline-block mb-3 mr-2 text-xs px-2 py-1 bg-blue-50 rounded uppercase text-blue-400 font-semibold">
+			{post.data.categories.map((category) => <span class="inline-block mb-3 mr-2 text-xs px-2 py-1 bg-blue-50 rounded uppercase text-blue-400 font-semibold">
 					{category}
 				</span>
 			)}
 			<h2 class="mb-4 text-3xl font-semibold font-heading">
-				<a href={post.url} title={post.frontmatter.title} class="hover:underline hover:text-red-300">
-					{post.frontmatter.title}
+				<a href={`/blog/${post.slug}/`} title={post.data.title} class="hover:underline hover:text-red-300">
+					{post.data.title}
 				</a>
 			</h2>
 			<span class="inline-block mb-6 text-sm text-gray-500">
-				<time class="date" datetime={post.frontmatter.pubDate}>{formatDate(post.frontmatter.pubDate)}</time>
+				<time class="date" datetime={post.data.pubDate}>{formatDate(post.data.pubDate)}</time>
 			</span>
-			<Markdown class="text-xl text-gray-500" content={post.frontmatter.description} />
+			<Markdown class="text-xl text-gray-500" content={post.data.description} />
 		</div>
 	</div>
 </div>

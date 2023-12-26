@@ -1,17 +1,18 @@
 ---
+import { getCollection } from "astro:content";
+import BlogPostPreview from '../components/BlogPostPreview.astro';
+
 export interface Props {
 	// Number of items to show in the listing
 	numberOfItems: number;
 }
 
-import BlogPostPreview from '../components/BlogPostPreview.astro';
-
 const { numberOfItems } = Astro.props;
 
 // Build the list of posts
-// Use Astro.glob() to fetch all posts, and then sort them by date.
-const allPosts = (await Astro.glob('../pages/blog/*.{md,mdx}')).sort(
-	(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+// Fetch all posts, and then sort them by date.
+const allPosts = (await getCollection("blog")).sort(
+	(a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
 );
 
 // Default wise list all items, only limit it if requested
