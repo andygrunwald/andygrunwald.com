@@ -15,6 +15,26 @@ const blogPostsCollection = defineCollection({
     })
 });
 
+const publicSpeakingCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    title: z.string(),
+    date: z.date(),
+    eventtype: z.string(),
+    eventenddate: z.date(),
+    eventtitle: z.string(),
+    eventlink: z.string(),
+    ratinglink: z.string(),
+    twittermoments: z.string(),
+    videolink: z.string(),
+    slides: z.string(),
+    picture: z.string(),
+    city: z.string(),
+    country: z.string(),
+  })
+});
+
 export const collections = {
   blog: blogPostsCollection,
+  speaking: publicSpeakingCollection,
 };
