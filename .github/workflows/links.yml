@@ -1,20 +1,17 @@
 name: Links
 
 on:
-  #push:
-  #  branches:
-  #    - main
-  pull_request:
-  schedule:
-    - cron: "5 1 * * *" # Run nightly
+  repository_dispatch:
   workflow_dispatch:
+  schedule:
+    - cron: '00 18 * * 1'
 
 jobs:
   linkChecker:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v4.1.1
+      - uses: actions/setup-node@v4.0.1
         with:
           node-version: 20.5.0
 
