@@ -17,16 +17,6 @@ $ make run
 $ make build
 ```
 
-## Open TODOs
-
-### Unsorted
-
-- Fix Footer on mobile view
-- Add "Projects" page
-- Add "Work with me" page
-- Use Astro Image component properly
-- Search for TODOs in code
-
 ## Contributions welcome
 
 Feel free to contribute if you found a typo, want to fix something, or hand in a suggestion to change a blog post.
