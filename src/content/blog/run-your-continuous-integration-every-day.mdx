@@ -1,0 +1,78 @@
+---
+title: "Run your Continuous Integration every day"
+description: "How a daily Continuous Integration process run will detect your dependency failures early and keep your software buildable."
+images: []
+categories: [
+    "Engineering",
+]
+keywords: [
+    "Engineering",
+    "Productivity",
+    "Software",
+    "Best practice",
+]
+tags: [
+    "Engineering",
+    "Software",
+]
+pubDate: 2024-01-01
+lastmod: 2024-01-01
+showHeaderImage: false
+---
+import Quote from '../../components/Quote.astro';
+
+The term [Continuous Integration](https://martinfowler.com/articles/continuousIntegration.html) (CI) may not have been founded by [Martin Fowler](https://martinfowler.com/), but his article from May 2006 was one reason why this topic became popular.
+Today, 17 years later, continuous integration is considered a standard and best practice in many software engineering organizations.
+
+The Continuous Integration process commonly starts on every new commit to the main branch or on a new pull request.
+Conversely, if there is no change to the software repository, the Continuous Integration process does not run.
+This happens when no one is working on the software project, E.g., on weekends or public holidays, when the project is “feature complete,” or when the focus is on a different initiative.
+
+## What is the issue with no CI runs during the "no commit time"?
+
+Today, software is getting more and more complex.
+Often, this is equal to more and more dependencies.
+Dependencies in this context are things like external libraries or external services.
+Those external dependencies can and will break without you noticing it.
+This may become a shortcoming for the stability of your software.
+While many of your dependencies might be added explicitly (e.g., a new library), now and then, an implicit, not obvious/visible dependency sneaks in (e.g., a container registry or HTTP calls to external telemetry services).
+
+<Quote>
+    Running your Continuous Integration process will detect dependency failures early and keep the software buildable.
+</Quote>
+
+Common examples of broken dependencies are:
+
+* A library gets deleted from Github or the [package registry](https://qz.com/646467/how-one-programmer-broke-the-internet-by-deleting-a-tiny-piece-of-code)
+* A particular version of a package gets unreleased/deleted due to a security
+* The container or package registry ([npmjs.com](https://www.npmjs.com/), [packagist.org](https://packagist.org/), [pypi.org](https://pypi.org/), ...) is down or is changing APIs/URLs (and reminds you to set up your own mirror)
+* You generate data based on an API Call during the CI process, and the API is down
+* Your build process sends telemetry data to some service (usage data, build times, ...), and the network is failing
+
+You may think, "This is not happening to my software projects", but if you work in a team, this will happen eventually.
+
+If you don’t run your CI process daily, your software might not be buildable one day due to broken dependencies.
+
+## How do you run your CI process daily?
+
+Schedule your CI system to run the CI process daily at a particular time (e.g., 3 am).
+Nearly all systems have some form of a time trigger:
+
+* Linux with [Cron](https://en.wikipedia.org/wiki/Cron)
+* [Jenkins with the build trigger "Build periodically"](https://www.cloudbees.com/blog/how-to-schedule-a-jenkins-job)
+* [Github Actions with the `schedule` keyword](https://www.cloudbees.com/blog/how-to-schedule-a-jenkins-job)
+* [Circle CI with Scheduled pipelines](https://circleci.com/docs/scheduled-pipelines/)
+* [TeamCity with scheduled Triggers](https://www.jetbrains.com/help/teamcity/configuring-schedule-triggers.html)
+* [Bamboo with Cron-based scheduling](https://confluence.atlassian.com/bamboo/cron-based-scheduling-289276907.html)
+
+## Are there any downsides to this approach?
+
+The usage of computing resources and costs might be one.
+Depending on how your CI process is designed, this can create additional costs.
+Imagine you build a cloud-based application that bootstraps 100 nodes in each hyperscale cloud each CI runs.
+However, this depends on your environment and context.
+You are the best person to evaluate this.
+
+## My engineering tip
+
+Configure a Continuous Integration process run in a regular short interval (e.g., daily) now.
