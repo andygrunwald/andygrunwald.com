@@ -60,7 +60,13 @@ force = true
 
 [[redirects]]
 from = "/blog/migrate-your-local-php-7.2-setup-to-homebrew-v1.5."
-to = "/blog/migrate-your-local-php-7.2-setup-to-homebrew-v1.5/"
+to = "/blog/migrate-your-local-php-72-setup-to-homebrew-v15/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/migrate-your-local-php-7.2-setup-to-homebrew-v1.5/"
+to = "/blog/migrate-your-local-php-72-setup-to-homebrew-v15/"
 status = 301
 force = true
 
