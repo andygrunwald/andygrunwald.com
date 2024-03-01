@@ -15,7 +15,7 @@
     "@astrojs/rss": "^4.0.5",
     "@astrojs/sitemap": "^3.1.1",
     "@astrojs/tailwind": "^5.1.0",
-    "astro-remote": "^0.2.4",
+    "astro-remote": "^0.3.2",
     "astro": "^4.4.7",
     "autoprefixer": "^10.4.17",
     "netlify-purge-cloudflare-on-deploy": "^1.2.0",
