@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 
 export async function GET(context) {
     const blogPosts = (await getCollection("blog")).sort(
-        (a, b) => new Date(a.data.pubDate).valueOf() - new Date(b.data.pubDate).valueOf()
+        (a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
     );
     return rss({
         title: 'Andy Grunwald (andygrunwald.com)',
