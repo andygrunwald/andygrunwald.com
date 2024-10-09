@@ -2,7 +2,9 @@ import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 
 export async function GET(context) {
-    const blogPosts = await getCollection("blog");
+    const blogPosts = (await getCollection("blog")).sort(
+        (a, b) => new Date(a.data.pubDate).valueOf() - new Date(b.data.pubDate).valueOf()
+    );
     return rss({
         title: 'Andy Grunwald (andygrunwald.com)',
         description: 'Software Engineer and Engineering Manager. Open Source enthusiast with a passion for Backend, Infrastructure, Reliability and Engineering Culture.',
