@@ -1,12 +1,12 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 
-export async function GET() {
+export async function GET(context) {
     const blogPosts = await getCollection("blog");
     return rss({
         title: 'Andy Grunwald (andygrunwald.com)',
         description: 'Software Engineer and Engineering Manager. Open Source enthusiast with a passion for Backend, Infrastructure, Reliability and Engineering Culture.',
-        site: import.meta.env.SITE,
+        site: context.site,
         items: blogPosts.map((post) => ({
             title: post.data.title,
             pubDate: post.data.pubDate,
