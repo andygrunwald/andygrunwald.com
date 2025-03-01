@@ -306,10 +306,8 @@ module.exports = {
             full: '100%',
             screen: '100vh',
         }),
-        inset: (theme, { negative }) => ({
+        inset: {
             auto: 'auto',
-            ...theme('spacing'),
-            ...negative(theme('spacing')),
             '1/2': '50%',
             '1/3': '33.333333%',
             '2/3': '66.666667%',
@@ -324,7 +322,7 @@ module.exports = {
             '-2/4': '-50%',
             '-3/4': '-75%',
             '-full': '-100%',
-        }),
+        },
         letterSpacing: {
             tighter: '-0.05em',
             tight: '-0.025em',
@@ -346,11 +344,9 @@ module.exports = {
             disc: 'disc',
             decimal: 'decimal',
         },
-        margin: (theme, { negative }) => ({
-            auto: 'auto',
-            ...theme('spacing'),
-            ...negative(theme('spacing')),
-        }),
+        margin: {
+            auto: 'auto'
+        },
         maxHeight: {
             full: '100%',
             screen: '100vh',
