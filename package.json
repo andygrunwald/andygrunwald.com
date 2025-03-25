@@ -17,7 +17,7 @@
     "@astrojs/tailwind": "^6.0.0",
     "astro-remote": "^0.3.3",
     "astro": "^5.4.1",
-    "autoprefixer": "^10.4.20",
+    "autoprefixer": "^10.4.21",
     "netlify-purge-cloudflare-on-deploy": "^1.2.0",
     "postcss": "^8.5.3",
     "sass": "^1.86.0",
