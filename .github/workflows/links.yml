@@ -4,7 +4,8 @@ on:
   repository_dispatch:
   workflow_dispatch:
   schedule:
-    - cron: '00 18 * * 1'
+    # At 18:00 on day-of-month 1.
+    - cron: '00 18 1 * *'
 
 jobs:
   linkChecker:
