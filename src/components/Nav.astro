@@ -1,4 +1,5 @@
 ---
+import { navigationLinks } from "../scripts/navigation.js";
 const year = new Date().getFullYear();
 ---
 <section class="relative py-8">
@@ -18,44 +19,14 @@ const year = new Date().getFullYear();
 				</button>
 			</div>
 			<ul class="hidden lg:flex lg:ml-auto lg:mr-12 lg:items-center lg:w-auto lg:space-x-12">
-				<li>
-					<a class="text-sm font-medium" href="/blog/" title="Blog of Andy Grunwald">
-						✍️ Blog
-					</a>
-				</li>
-				<li>
-					<a class="text-sm font-medium" href="/about/" title="About Andy Grunwald">
-						👨‍🔬 About
-					</a>
-				</li>
-				<li>
-					<a class="text-sm font-medium" href="/work-with-me/" title="Work with Andy Grunwald">
-						🏗️ Work with me
-					</a>
-				</li>
-				<li>
-					<a class="text-sm font-medium" href="https://engineeringkiosk.dev/" title="Engineering Kiosk Podcast">
-						🎙️ Engineering Kiosk Podcast
-					</a>
-				</li>
-				<!-- 
-					TODO Activate pages
-				<li>
-					<a class="text-sm font-medium" href="#">Projects</a>
-				</li>
-				<li>
-					<a class="text-sm font-medium" href="#">Contact</a>
-				</li>
-				-->
+				{navigationLinks.map((link) => (
+					<li>
+						<a class="text-sm font-medium" href={link.href} title={link.title}>
+							{link.label}
+						</a>
+					</li>
+				))}
 			</ul>
-			<!-- 
-				TODO Activate pages
-			<div class="hidden lg:block">
-				<a class="inline-block py-3 px-8 text-sm leading-normal font-medium bg-red-50 hover:bg-red-100 text-red-500 rounded transition duration-200" href="#">
-					Work with me
-				</a>
-			</div>
-			-->
 		</nav>
 	</div>
 	<div class="hidden navbar-menu fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50">
@@ -75,45 +46,16 @@ const year = new Date().getFullYear();
 			</div>
 			<div>
 				<ul>
-					<li class="mb-1">
-						<a class="block p-4 text-sm font-medium text-gray-900 hover:bg-gray-50 rounded" href="/blog/" title="Blog of Andy Grunwald">
-							✍️ Blog
-						</a>
-					</li>
-					<li class="mb-1">
-						<a class="block p-4 text-sm font-medium text-gray-900 hover:bg-gray-50 rounded" href="/about/" title="About Andy Grunwald">
-							👨‍🔬 About
-						</a>
-					</li>
-					<li class="mb-1">
-						<a class="block p-4 text-sm font-medium text-gray-900 hover:bg-gray-50 rounded" href="/work-with-me/" title="Work with Andy Grunwald">
-							🏗️ Work with me
-						</a>
-					</li>
-					<li class="mb-1">
-						<a class="block p-4 text-sm font-medium text-gray-900 hover:bg-gray-50 rounded" href="https://engineeringkiosk.dev/" title="Engineering Kiosk Podcast">
-							🎙️ Engineering Kiosk Podcast
-						</a>
-					</li>
-					<!-- 
-						TODO Activate pages
-					<li class="mb-1">
-						<a class="block p-4 text-sm font-medium text-gray-900 hover:bg-gray-50 rounded" href="#">Projects</a>
-					</li>
-					<li class="mb-1">
-						<a class="block p-4 text-sm font-medium text-gray-900 hover:bg-gray-50 rounded" href="#">Contact</a>
-					</li>
-					-->
+					{navigationLinks.map((link) => (
+						<li class="mb-1">
+							<a class="block p-4 text-sm font-medium text-gray-900 hover:bg-gray-50 rounded" href={link.href} title={link.title}>
+								{link.label}
+							</a>
+						</li>
+					))}
 				</ul>
 			</div>
 			<div class="mt-auto">
-				<!--
-				<div class="pt-6">
-					<a class="block py-3 text-center text-sm leading-normal bg-red-50 hover:bg-red-100 text-red-300 font-semibold rounded transition duration-200" href="#">
-						Work with me 2
-					</a>
-				</div>
-				-->
 				<p class="mt-6 mb-4 text-sm text-center text-gray-500">
 					<span>© {year} All rights reserved.</span>
 				</p>

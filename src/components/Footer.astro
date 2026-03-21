@@ -1,4 +1,5 @@
 ---
+import { navigationLinks } from "../scripts/navigation.js";
 // Static website footer year
 const year = new Date().getFullYear();
 ---
@@ -18,39 +19,14 @@ const year = new Date().getFullYear();
         <div class="w-auto">
           <div class="flex flex-wrap md:items-center md:justify-end mt-4 md:mt-0">
             <ul class="w-full lg:w-auto inline-flex flex-wrap flex-col md:flex-row  mb-4 lg:mb-0 md:mr-6 lg:mr-12">
-              <li class="mr-12 mb-2 md:mb-0">
-                <a class="text-sm font-medium" href="/blog/" title="Blog of Andy Grunwald">
-                  ✍️ Blog
-                </a>
-              </li>
-              <li class="mr-12 mb-2 md:mb-0">
-                <a class="text-sm font-medium" href="/about/" title="About Andy Grunwald">
-                  👨‍🔬 About
-                </a>
-              </li>
-              <li class="mr-12 mb-2 md:mb-0">
-                <a class="text-sm font-medium" href="/work-with-me/" title="Work with Andy Grunwald">
-                  🏗️ Work with me
-                </a>
-              </li>
-              <li class="mb-2 md:mb-0">
-                <a class="text-sm font-medium" href="https://engineeringkiosk.dev/" title="Engineering Kiosk Podcast">
-                  🎙️ Engineering Kiosk Podcast
-                </a>
-              </li>
-              <!--
-                  TODO Activate pages
-                  
-                <li class="mr-12 mb-2 md:mb-0"><a class="text-sm font-medium" href="#">Projects</a></li>
-                <li class="mb-2 md:mb-0"><a class="text-sm font-medium" href="#">Contact</a></li>
-                -->
+              {navigationLinks.map((link, i) => (
+                <li class={`mb-2 md:mb-0${i < navigationLinks.length - 1 ? ' mr-12' : ''}`}>
+                  <a class="text-sm font-medium" href={link.href} title={link.title}>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
-            <!--
-            TODO Activate pages
-            <a class="inline-block mr-auto lg:mr-0 py-4 px-8 text-sm text-red-500 font-medium leading-normal bg-red-50 hover:bg-red-100 rounded transition duration-200" href="#">
-                Work with me
-            </a>
-            -->
           </div>
         </div>
       </div>
