@@ -4,7 +4,19 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - '.github/**'
+      - 'README.md'
+      - 'LICENSE'
+      - 'renovate.json'
+      - '.claude/**'
   pull_request:
+    paths-ignore:
+      - '.github/**'
+      - 'README.md'
+      - 'LICENSE'
+      - 'renovate.json'
+      - '.claude/**'
   schedule:
     - cron: "5 1 * * *" # Run nightly
   workflow_dispatch:
