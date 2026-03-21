@@ -1,10 +1,11 @@
 ---
+import type { CollectionEntry } from 'astro:content';
+import { Markdown } from 'astro-remote';
+
 export interface Props {
-	post: any;
+	post: CollectionEntry<'blog'>;
 	n: number;
 }
-
-import { Markdown } from 'astro-remote';
 import CategoryBadge from './CategoryBadge.astro';
 import { formatDate } from "../scripts/date.js"
 

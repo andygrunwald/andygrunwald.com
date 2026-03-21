@@ -6,12 +6,13 @@
 // However, they didn't look great: Wrong / too strong colours, wrong sizing, etc.
 //
 // At some point in time, we want to use this component.
+import type { CollectionEntry } from 'astro:content';
+import { Markdown } from 'astro-remote';
+
 export interface Props {
-	post: any;
+	post: CollectionEntry<'blog'>;
 	n: number;
 }
-
-import { Markdown } from 'astro-remote';
 import CategoryBadge from './CategoryBadge.astro';
 import { formatDate } from "../scripts/date.js"
 
