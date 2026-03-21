@@ -1,9 +1,13 @@
+const options = {
+	weekday: 'long',
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric'
+};
+
 export function formatDate(date) {
-	const options = {
-		weekday: 'long',
-		year: 'numeric',
-		month: 'long',
-		day: 'numeric'
-	};
-	return new Date(date).toLocaleDateString('en-GB', options);
+	if (!date) return '';
+	const d = new Date(date);
+	if (isNaN(d.getTime())) return '';
+	return d.toLocaleDateString('en-GB', options);
 }
