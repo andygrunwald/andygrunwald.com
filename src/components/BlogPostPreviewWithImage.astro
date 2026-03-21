@@ -51,7 +51,7 @@ if (post.data.images.length > 0) {
 	{hasImage && <div class="order-first lg:order-last w-full lg:w-3/5 px-4 mb-8 lg:mb-0">
 		<div class="h-96">
 			<a href={`/blog/${post.slug}/`} title={post.data.title}>
-				<img class="w-full h-full object-cover rounded-lg" src={imagePath} alt="">
+				<img class="w-full h-full object-cover rounded-lg" src={imagePath} alt={post.data.title}>
 			</a>
 		</div>
 	</div>}
@@ -63,7 +63,7 @@ if (post.data.images.length > 0) {
 	{hasImage && <div class="w-full lg:w-3/5 px-4 mb-8 lg:mb-0">
 		<div class="h-96">
 			<a href={`/blog/${post.slug}/`} title={post.data.title}>
-				<img class="w-full h-full object-cover rounded-lg" src={imagePath} alt="">
+				<img class="w-full h-full object-cover rounded-lg" src={imagePath} alt={post.data.title}>
 			</a>
 		</div>
 	</div>}
