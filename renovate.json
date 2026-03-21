@@ -4,17 +4,27 @@
     "config:best-practices",
     "schedule:weekly"
   ],
-  "labels": ["dependencies"],
+  "labels": [
+    "dependencies"
+  ],
   "packageRules": [
     {
       "description": "Group Astro ecosystem packages",
-      "matchPackageNames": ["astro"],
-      "matchPackagePatterns": ["^@astrojs/", "^astro-"],
+      "matchPackageNames": [
+        "astro",
+        "/^@astrojs//",
+        "/^astro-/"
+      ],
       "groupName": "astro ecosystem"
     },
     {
       "description": "Group styling/CSS packages",
-      "matchPackageNames": ["tailwindcss", "postcss", "autoprefixer", "sass"],
+      "matchPackageNames": [
+        "tailwindcss",
+        "postcss",
+        "autoprefixer",
+        "sass"
+      ],
       "groupName": "styling dependencies"
     }
   ]
