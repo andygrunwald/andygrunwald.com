@@ -1,0 +1,10 @@
+---
+export interface Props {
+	category: string;
+}
+
+const { category } = Astro.props;
+---
+<span class="inline-block mb-3 mr-2 text-xs px-2 py-1 bg-blue-50 rounded uppercase text-blue-400 font-semibold">
+	{category}
+</span>
