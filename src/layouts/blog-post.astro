@@ -11,7 +11,7 @@ const { blogPost } = Astro.props;
 const content = blogPost.data;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-let title = "".concat(content.title, " - Andy Grunwald");
+let title = `${content.title} - Andy Grunwald`;
 
 let hasImage = false;
 let imagePath = "";
