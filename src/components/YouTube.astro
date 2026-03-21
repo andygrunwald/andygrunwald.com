@@ -5,6 +5,10 @@ export interface Props {
 }
 
 const { id, description } = Astro.props;
+
+if (!/^[a-zA-Z0-9_-]{11}$/.test(id)) {
+	throw new Error(`Invalid YouTube video ID: "${id}". Expected 11 characters of [a-zA-Z0-9_-].`);
+}
 ---
 <div class="text-center">
 	<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
