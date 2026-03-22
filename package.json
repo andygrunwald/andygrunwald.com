@@ -10,11 +10,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.13",
-    "@astrojs/rss": "^4.0.14",
-    "@astrojs/sitemap": "^3.6.0",
+    "@astrojs/mdx": "^5.0.2",
+    "@astrojs/rss": "^4.0.17",
+    "@astrojs/sitemap": "^3.7.1",
     "@tailwindcss/vite": "^4.2.2",
-    "astro": "^5.16.6",
+    "astro": "^6.0.8",
     "astro-remote": "^0.3.4",
     "netlify-purge-cloudflare-on-deploy": "^1.2.0",
     "tailwindcss": "^4.2.2"

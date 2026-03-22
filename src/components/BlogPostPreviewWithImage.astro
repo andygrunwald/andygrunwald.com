@@ -39,7 +39,7 @@ const imageOrderClass = isEven ? "order-first lg:order-last" : "";
 <div class="flex flex-wrap items-center -mx-4 mb-16">
 	{!isEven && hasImage && <div class={"w-full lg:w-3/5 px-4 mb-8 lg:mb-0"}>
 		<div class="h-96">
-			<a href={`/blog/${post.slug}/`} title={post.data.title}>
+			<a href={`/blog/${post.id}/`} title={post.data.title}>
 				<img class="w-full h-full object-cover rounded-lg" src={imagePath} alt="">
 			</a>
 		</div>
@@ -48,7 +48,7 @@ const imageOrderClass = isEven ? "order-first lg:order-last" : "";
 		<div class={"text-left" + textPaddingClass}>
 			{post.data.categories.map((category) => <CategoryBadge category={category} />)}
 			<h2 class="mb-4 text-3xl font-semibold font-heading">
-				<a href={`/blog/${post.slug}/`} title={post.data.title} class="hover:underline hover:text-red-300">
+				<a href={`/blog/${post.id}/`} title={post.data.title} class="hover:underline hover:text-red-300">
 					{post.data.title}
 				</a>
 			</h2>
@@ -60,7 +60,7 @@ const imageOrderClass = isEven ? "order-first lg:order-last" : "";
 	</div>
 	{isEven && hasImage && <div class={"w-full lg:w-3/5 px-4 mb-8 lg:mb-0 " + imageOrderClass}>
 		<div class="h-96">
-			<a href={`/blog/${post.slug}/`} title={post.data.title}>
+			<a href={`/blog/${post.id}/`} title={post.data.title}>
 				<img class="w-full h-full object-cover rounded-lg" src={imagePath} alt={post.data.title}>
 			</a>
 		</div>
