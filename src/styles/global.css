@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+@theme {
+  /* Breakpoints - only xl is custom (default is 1280px) */
+  --breakpoint-xl: 1152px;
+
+  /* Custom spacing extensions (beyond Tailwind defaults) */
+  --spacing-112: 28rem;
+  --spacing-128: 32rem;
+  --spacing-144: 36rem;
+
+  /* Font families */
+  --font-body: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  --font-heading: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+
+  /* Font sizes with custom line heights */
+  --text-base: 1rem;
+  --text-base--line-height: 1.875rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.875rem;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 2.25rem;
+  --text-3xl: 2.25rem;
+  --text-3xl--line-height: 1.125;
+  --text-4xl: 3rem;
+  --text-4xl--line-height: 1.125;
+  --text-5xl: 4rem;
+  --text-5xl--line-height: 1.125;
+  --text-6xl: 5.5rem;
+  --text-6xl--line-height: 1;
+
+  /* Border radius - custom default */
+  --radius: 5px;
+
+  /* Box shadow - custom 2xl */
+  --shadow-2xl: 0px 64px 128px rgba(7, 18, 99, 0.08);
+
+  /* Max width */
+  --container-prose: 65ch;
+
+  /* Colors - full custom palette */
+  --color-gray-50: #F2F5FA;
+  --color-gray-100: #E6EAF1;
+  --color-gray-200: #DADFE9;
+  --color-gray-300: #C8CEDA;
+  --color-gray-400: #ACB4C4;
+  --color-gray-500: #838EA4;
+  --color-gray-600: #657084;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #0A2463;
+
+  --color-red-50: #FFEBEE;
+  --color-red-100: #ffd2da;
+  --color-red-200: #ffa5b4;
+  --color-red-300: #FF7088;
+  --color-red-400: #FF4564;
+  --color-red-500: #FF1F44;
+  --color-red-600: #cc1936;
+  --color-red-700: #991329;
+  --color-red-800: #660c1b;
+  --color-red-900: #33060e;
+
+  --color-blue-50: #EBF8FF;
+  --color-blue-100: #ceefff;
+  --color-blue-200: #9ddeff;
+  --color-blue-300: #70CFFF;
+  --color-blue-400: #45C1FF;
+  --color-blue-500: #0AADFF;
+  --color-blue-600: #088acc;
+  --color-blue-700: #066899;
+  --color-blue-800: #044566;
+  --color-blue-900: #022333;
+
+  --color-teal-50: #F0FAFA;
+  --color-teal-100: #d2dede;
+  --color-teal-200: #a6bdbd;
+  --color-teal-300: #369696;
+  --color-teal-400: #297373;
+  --color-teal-500: #205A5A;
+  --color-teal-600: #1a4848;
+  --color-teal-700: #133636;
+  --color-teal-800: #0d2424;
+  --color-teal-900: #061212;
+
+  --color-orange-50: #FDF1ED;
+  --color-orange-100: #f7dad2;
+  --color-orange-200: #f0b6a4;
+  --color-orange-300: #EA7E5D;
+  --color-orange-400: #E4572E;
+  --color-orange-500: #D9481C;
+  --color-orange-600: #ae3a16;
+  --color-orange-700: #822b11;
+  --color-orange-800: #571d0b;
+  --color-orange-900: #2b0e06;
+
+  --color-yellow-50: #FDFBED;
+  --color-yellow-100: #faf6d7;
+  --color-yellow-200: #f5edaf;
+  --color-yellow-300: #EFE281;
+  --color-yellow-400: #E9D758;
+  --color-yellow-500: #E5D138;
+  --color-yellow-600: #b7a72d;
+  --color-yellow-700: #897d22;
+  --color-yellow-800: #5c5416;
+  --color-yellow-900: #2e2a0b;
+
+  --color-green-50: #ecfdf5;
+  --color-green-100: #d1fae5;
+  --color-green-200: #a7f3d0;
+  --color-green-300: #6ee7b7;
+  --color-green-400: #34d399;
+  --color-green-500: #10b981;
+  --color-green-600: #059669;
+  --color-green-700: #047857;
+  --color-green-800: #065f46;
+  --color-green-900: #064e3b;
+
+  --color-indigo-50: #eef2ff;
+  --color-indigo-100: #e0e7ff;
+  --color-indigo-200: #c3dafe;
+  --color-indigo-300: #a5b4fc;
+  --color-indigo-400: #818cf8;
+  --color-indigo-500: #6366f1;
+  --color-indigo-600: #4f46e5;
+  --color-indigo-700: #4338ca;
+  --color-indigo-800: #3730a3;
+  --color-indigo-900: #312e81;
+
+  --color-purple-50: #f5f3ff;
+  --color-purple-100: #ede9fe;
+  --color-purple-200: #ddd6fe;
+  --color-purple-300: #c4b5fd;
+  --color-purple-400: #a78bfa;
+  --color-purple-500: #8b5cf6;
+  --color-purple-600: #7c3aed;
+  --color-purple-700: #6d28d9;
+  --color-purple-800: #5b21b6;
+  --color-purple-900: #4c1d95;
+
+  --color-pink-50: #fdf2f8;
+  --color-pink-100: #fce7f3;
+  --color-pink-200: #fbcfe8;
+  --color-pink-300: #f9a8d4;
+  --color-pink-400: #f472b6;
+  --color-pink-500: #ec4899;
+  --color-pink-600: #db2777;
+  --color-pink-700: #be185d;
+  --color-pink-800: #9d174d;
+  --color-pink-900: #831843;
+}
+
+/* Custom utility colors for body styling */
+@utility bg-body {
+  background-color: #fff;
+}
+
+@utility text-body {
+  color: #0A2463;
+}
+
+/* Preserve custom default border color (v4 changed default to currentColor) */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-100);
+  }
+}

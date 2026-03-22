@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 
@@ -7,8 +7,10 @@ import mdx from '@astrojs/mdx';
 export default defineConfig({
 	site: 'https://andygrunwald.com/',
 	trailingSlash: 'always',
+	vite: {
+		plugins: [tailwindcss()],
+	},
 	integrations: [
-		tailwind(),
 		sitemap(),
 		mdx(),
 	],
