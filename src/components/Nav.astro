@@ -63,3 +63,17 @@ const year = new Date().getFullYear();
 		</nav>
 	</div>
 </section>
+
+<script>
+	// Toggle the mobile navigation menu. This script is bundled and optimized by
+	// Astro (no `is:inline`), and runs as a deferred module after the DOM is parsed.
+	const menus = document.querySelectorAll(".navbar-menu");
+
+	function toggleMenu() {
+		menus.forEach((el) => el.classList.toggle("hidden"));
+	}
+
+	document
+		.querySelectorAll(".navbar-burger, .navbar-close, .navbar-backdrop")
+		.forEach((el) => el.addEventListener("click", toggleMenu));
+</script>
