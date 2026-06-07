@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://andygrunwald.com/sitemap-index.xml
