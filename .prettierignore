@@ -1,0 +1,7 @@
+dist/
+node_modules/
+public/
+package-lock.json
+
+# Author-written content is left untouched so prose is never reformatted.
+src/content/
