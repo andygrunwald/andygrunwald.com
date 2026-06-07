@@ -17,15 +17,27 @@ const year = new Date().getFullYear();
           </a>
         </div>
         <div class="w-auto">
-          <div class="flex flex-wrap md:items-center md:justify-end mt-4 md:mt-0">
-            <ul class="w-full lg:w-auto inline-flex flex-wrap flex-col md:flex-row  mb-4 lg:mb-0 md:mr-6 lg:mr-12">
-              {navigationLinks.map((link, i) => (
-                <li class={`mb-2 md:mb-0${i < navigationLinks.length - 1 ? ' mr-12' : ''}`}>
-                  <a class="text-sm font-medium" href={link.href} title={link.title}>
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+          <div
+            class="flex flex-wrap md:items-center md:justify-end mt-4 md:mt-0"
+          >
+            <ul
+              class="w-full lg:w-auto inline-flex flex-wrap flex-col md:flex-row mb-4 lg:mb-0 md:mr-6 lg:mr-12"
+            >
+              {
+                navigationLinks.map((link, i) => (
+                  <li
+                    class={`mb-2 md:mb-0${i < navigationLinks.length - 1 ? " mr-12" : ""}`}
+                  >
+                    <a
+                      class="text-sm font-medium"
+                      href={link.href}
+                      title={link.title}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))
+              }
             </ul>
           </div>
         </div>
@@ -37,39 +49,115 @@ const year = new Date().getFullYear();
           All rights reserved © Andy Grunwald {year}
         </p>
         <div class="flex order-first sm:order-last mt-8">
-          <a class="flex justify-center items-center w-10 h-10 mr-4 bg-gray-50 rounded-full" href="https://x.com/andygrunwald" title="Andy Grunwald on X">
-            <svg class="text-gray-500" width="18" height="18" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"></path>
+          <a
+            class="flex justify-center items-center w-10 h-10 mr-4 bg-gray-50 rounded-full"
+            href="https://x.com/andygrunwald"
+            title="Andy Grunwald on X"
+          >
+            <svg
+              class="text-gray-500"
+              width="18"
+              height="18"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"
+              ></path>
             </svg>
           </a>
-          <a class="flex justify-center items-center w-10 h-10 mr-4 bg-gray-50 rounded-full" href="https://hachyderm.io/@andygrunwald" rel="me" title="Andy Grunwald on Mastodon">
-            <svg class="text-gray-500" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603.348-1.778.32-4.339.32-4.339 0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091.083 3.394.626 6.74 3.78 7.57 1.454.383 2.703.463 3.709.408 1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a4 4 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522q0-1.288.66-2.046c.456-.505 1.052-.764 1.793-.764.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983.74 0 1.336.259 1.791.764q.662.757.661 2.046z"></path>
+          <a
+            class="flex justify-center items-center w-10 h-10 mr-4 bg-gray-50 rounded-full"
+            href="https://hachyderm.io/@andygrunwald"
+            rel="me"
+            title="Andy Grunwald on Mastodon"
+          >
+            <svg
+              class="text-gray-500"
+              width="20"
+              height="20"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603.348-1.778.32-4.339.32-4.339 0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091.083 3.394.626 6.74 3.78 7.57 1.454.383 2.703.463 3.709.408 1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a4 4 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522q0-1.288.66-2.046c.456-.505 1.052-.764 1.793-.764.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983.74 0 1.336.259 1.791.764q.662.757.661 2.046z"
+              ></path>
             </svg>
           </a>
-          <a class="flex justify-center items-center w-10 h-10 mr-4 bg-gray-50 rounded-full" href="https://github.com/andygrunwald" title="Andy Grunwald at GitHub">
-            <svg class="text-gray-500" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <a
+            class="flex justify-center items-center w-10 h-10 mr-4 bg-gray-50 rounded-full"
+            href="https://github.com/andygrunwald"
+            title="Andy Grunwald at GitHub"
+          >
+            <svg
+              class="text-gray-500"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <g fill="#838EA4">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                ></path>
               </g>
             </svg>
           </a>
-          <a class="flex justify-center items-center w-10 h-10 mr-4 bg-gray-50 rounded-full" href="https://www.linkedin.com/in/andy-grunwald-09aa265a/" title="Andy Grunwald at LinkedIn">
-            <svg class="text-gray-500" width="20" height="20" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10.8 0H1.2C0.54 0 0 0.54 0 1.2V10.8C0 11.46 0.54 12 1.2 12H10.8C11.46 12 12 11.46 12 10.8V1.2C12 0.54 11.46 0 10.8 0ZM3.6 10.2H1.8V4.8H3.6V10.2ZM2.7 3.78C2.1 3.78 1.62 3.3 1.62 2.7C1.62 2.1 2.1 1.62 2.7 1.62C3.3 1.62 3.78 2.1 3.78 2.7C3.78 3.3 3.3 3.78 2.7 3.78ZM10.2 10.2H8.4V7.02C8.4 6.54002 7.98 6.12 7.5 6.12C7.02 6.12 6.6 6.54002 6.6 7.02V10.2H4.8V4.8H6.6V5.52C6.9 5.04 7.56 4.68 8.1 4.68C9.24 4.68 10.2 5.64 10.2 6.78V10.2Z" fill="currentColor"></path>
+          <a
+            class="flex justify-center items-center w-10 h-10 mr-4 bg-gray-50 rounded-full"
+            href="https://www.linkedin.com/in/andy-grunwald-09aa265a/"
+            title="Andy Grunwald at LinkedIn"
+          >
+            <svg
+              class="text-gray-500"
+              width="20"
+              height="20"
+              viewBox="0 0 12 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10.8 0H1.2C0.54 0 0 0.54 0 1.2V10.8C0 11.46 0.54 12 1.2 12H10.8C11.46 12 12 11.46 12 10.8V1.2C12 0.54 11.46 0 10.8 0ZM3.6 10.2H1.8V4.8H3.6V10.2ZM2.7 3.78C2.1 3.78 1.62 3.3 1.62 2.7C1.62 2.1 2.1 1.62 2.7 1.62C3.3 1.62 3.78 2.1 3.78 2.7C3.78 3.3 3.3 3.78 2.7 3.78ZM10.2 10.2H8.4V7.02C8.4 6.54002 7.98 6.12 7.5 6.12C7.02 6.12 6.6 6.54002 6.6 7.02V10.2H4.8V4.8H6.6V5.52C6.9 5.04 7.56 4.68 8.1 4.68C9.24 4.68 10.2 5.64 10.2 6.78V10.2Z"
+                fill="currentColor"></path>
             </svg>
           </a>
-          <a class="flex justify-center items-center w-10 h-10 mr-4 bg-gray-50 rounded-full" href="mailto:andygrunwald@gmail.com" title="Write Andy Grunwald an email">
-            <svg class="text-gray-500" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <a
+            class="flex justify-center items-center w-10 h-10 mr-4 bg-gray-50 rounded-full"
+            href="mailto:andygrunwald@gmail.com"
+            title="Write Andy Grunwald an email"
+          >
+            <svg
+              class="text-gray-500"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <g fill="#838EA4">
-                <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"></path>
+                <path
+                  d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"
+                ></path>
               </g>
             </svg>
           </a>
-          <a class="flex justify-center items-center w-10 h-10 bg-gray-50 rounded-full" href="/rss.xml" title="RSS Feed of andygrunwald.com">
-            <svg class="text-gray-500" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <a
+            class="flex justify-center items-center w-10 h-10 bg-gray-50 rounded-full"
+            href="/rss.xml"
+            title="RSS Feed of andygrunwald.com"
+          >
+            <svg
+              class="text-gray-500"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <g fill="#838EA4">
-                <path d="M6.503 20.752c0 1.794-1.456 3.248-3.251 3.248-1.796 0-3.252-1.454-3.252-3.248 0-1.794 1.456-3.248 3.252-3.248 1.795.001 3.251 1.454 3.251 3.248zm-6.503-12.572v4.811c6.05.062 10.96 4.966 11.022 11.009h4.817c-.062-8.71-7.118-15.758-15.839-15.82zm0-3.368c10.58.046 19.152 8.594 19.183 19.188h4.817c-.03-13.231-10.755-23.954-24-24v4.812z"></path>
+                <path
+                  d="M6.503 20.752c0 1.794-1.456 3.248-3.251 3.248-1.796 0-3.252-1.454-3.252-3.248 0-1.794 1.456-3.248 3.252-3.248 1.795.001 3.251 1.454 3.251 3.248zm-6.503-12.572v4.811c6.05.062 10.96 4.966 11.022 11.009h4.817c-.062-8.71-7.118-15.758-15.839-15.82zm0-3.368c10.58.046 19.152 8.594 19.183 19.188h4.817c-.03-13.231-10.755-23.954-24-24v4.812z"
+                ></path>
               </g>
             </svg>
           </a>

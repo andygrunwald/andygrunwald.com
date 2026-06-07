@@ -3,18 +3,18 @@ import { z } from "astro:schema";
 import { glob } from "astro/loaders";
 
 const blogPostsCollection = defineCollection({
-    loader: glob({ pattern: "**/*.mdx", base: "./src/content/blog" }),
-    schema: z.object({
-      title: z.string(),
-      description: z.string(),
-      images: z.array(z.string()),
-      categories: z.array(z.string()),
-      keywords: z.array(z.string()),
-      tags: z.array(z.string()),
-      pubDate: z.date(),
-      lastmod: z.date(),
-      showHeaderImage: z.boolean()
-    })
+  loader: glob({ pattern: "**/*.mdx", base: "./src/content/blog" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    images: z.array(z.string()),
+    categories: z.array(z.string()),
+    keywords: z.array(z.string()),
+    tags: z.array(z.string()),
+    pubDate: z.date(),
+    lastmod: z.date(),
+    showHeaderImage: z.boolean(),
+  }),
 });
 
 const publicSpeakingCollection = defineCollection({
@@ -33,7 +33,7 @@ const publicSpeakingCollection = defineCollection({
     picture: z.string(),
     city: z.string(),
     country: z.string(),
-  })
+  }),
 });
 
 const projectCollection = defineCollection({
@@ -45,7 +45,7 @@ const projectCollection = defineCollection({
     blogposts: z.array(z.string()),
     startDate: z.date(),
     endDate: z.date(),
-  })
+  }),
 });
 
 export const collections = {
