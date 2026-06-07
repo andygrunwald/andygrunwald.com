@@ -53,9 +53,9 @@ const imageOrderClass = isEven ? "order-first lg:order-last" : "";
 				</a>
 			</h2>
 			<span class="inline-block mb-6 text-xs text-gray-500">
-				<time class="date" datetime={post.data.pubDate}>{formatDate(post.data.pubDate)}</time>
+				<time class="date" datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
 			</span>
-			<Markdown class="text-xl text-gray-500" content={post.data.description} />
+			<Markdown content={post.data.description} />
 		</div>
 	</div>
 	{isEven && hasImage && <div class={"w-full lg:w-3/5 px-4 mb-8 lg:mb-0 " + imageOrderClass}>

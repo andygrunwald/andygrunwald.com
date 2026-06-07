@@ -8,6 +8,10 @@ help: ## Outputs the help
 build: ## Compiles the application into static content
 	npm run build
 
+.PHONY: check
+check: ## Runs the Astro type and content checks
+	npm run check
+
 .PHONY: run
 run: ## Starts the development server
 	npm run dev

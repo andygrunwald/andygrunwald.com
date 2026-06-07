@@ -54,7 +54,7 @@ if (content.images.length > 0) {
 					      </p>
 				      </div>
 				      <div class="text-center">
-					      {content.categories.map((category) => <CategoryBadge category={category} />)}
+					      {content.categories.map((category: string) => <CategoryBadge category={category} />)}
 				      </div>
 			      </div>
           </div>

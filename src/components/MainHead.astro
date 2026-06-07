@@ -57,7 +57,7 @@ if (ogType) {
 {image && <meta property="og:image" content={new URL(image, canonicalURL)} />}
 
 <meta name="twitter:card" content={image ? "summary_large_image" : "summary"} />
-<meta property="twitter:domain" content={Astro.site.host} />
+<meta property="twitter:domain" content={Astro.site?.host} />
 <meta property="twitter:url" content={canonicalURL} />
 <meta name="twitter:site" content="@andygrunwald" />
 <meta name="twitter:title" content={title} />
