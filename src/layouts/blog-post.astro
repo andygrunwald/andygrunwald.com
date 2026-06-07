@@ -15,12 +15,13 @@ let title = `${content.title} - Andy Grunwald`;
 
 let hasImage = false;
 let imagePath = "";
-let imageWidthClass = "";
-let imagePaddingLeftClass = "";
+// Pre-existing, currently unused layout helpers (kept, marked intentional).
+let _imageWidthClass = "";
+let _imagePaddingLeftClass = "";
 if (content.showHeaderImage && content.images.length > 0) {
   hasImage = true;
-  imageWidthClass = "lg:w-2/5";
-  imagePaddingLeftClass = "lg:pl-10";
+  _imageWidthClass = "lg:w-2/5";
+  _imagePaddingLeftClass = "lg:pl-10";
 
   // Just picking the first image
   imagePath = content.images[0];

@@ -12,6 +12,14 @@ build: ## Compiles the application into static content
 check: ## Runs the Astro type and content checks
 	npm run check
 
+.PHONY: lint
+lint: ## Lints the source with ESLint
+	npm run lint
+
+.PHONY: format-check
+format-check: ## Verifies formatting with Prettier
+	npm run format:check
+
 .PHONY: run
 run: ## Starts the development server
 	npm run dev
