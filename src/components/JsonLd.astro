@@ -1,0 +1,12 @@
+---
+export interface Props {
+  schema: Record<string, unknown>;
+}
+
+const { schema } = Astro.props;
+
+// Escape `<` so the serialized JSON can never terminate the <script> element early.
+const json = JSON.stringify(schema).replace(/</g, "\\u003c");
+---
+
+<script type="application/ld+json" set:html={json} />

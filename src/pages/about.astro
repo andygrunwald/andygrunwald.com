@@ -4,11 +4,18 @@ import MainHead from "../components/MainHead.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 import portrait from "../assets/images/andy-grunwald.png";
+import JsonLd from "../components/JsonLd.astro";
+import { personSchema } from "../scripts/structured-data.js";
 
 let title = "Andy Grunwald - Software Engineer and Engineering Manager";
 let description =
   "Software Engineer and Engineering Manager. Open Source enthusiast with a passion for Backend, Infrastructure, Reliability and Engineering Culture.";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const aboutSchema = {
+  "@context": "https://schema.org",
+  ...personSchema,
+};
 ---
 
 <!doctype html>
@@ -20,6 +27,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       image="/images/andy-grunwald-opengraph.png"
       {canonicalURL}
     />
+    <JsonLd schema={aboutSchema} />
   </head>
   <body class="antialiased bg-body text-body font-body">
     <div>
