@@ -38,5 +38,8 @@ jobs:
       - name: Run make init
         run: make init
 
+      - name: Run make check
+        run: make check
+
       - name: Run make build
         run: make build
