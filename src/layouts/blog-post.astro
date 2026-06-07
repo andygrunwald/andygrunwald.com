@@ -1,11 +1,11 @@
 ---
-import MainHead from '../components/MainHead.astro';
-import Nav from '../components/Nav.astro';
-import Footer from '../components/Footer.astro';
-import CategoryBadge from '../components/CategoryBadge.astro';
-import { formatDate } from "../scripts/date.js"
+import MainHead from "../components/MainHead.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import CategoryBadge from "../components/CategoryBadge.astro";
+import { formatDate } from "../scripts/date.js";
 
-import '../styles/blogpost.css';
+import "../styles/blogpost.css";
 
 const { blogPost } = Astro.props;
 const content = blogPost.data;
@@ -18,27 +18,34 @@ let imagePath = "";
 let imageWidthClass = "";
 let imagePaddingLeftClass = "";
 if (content.showHeaderImage && content.images.length > 0) {
-  hasImage = true
-	imageWidthClass = "lg:w-2/5";
-	imagePaddingLeftClass = "lg:pl-10";
+  hasImage = true;
+  imageWidthClass = "lg:w-2/5";
+  imagePaddingLeftClass = "lg:pl-10";
 
-	// Just picking the first image
-	imagePath = content.images[0]
+  // Just picking the first image
+  imagePath = content.images[0];
 }
 
 // Default open graph meta tag image
 let metaTagImage = "/images/andy-grunwald-opengraph.png";
 // Image selection for meta tags
 if (content.images.length > 0) {
-	// Just picking the first image
-	metaTagImage = content.images[0]
+  // Just picking the first image
+  metaTagImage = content.images[0];
 }
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
   <head>
-		<MainHead title={title} description={content.description} image={metaTagImage} {canonicalURL} ogType="article" />
-	</head>
+    <MainHead
+      title={title}
+      description={content.description}
+      image={metaTagImage}
+      {canonicalURL}
+      ogType="article"
+    />
+  </head>
   <body class="antialiased bg-body text-body font-body">
     <div>
       <Nav title={title} />
@@ -46,28 +53,44 @@ if (content.images.length > 0) {
       <section class="relative py-20">
         <div class="container px-4 mx-auto">
           <div class="max-w-2xl mx-auto mb-10 text-center">
-            <h1 class="mb-6 text-4xl font-semibold font-heading">{content.title}</h1>
-  			    <div class="items-center justify-center">
-	    			  <div class="text-center mb-4">
-			      		<p class="text-gray-500">
-						      <time class="date" datetime={content.pubDate}>{formatDate(content.pubDate)}</time>
-					      </p>
-				      </div>
-				      <div class="text-center">
-					      {content.categories.map((category: string) => <CategoryBadge category={category} />)}
-				      </div>
-			      </div>
+            <h1 class="mb-6 text-4xl font-semibold font-heading">
+              {content.title}
+            </h1>
+            <div class="items-center justify-center">
+              <div class="text-center mb-4">
+                <p class="text-gray-500">
+                  <time class="date" datetime={content.pubDate}
+                    >{formatDate(content.pubDate)}</time
+                  >
+                </p>
+              </div>
+              <div class="text-center">
+                {
+                  content.categories.map((category: string) => (
+                    <CategoryBadge category={category} />
+                  ))
+                }
+              </div>
+            </div>
           </div>
-		      {hasImage && <div class="h-112 mb-10">
-            <img class="w-full h-full object-cover object-top rounded-lg" src={imagePath} alt={content.title}>
-          </div>}
+          {
+            hasImage && (
+              <div class="h-112 mb-10">
+                <img
+                  class="w-full h-full object-cover object-top rounded-lg"
+                  src={imagePath}
+                  alt={content.title}
+                />
+              </div>
+            )
+          }
 
-		      <div class="max-w-2xl mx-auto">
-			      <article>
-				      <slot />
-			      </article>
-			      <hr />
-		      </div>
+          <div class="max-w-2xl mx-auto">
+            <article>
+              <slot />
+            </article>
+            <hr />
+          </div>
         </div>
       </section>
 
