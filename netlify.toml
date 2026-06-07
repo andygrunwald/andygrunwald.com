@@ -94,6 +94,12 @@ to = "/images/posts/:splat"
 status = 301
 force = true
 
+[[redirects]]
+from = "/work-with-me/"
+to = "/"
+status = 301
+force = true
+
 [build]
 publish = "dist/"
 command = "astro build"
