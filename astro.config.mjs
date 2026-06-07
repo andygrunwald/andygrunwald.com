@@ -7,6 +7,10 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
   site: "https://andygrunwald.com/",
   trailingSlash: "always",
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: "hover",
+  },
   fonts: [
     {
       provider: fontProviders.google(),
