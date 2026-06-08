@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import { resolvePostImage } from "../scripts/post-images.js";
+
 export interface Props {
   path: string;
   alt: string;
@@ -6,13 +9,20 @@ export interface Props {
 }
 
 const { path, alt, title } = Astro.props;
+const src = await resolvePostImage(path);
 ---
 
 <div class="mb-10">
-  <img
-    class="w-full h-full object-cover rounded-lg"
-    src={path}
-    alt={alt}
-    title={title}
-  />
+  {
+    src ? (
+      <Image {src} {alt} {title} layout="constrained" class="rounded-lg" />
+    ) : (
+      <img
+        class="w-full h-full object-cover rounded-lg"
+        src={path}
+        {alt}
+        {title}
+      />
+    )
+  }
 </div>

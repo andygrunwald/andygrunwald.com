@@ -1,9 +1,11 @@
 ---
+import { Image } from "astro:assets";
 import MainHead from "../components/MainHead.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 import CategoryBadge from "../components/CategoryBadge.astro";
 import { formatDate } from "../scripts/date.js";
+import { resolvePostImage } from "../scripts/post-images.js";
 
 import "../styles/blogpost.css";
 
@@ -13,26 +15,28 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 let title = `${content.title} - Andy Grunwald`;
 
+// First frontmatter image, resolved to an optimized asset when it has been
+// migrated into src/ (null while still a /public path or absent).
+const firstImage = content.images.length > 0 ? content.images[0] : null;
+const resolvedImage = firstImage ? await resolvePostImage(firstImage) : null;
+
 let hasImage = false;
-let imagePath = "";
 // Pre-existing, currently unused layout helpers (kept, marked intentional).
 let _imageWidthClass = "";
 let _imagePaddingLeftClass = "";
-if (content.showHeaderImage && content.images.length > 0) {
+if (content.showHeaderImage && firstImage) {
   hasImage = true;
   _imageWidthClass = "lg:w-2/5";
   _imagePaddingLeftClass = "lg:pl-10";
-
-  // Just picking the first image
-  imagePath = content.images[0];
 }
 
-// Default open graph meta tag image
+// Open graph / Twitter card image: prefer the optimized asset's URL, then the
+// raw path, then the default site card. MainHead absolutizes it via new URL().
 let metaTagImage = "/images/andy-grunwald-opengraph.png";
-// Image selection for meta tags
-if (content.images.length > 0) {
-  // Just picking the first image
-  metaTagImage = content.images[0];
+if (resolvedImage) {
+  metaTagImage = resolvedImage.src;
+} else if (firstImage) {
+  metaTagImage = firstImage;
 }
 ---
 
@@ -77,11 +81,20 @@ if (content.images.length > 0) {
           {
             hasImage && (
               <div class="h-112 mb-10">
-                <img
-                  class="w-full h-full object-cover object-top rounded-lg"
-                  src={imagePath}
-                  alt={content.title}
-                />
+                {resolvedImage ? (
+                  <Image
+                    src={resolvedImage}
+                    alt={content.title}
+                    loading="eager"
+                    class="w-full h-full object-cover object-top rounded-lg"
+                  />
+                ) : (
+                  <img
+                    class="w-full h-full object-cover object-top rounded-lg"
+                    src={firstImage}
+                    alt={content.title}
+                  />
+                )}
               </div>
             )
           }
