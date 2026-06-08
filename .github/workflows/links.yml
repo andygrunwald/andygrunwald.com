@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   schedule:
     # At 18:00 on day-of-month 1.
-    - cron: '00 18 1 * *'
+    - cron: "00 18 1 * *"
 
 jobs:
   linkChecker:

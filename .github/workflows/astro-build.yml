@@ -5,18 +5,18 @@ on:
     branches:
       - main
     paths-ignore:
-      - '.github/**'
-      - 'README.md'
-      - 'LICENSE'
-      - 'renovate.json'
-      - '.claude/**'
+      - ".github/**"
+      - "README.md"
+      - "LICENSE"
+      - "renovate.json"
+      - ".claude/**"
   pull_request:
     paths-ignore:
-      - '.github/**'
-      - 'README.md'
-      - 'LICENSE'
-      - 'renovate.json'
-      - '.claude/**'
+      - ".github/**"
+      - "README.md"
+      - "LICENSE"
+      - "renovate.json"
+      - ".claude/**"
   schedule:
     - cron: "5 1 * * *" # Run nightly
   workflow_dispatch:
@@ -37,6 +37,12 @@ jobs:
 
       - name: Run make init
         run: make init
+
+      - name: Run make format-check
+        run: make format-check
+
+      - name: Run make lint
+        run: make lint
 
       - name: Run make check
         run: make check

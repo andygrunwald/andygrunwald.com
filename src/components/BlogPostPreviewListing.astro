@@ -1,10 +1,10 @@
 ---
-import BlogPostPreview from '../components/BlogPostPreview.astro';
+import BlogPostPreview from "../components/BlogPostPreview.astro";
 import { getSortedBlogPosts } from "../scripts/blog.js";
 
 export interface Props {
-	// Number of items to show in the listing
-	numberOfItems: number;
+  // Number of items to show in the listing
+  numberOfItems: number;
 }
 
 const { numberOfItems } = Astro.props;
@@ -16,33 +16,51 @@ let postsToShow = allPosts;
 let showAllButton = false;
 let mainPage = true;
 if (numberOfItems > 0) {
-	postsToShow = allPosts.slice(0, numberOfItems);
-	showAllButton = true;
-	mainPage = false;
+  postsToShow = allPosts.slice(0, numberOfItems);
+  showAllButton = true;
+  mainPage = false;
 }
 ---
+
 <section class="py-20">
-	<div class="container px-4 mx-auto">
-		<div class="mb-20">
-			{ mainPage && <h1 class="mt-8 mb-10 text-4xl font-semibold font-heading" id="blog">
-				things i wrote about
-			</h1> }
-			{ !mainPage && <h2 class="mt-8 mb-10 text-4xl font-semibold font-heading" id="blog">
-				things i wrote about
-			</h2> }
-			<p class="text-xl text-gray-500">
-				Writing is an invaluable skill that needs to be trained like every other muscle.
-				Writing forces you to think more about a topic, how to express this clearly and enable others to consume your thoughts asynchronously and at their speed.
-				Check out my training progress and thoughts below.
-			</p>
-		</div>
+  <div class="container px-4 mx-auto">
+    <div class="mb-20">
+      {
+        mainPage && (
+          <h1 class="mt-8 mb-10 text-4xl font-semibold font-heading" id="blog">
+            things i wrote about
+          </h1>
+        )
+      }
+      {
+        !mainPage && (
+          <h2 class="mt-8 mb-10 text-4xl font-semibold font-heading" id="blog">
+            things i wrote about
+          </h2>
+        )
+      }
+      <p class="text-xl text-gray-500">
+        Writing is an invaluable skill that needs to be trained like every other
+        muscle. Writing forces you to think more about a topic, how to express
+        this clearly and enable others to consume your thoughts asynchronously
+        and at their speed. Check out my training progress and thoughts below.
+      </p>
+    </div>
 
-		{postsToShow.map((post, i) => <BlogPostPreview post={post} n={i} />)}
+    {postsToShow.map((post, i) => <BlogPostPreview post={post} n={i} />)}
 
-		{ showAllButton && <div class="text-center">
-			<a class="px-8 py-4 text-sm text-white font-semibold bg-red-400 hover:bg-red-300 rounded transition duration-200" href="/blog/" title="Blog of Andy Grunwald">
-				View all my writings
-			</a>
-		</div> }
-	</div>
+    {
+      showAllButton && (
+        <div class="text-center">
+          <a
+            class="px-8 py-4 text-sm text-white font-semibold bg-red-400 hover:bg-red-300 rounded transition duration-200"
+            href="/blog/"
+            title="Blog of Andy Grunwald"
+          >
+            View all my writings
+          </a>
+        </div>
+      )
+    }
+  </div>
 </section>
