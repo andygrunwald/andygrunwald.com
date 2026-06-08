@@ -10,19 +10,11 @@ export interface Props {
 
 const { path, alt, title } = Astro.props;
 const src = await resolvePostImage(path);
+if (!src) {
+  throw new Error(`BlogPostImage: no optimized image found for "${path}"`);
+}
 ---
 
 <div class="mb-10">
-  {
-    src ? (
-      <Image {src} {alt} {title} layout="constrained" class="rounded-lg" />
-    ) : (
-      <img
-        class="w-full h-full object-cover rounded-lg"
-        src={path}
-        {alt}
-        {title}
-      />
-    )
-  }
+  <Image {src} {alt} {title} layout="constrained" class="rounded-lg" />
 </div>

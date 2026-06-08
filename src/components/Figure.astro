@@ -11,6 +11,9 @@ export interface Props {
 
 const { path, title, alt, link } = Astro.props;
 const src = await resolvePostImage(path);
+if (!src) {
+  throw new Error(`Figure: no optimized image found for "${path}"`);
+}
 ---
 
 <div class="mb-10">
@@ -18,32 +21,10 @@ const src = await resolvePostImage(path);
     {
       link ? (
         <a href={link}>
-          {src ? (
-            <Image
-              {src}
-              {alt}
-              {title}
-              layout="constrained"
-              class="rounded-lg"
-            />
-          ) : (
-            <img
-              src={path}
-              {alt}
-              {title}
-              class="w-full h-full object-cover rounded-lg"
-            />
-          )}
+          <Image {src} {alt} {title} layout="constrained" class="rounded-lg" />
         </a>
-      ) : src ? (
-        <Image {src} {alt} {title} layout="constrained" class="rounded-lg" />
       ) : (
-        <img
-          src={path}
-          {alt}
-          {title}
-          class="w-full h-full object-cover rounded-lg"
-        />
+        <Image {src} {alt} {title} layout="constrained" class="rounded-lg" />
       )
     }
     <figcaption>

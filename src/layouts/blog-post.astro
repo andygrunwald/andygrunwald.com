@@ -81,20 +81,12 @@ if (resolvedImage) {
           {
             hasImage && (
               <div class="h-112 mb-10">
-                {resolvedImage ? (
-                  <Image
-                    src={resolvedImage}
-                    alt={content.title}
-                    loading="eager"
-                    class="w-full h-full object-cover object-top rounded-lg"
-                  />
-                ) : (
-                  <img
-                    class="w-full h-full object-cover object-top rounded-lg"
-                    src={firstImage}
-                    alt={content.title}
-                  />
-                )}
+                <Image
+                  src={resolvedImage}
+                  alt={content.title}
+                  loading="eager"
+                  class="w-full h-full object-cover object-top rounded-lg"
+                />
               </div>
             )
           }
