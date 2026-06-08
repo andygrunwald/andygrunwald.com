@@ -4,6 +4,7 @@ import MainHead from "../components/MainHead.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 import CategoryBadge from "../components/CategoryBadge.astro";
+import JsonLd from "../components/JsonLd.astro";
 import { formatDate } from "../scripts/date.js";
 import { resolvePostImage } from "../scripts/post-images.js";
 
@@ -38,6 +39,23 @@ if (resolvedImage) {
 } else if (firstImage) {
   metaTagImage = firstImage;
 }
+
+const blogPostingSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: content.title,
+  description: content.description,
+  datePublished: content.pubDate.toISOString(),
+  dateModified: content.lastmod.toISOString(),
+  keywords: content.keywords,
+  image: new URL(metaTagImage, Astro.site).href,
+  mainEntityOfPage: { "@type": "WebPage", "@id": canonicalURL.href },
+  author: {
+    "@type": "Person",
+    name: "Andy Grunwald",
+    url: "https://andygrunwald.com/",
+  },
+};
 ---
 
 <!doctype html>
@@ -50,6 +68,7 @@ if (resolvedImage) {
       {canonicalURL}
       ogType="article"
     />
+    <JsonLd schema={blogPostingSchema} />
   </head>
   <body class="antialiased bg-body text-body font-body">
     <div>
