@@ -24,7 +24,7 @@
     "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.9",
+    "@astrojs/check": "0.9.9",
     "@eslint/js": "^10.0.1",
     "eslint": "^10.7.0",
     "eslint-plugin-astro": "^3.0.0",
