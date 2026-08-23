@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import MarkdownPostLayout from "../../layouts/blog-post.astro";
+import type { InferGetStaticPropsType } from "astro";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
@@ -10,7 +11,10 @@ export async function getStaticPaths() {
   }));
 }
 
-const { entry } = Astro.props;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { entry }: Props = Astro.props;
+
 const { Content } = await render(entry);
 ---
 

@@ -5,11 +5,13 @@
 // entries and inline <Figure>/<BlogPostImage> `path=` attributes use this same
 // form, so a single resolver covers both. Returns null when the path is not a
 // processed asset (e.g. a not-yet-migrated post still pointing at /public).
-const assets = import.meta.glob(
+const assets = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/images/posts/**/*.{png,jpg,jpeg,webp,gif}",
 );
 
-export async function resolvePostImage(path) {
+export async function resolvePostImage(
+  path: string,
+): Promise<ImageMetadata | null> {
   const loader = assets[path];
   if (!loader) {
     return null;

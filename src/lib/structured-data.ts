@@ -17,10 +17,10 @@ export const personSchema = {
     "https://github.com/andygrunwald",
     "https://www.linkedin.com/in/andy-grunwald-09aa265a/",
   ],
-};
+} as const;
 
 export const webSiteSchema = {
   "@type": "WebSite",
   name: "Andy Grunwald",
   url: SITE_URL,
-};
+} as const;

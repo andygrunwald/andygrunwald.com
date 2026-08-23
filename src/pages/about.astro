@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import portrait from "../assets/images/andy-grunwald.png";
 import JsonLd from "../components/JsonLd.astro";
-import { personSchema } from "../scripts/structured-data.js";
+import { personSchema } from "../lib/structured-data";
 import { SITE_TITLE } from "../consts";
 
 const aboutSchema = {
