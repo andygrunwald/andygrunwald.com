@@ -47,7 +47,7 @@ if (numberOfItems > 0) {
       </p>
     </div>
 
-    {postsToShow.map((post, i) => <BlogPostPreview post={post} n={i} />)}
+    {postsToShow.map((post) => <BlogPostPreview post={post} />)}
 
     {
       showAllButton && (
