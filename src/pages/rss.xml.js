@@ -1,5 +1,5 @@
 import rss from "@astrojs/rss";
-import { getSortedBlogPosts } from "../scripts/blog.js";
+import { getSortedBlogPosts } from "../lib/blog";
 
 export async function GET(context) {
   const blogPosts = await getSortedBlogPosts();

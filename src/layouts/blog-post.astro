@@ -3,11 +3,16 @@ import { Image } from "astro:assets";
 import BaseLayout from "./BaseLayout.astro";
 import CategoryBadge from "../components/CategoryBadge.astro";
 import JsonLd from "../components/JsonLd.astro";
-import { formatDate } from "../scripts/date.js";
-import { resolvePostImage } from "../scripts/post-images.js";
+import { formatDate } from "../lib/date";
+import { resolvePostImage } from "../lib/post-images";
 import { SITE_OG_IMAGE } from "../consts";
+import type { CollectionEntry } from "astro:content";
 
 import "../styles/blogpost.css";
+
+interface Props {
+  blogPost: CollectionEntry<"blog">;
+}
 
 const { blogPost } = Astro.props;
 const content = blogPost.data;
@@ -20,12 +25,14 @@ const title = `${content.title} - Andy Grunwald`;
 const firstImage = content.images.length > 0 ? content.images[0] : null;
 const resolvedImage = firstImage ? await resolvePostImage(firstImage) : null;
 
-let hasImage = false;
+// Gate on the resolved asset, not the raw path: an unresolvable path used to
+// reach <Image> as null, which the types now reject outright.
+const headerImage = content.showHeaderImage ? resolvedImage : null;
+
 // Pre-existing, currently unused layout helpers (kept, marked intentional).
 let _imageWidthClass = "";
 let _imagePaddingLeftClass = "";
-if (content.showHeaderImage && firstImage) {
-  hasImage = true;
+if (headerImage) {
   _imageWidthClass = "lg:w-2/5";
   _imagePaddingLeftClass = "lg:pl-10";
 }
@@ -80,7 +87,7 @@ const blogPostingSchema = {
           </div>
           <div class="text-center">
             {
-              content.categories.map((category: string) => (
+              content.categories.map((category) => (
                 <CategoryBadge category={category} />
               ))
             }
@@ -88,10 +95,10 @@ const blogPostingSchema = {
         </div>
       </div>
       {
-        hasImage && (
+        headerImage && (
           <div class="h-112 mb-10">
             <Image
-              src={resolvedImage}
+              src={headerImage}
               alt={content.title}
               priority
               class="w-full h-full object-cover object-top rounded-lg"
