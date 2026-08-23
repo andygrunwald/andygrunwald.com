@@ -1,12 +1,11 @@
 ---
 import { Image } from "astro:assets";
-import MainHead from "../components/MainHead.astro";
-import Nav from "../components/Nav.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from "./BaseLayout.astro";
 import CategoryBadge from "../components/CategoryBadge.astro";
 import JsonLd from "../components/JsonLd.astro";
 import { formatDate } from "../scripts/date.js";
 import { resolvePostImage } from "../scripts/post-images.js";
+import { SITE_OG_IMAGE } from "../consts";
 
 import "../styles/blogpost.css";
 
@@ -14,7 +13,7 @@ const { blogPost } = Astro.props;
 const content = blogPost.data;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-let title = `${content.title} - Andy Grunwald`;
+const title = `${content.title} - Andy Grunwald`;
 
 // First frontmatter image, resolved to an optimized asset when it has been
 // migrated into src/ (null while still a /public path or absent).
@@ -33,7 +32,7 @@ if (content.showHeaderImage && firstImage) {
 
 // Open graph / Twitter card image: prefer the optimized asset's URL, then the
 // raw path, then the default site card. MainHead absolutizes it via new URL().
-let metaTagImage = "/images/andy-grunwald-opengraph.png";
+let metaTagImage = SITE_OG_IMAGE;
 if (resolvedImage) {
   metaTagImage = resolvedImage.src;
 } else if (firstImage) {
@@ -53,73 +52,60 @@ const blogPostingSchema = {
   author: {
     "@type": "Person",
     name: "Andy Grunwald",
-    url: "https://andygrunwald.com/",
+    url: Astro.site?.href,
   },
 };
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <MainHead
-      title={title}
-      description={content.description}
-      image={metaTagImage}
-      {canonicalURL}
-      ogType="article"
-    />
-    <JsonLd schema={blogPostingSchema} />
-  </head>
-  <body class="antialiased bg-body text-body font-body">
-    <div>
-      <Nav title={title} />
-
-      <section class="relative py-20">
-        <div class="container px-4 mx-auto">
-          <div class="max-w-3xl mx-auto mb-10 text-center">
-            <h1 class="mb-6 text-4xl font-semibold font-heading">
-              {content.title}
-            </h1>
-            <div class="items-center justify-center">
-              <div class="text-center mb-4">
-                <p class="text-gray-500">
-                  <time class="date" datetime={content.pubDate.toISOString()}
-                    >{formatDate(content.pubDate)}</time
-                  >
-                </p>
-              </div>
-              <div class="text-center">
-                {
-                  content.categories.map((category: string) => (
-                    <CategoryBadge category={category} />
-                  ))
-                }
-              </div>
-            </div>
+<BaseLayout
+  {title}
+  description={content.description}
+  image={metaTagImage}
+  ogType="article"
+>
+  <JsonLd slot="head" schema={blogPostingSchema} />
+  <section class="relative py-20">
+    <div class="container px-4 mx-auto">
+      <div class="max-w-3xl mx-auto mb-10 text-center">
+        <h1 class="mb-6 text-4xl font-semibold font-heading">
+          {content.title}
+        </h1>
+        <div class="items-center justify-center">
+          <div class="text-center mb-4">
+            <p class="text-gray-500">
+              <time class="date" datetime={content.pubDate.toISOString()}
+                >{formatDate(content.pubDate)}</time
+              >
+            </p>
           </div>
-          {
-            hasImage && (
-              <div class="h-112 mb-10">
-                <Image
-                  src={resolvedImage}
-                  alt={content.title}
-                  priority
-                  class="w-full h-full object-cover object-top rounded-lg"
-                />
-              </div>
-            )
-          }
-
-          <div class="max-w-3xl mx-auto">
-            <article>
-              <slot />
-            </article>
-            <hr />
+          <div class="text-center">
+            {
+              content.categories.map((category: string) => (
+                <CategoryBadge category={category} />
+              ))
+            }
           </div>
         </div>
-      </section>
+      </div>
+      {
+        hasImage && (
+          <div class="h-112 mb-10">
+            <Image
+              src={resolvedImage}
+              alt={content.title}
+              priority
+              class="w-full h-full object-cover object-top rounded-lg"
+            />
+          </div>
+        )
+      }
 
-      <Footer />
+      <div class="max-w-3xl mx-auto">
+        <article>
+          <slot />
+        </article>
+        <hr />
+      </div>
     </div>
-  </body>
-</html>
+  </section>
+</BaseLayout>

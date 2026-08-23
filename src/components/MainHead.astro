@@ -1,20 +1,18 @@
 ---
 import "../styles/global.css";
 
-export interface Props {
+interface Props {
   title: string;
   description: string;
   image?: string;
-  canonicalURL?: string | URL;
   ogType?: string;
 }
 
-const { title, description, image, canonicalURL, ogType } =
-  Astro.props as Props;
-let ogTypeValue = "website";
-if (ogType) {
-  ogTypeValue = ogType;
-}
+const { title, description, image, ogType = "website" } = Astro.props;
+
+// Derived here rather than passed in: every caller computed the identical
+// expression, and Astro.url is available in this component anyway.
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <meta charset="utf-8" />
@@ -50,7 +48,7 @@ if (ogType) {
 <link rel="canonical" href={canonicalURL} />
 
 <meta property="og:url" content={canonicalURL} />
-<meta property="og:type" content={ogTypeValue} />
+<meta property="og:type" content={ogType} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 {image && <meta property="og:image" content={new URL(image, canonicalURL)} />}
