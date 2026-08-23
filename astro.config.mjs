@@ -3,7 +3,7 @@ import { join } from "node:path";
 
 import { slug as githubSlug } from "github-slugger";
 
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
@@ -58,6 +58,22 @@ export default defineConfig({
     // utilities this site uses on its images.
     layout: "constrained",
   },
+  fonts: [
+    {
+      provider: fontProviders.fontsource(),
+      name: "Inter",
+      cssVariable: "--font-inter",
+      // Variable range covers body (400), nav/links (500), headings (600)
+      // and Markdown <strong> (700) from a single file per style.
+      weights: ["400 700"],
+      // Blog posts use <em> heavily, so the italic face is required.
+      styles: ["normal", "italic"],
+      // latin-ext carries the umlauts used throughout the posts (Düsseldorf).
+      subsets: ["latin", "latin-ext"],
+      display: "swap",
+      fallbacks: ["sans-serif"],
+    },
+  ],
   vite: {
     plugins: [tailwindcss()],
   },

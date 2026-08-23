@@ -1,4 +1,6 @@
 ---
+import { Font } from "astro:assets";
+
 import { SITE_NAME } from "../consts";
 
 import "../styles/global.css";
@@ -41,7 +43,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
 />
 
-<link rel="stylesheet" href="/css/inter.css" />
+{
+  /* Only the latin/normal face is preloaded. The italic and latin-ext faces
+   are fetched on demand via their unicode-range, so preloading them too
+   would download bytes most pages never use. */
+}
+<Font
+  cssVariable="--font-inter"
+  preload={[{ subset: "latin", style: "normal" }]}
+/>
 
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link
