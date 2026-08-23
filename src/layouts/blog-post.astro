@@ -69,6 +69,8 @@ const blogPostingSchema = {
   description={content.description}
   image={metaTagImage}
   ogType="article"
+  publishedTime={content.pubDate}
+  modifiedTime={content.lastmod}
 >
   <JsonLd slot="head" schema={blogPostingSchema} />
   <section class="relative py-20">

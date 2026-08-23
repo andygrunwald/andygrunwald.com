@@ -1,4 +1,6 @@
 ---
+import { SITE_NAME } from "../consts";
+
 import "../styles/global.css";
 
 interface Props {
@@ -6,9 +8,18 @@ interface Props {
   description: string;
   image?: string;
   ogType?: string;
+  publishedTime?: Date;
+  modifiedTime?: Date;
 }
 
-const { title, description, image, ogType = "website" } = Astro.props;
+const {
+  title,
+  description,
+  image,
+  ogType = "website",
+  publishedTime,
+  modifiedTime,
+} = Astro.props;
 
 // Derived here rather than passed in: every caller computed the identical
 // expression, and Astro.url is available in this component anyway.
@@ -22,6 +33,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 />
 
 <title>{title}</title>
+<meta name="generator" content={Astro.generator} />
 <meta name="description" content={description} />
 
 <meta
@@ -44,19 +56,40 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 <link rel="manifest" href="/site.webmanifest" />
+<meta name="theme-color" content="#ffffff" />
 
 <link rel="canonical" href={canonicalURL} />
 
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:type" content={ogType} />
+<meta property="og:site_name" content={SITE_NAME} />
+<meta property="og:locale" content="en_GB" />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 {image && <meta property="og:image" content={new URL(image, canonicalURL)} />}
+{image && <meta property="og:image:alt" content={title} />}
+{
+  publishedTime && (
+    <meta
+      property="article:published_time"
+      content={publishedTime.toISOString()}
+    />
+  )
+}
+{
+  modifiedTime && (
+    <meta
+      property="article:modified_time"
+      content={modifiedTime.toISOString()}
+    />
+  )
+}
 
 <meta name="twitter:card" content={image ? "summary_large_image" : "summary"} />
 <meta property="twitter:domain" content={Astro.site?.host} />
 <meta property="twitter:url" content={canonicalURL} />
 <meta name="twitter:site" content="@andygrunwald" />
+<meta name="twitter:creator" content="@andygrunwald" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 {image && <meta name="twitter:image" content={new URL(image, canonicalURL)} />}
