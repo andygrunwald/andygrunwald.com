@@ -21,7 +21,9 @@
     "astro": "^7.2.4",
     "astro-remote": "^0.3.4",
     "github-slugger": "^2.0.0",
+    "markdown-it": "^15.0.0",
     "netlify-purge-cloudflare-on-deploy": "^1.2.0",
+    "sanitize-html": "^2.17.7",
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
