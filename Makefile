@@ -25,9 +25,10 @@ run: ## Starts the development server
 	npm run dev
 
 .PHONY: clean
-clean: ## Deletes the generated content and node_modules
+clean: ## Deletes the generated content, caches and node_modules
 	rm -rf ./dist
 	rm -rf ./node_modules
+	rm -rf ./.astro
 
 .PHONY: init
 init: ## Installs dependencies
