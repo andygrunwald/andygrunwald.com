@@ -1,32 +1,11 @@
 ---
-import MainHead from "../../components/MainHead.astro";
-import Nav from "../../components/Nav.astro";
-import Footer from "../../components/Footer.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogPostPreviewListing from "../../components/BlogPostPreviewListing.astro";
 
-let title = "Blog by Andy Grunwald - Software Engineer and Engineering Manager";
-let description =
-  "Software Engineer and Engineering Manager. Open Source enthusiast with a passion for Backend, Infrastructure, Reliability and Engineering Culture.";
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const title =
+  "Blog by Andy Grunwald - Software Engineer and Engineering Manager";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <MainHead
-      title={title}
-      description={description}
-      image="/images/andy-grunwald-opengraph.png"
-      {canonicalURL}
-    />
-  </head>
-  <body class="antialiased bg-body text-body font-body">
-    <div>
-      <Nav title={title} />
-
-      <BlogPostPreviewListing numberOfItems={0} />
-
-      <Footer />
-    </div>
-  </body>
-</html>
+<BaseLayout {title}>
+  <BlogPostPreviewListing numberOfItems={0} />
+</BaseLayout>

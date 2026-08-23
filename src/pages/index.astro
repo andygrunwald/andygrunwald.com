@@ -1,15 +1,9 @@
 ---
-import MainHead from "../components/MainHead.astro";
-import Nav from "../components/Nav.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogPostPreviewListing from "../components/BlogPostPreviewListing.astro";
 import JsonLd from "../components/JsonLd.astro";
 import { personSchema, webSiteSchema } from "../scripts/structured-data.js";
-
-let title = "Andy Grunwald - Software Engineer and Engineering Manager";
-let description =
-  "Software Engineer and Engineering Manager. Open Source enthusiast with a passion for Backend, Infrastructure, Reliability and Engineering Culture.";
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+import { SITE_TITLE } from "../consts";
 
 const homeSchema = {
   "@context": "https://schema.org",
@@ -17,54 +11,37 @@ const homeSchema = {
 };
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <MainHead
-      title={title}
-      description={description}
-      image="/images/andy-grunwald-opengraph.png"
-      {canonicalURL}
-    />
-    <JsonLd schema={homeSchema} />
-  </head>
-  <body class="antialiased bg-body text-body font-body">
-    <div>
-      <Nav title={title} />
-
-      <section class="relative pb-20">
-        <div class="relative container pt-12 px-4 mx-auto text-center">
-          <h1>
-            <span class="text-blue-400 font-semibold text-3xl">
-              Andy Grunwald
-            </span>
-            <div class="mt-8 mb-8 lg:mb-12 text-4xl lg:text-6xl font-semibold">
-              Engineering Manager and Software Engineer.
-            </div>
-          </h1>
-          <p class="max-w-3xl mx-auto mb-8 lg:mb-12 text-xl text-gray-500">
-            I manage engineers at <a
-              href="https://www.cloudflare.com/"
-              class="hover:underline text-red-300"
-              title="Cloudflare">Cloudflare</a
-            > and talk about Software Engineering in the <a
-              href="https://engineeringkiosk.dev/"
-              class="hover:underline text-red-300"
-              title="Engineering Kiosk Podcast">Engineering Kiosk Podcast</a
-            >.
-          </p>
-          <a
-            class="inline-block w-full md:w-auto mb-2 md:mb-0 px-8 py-4 mr-4 text-sm font-medium leading-normal bg-red-400 hover:bg-red-300 text-white rounded transition duration-200"
-            href="/#blog"
-          >
-            Checkout my articles
-          </a>
+<BaseLayout title={SITE_TITLE}>
+  <JsonLd slot="head" schema={homeSchema} />
+  <section class="relative pb-20">
+    <div class="relative container pt-12 px-4 mx-auto text-center">
+      <h1>
+        <span class="text-blue-400 font-semibold text-3xl">
+          Andy Grunwald
+        </span>
+        <div class="mt-8 mb-8 lg:mb-12 text-4xl lg:text-6xl font-semibold">
+          Engineering Manager and Software Engineer.
         </div>
-      </section>
-
-      <BlogPostPreviewListing numberOfItems={3} />
-
-      <Footer />
+      </h1>
+      <p class="max-w-3xl mx-auto mb-8 lg:mb-12 text-xl text-gray-500">
+        I manage engineers at <a
+          href="https://www.cloudflare.com/"
+          class="hover:underline text-red-300"
+          title="Cloudflare">Cloudflare</a
+        > and talk about Software Engineering in the <a
+          href="https://engineeringkiosk.dev/"
+          class="hover:underline text-red-300"
+          title="Engineering Kiosk Podcast">Engineering Kiosk Podcast</a
+        >.
+      </p>
+      <a
+        class="inline-block w-full md:w-auto mb-2 md:mb-0 px-8 py-4 mr-4 text-sm font-medium leading-normal bg-red-400 hover:bg-red-300 text-white rounded transition duration-200"
+        href="/#blog"
+      >
+        Checkout my articles
+      </a>
     </div>
-  </body>
-</html>
+  </section>
+
+  <BlogPostPreviewListing numberOfItems={3} />
+</BaseLayout>
