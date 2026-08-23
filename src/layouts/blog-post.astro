@@ -24,14 +24,6 @@ const title = `${content.title} - Andy Grunwald`;
 const firstImage = content.images.at(0) ?? null;
 const headerImage = content.showHeaderImage ? firstImage : null;
 
-// Pre-existing, currently unused layout helpers (kept, marked intentional).
-let _imageWidthClass = "";
-let _imagePaddingLeftClass = "";
-if (headerImage) {
-  _imageWidthClass = "lg:w-2/5";
-  _imagePaddingLeftClass = "lg:pl-10";
-}
-
 // Open graph / Twitter card image: prefer the optimized asset's URL, then the
 // raw path, then the default site card. MainHead absolutizes it via new URL().
 const metaTagImage = firstImage ? firstImage.src : SITE_OG_IMAGE;
