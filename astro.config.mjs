@@ -57,6 +57,22 @@ export default defineConfig({
     // cascade layer, so they would override the Tailwind object-fit
     // utilities this site uses on its images.
     layout: "constrained",
+    service: {
+      entrypoint: "astro/assets/services/sharp",
+      // Sharp defaults webp to quality 80. Dropping to 75 takes ~15% off the
+      // emitted images and is indistinguishable at 1:1 on this site's
+      // photography, which is the only kind of image it serves.
+      //
+      // `effort: 6` was measured and rejected: it saved a further 3.5% while
+      // taking the build from 4.6s to 30.3s, and CI re-encodes everything on
+      // every run because `make clean` drops the cache.
+      //
+      // Only the per-format keys are read here. A top-level `quality` would be
+      // silently ignored.
+      config: {
+        webp: { quality: 75 },
+      },
+    },
   },
   vite: {
     plugins: [tailwindcss()],
