@@ -95,6 +95,12 @@ status = 301
 force = true
 
 [[redirects]]
+from = "/images/andy-grunwald-opengraph.png"
+to = "/images/andy-grunwald-opengraph.jpg"
+status = 301
+force = true
+
+[[redirects]]
 from = "/work-with-me/"
 to = "/"
 status = 301

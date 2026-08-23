@@ -9,4 +9,4 @@ export const SITE_TITLE =
 export const SITE_DESCRIPTION =
   "Software Engineer and Engineering Manager. Open Source enthusiast with a passion for Backend, Infrastructure, Reliability and Engineering Culture.";
 
-export const SITE_OG_IMAGE = "/images/andy-grunwald-opengraph.png";
+export const SITE_OG_IMAGE = "/images/andy-grunwald-opengraph.jpg";
