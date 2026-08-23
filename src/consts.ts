@@ -1,6 +1,8 @@
 // Site-wide constants. These strings were previously duplicated across the
 // pages and the RSS endpoint, which let them drift independently.
 
+export const SITE_NAME = "Andy Grunwald";
+
 export const SITE_TITLE =
   "Andy Grunwald - Software Engineer and Engineering Manager";
 

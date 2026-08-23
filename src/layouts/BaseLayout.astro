@@ -9,6 +9,8 @@ interface Props {
   description?: string;
   image?: string;
   ogType?: string;
+  publishedTime?: Date;
+  modifiedTime?: Date;
 }
 
 const {
@@ -16,13 +18,22 @@ const {
   description = SITE_DESCRIPTION,
   image = SITE_OG_IMAGE,
   ogType,
+  publishedTime,
+  modifiedTime,
 } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <MainHead {title} {description} {image} {ogType} />
+    <MainHead
+      {title}
+      {description}
+      {image}
+      {ogType}
+      {publishedTime}
+      {modifiedTime}
+    />
     <slot name="head" />
   </head>
   <body class="antialiased bg-body text-body font-body">
