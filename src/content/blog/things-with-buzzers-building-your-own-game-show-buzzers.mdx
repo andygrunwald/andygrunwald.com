@@ -2,12 +2,12 @@
 title: "things with buzzers: building your own game-show buzzers"
 description: "We built our own game show buzzers with the help of a raspberry pi, a 3d printer, and some software. Here is all you need to create your own game show buzzers."
 images: [
-    "/src/assets/images/posts/things-with-buzzers-building-them/game-show-buzzers-raspberry-pi.jpg",
-    "/src/assets/images/posts/things-with-buzzers-building-them/architecture-raspberry-pi-websocket-usb-game-show-buzzer-setup.png",
-    "/src/assets/images/posts/things-with-buzzers-building-them/building-the-buzzers-workplace.jpg",
-    "/src/assets/images/posts/things-with-buzzers-building-them/creating-the-pcb-prototype.jpg",
-    "/src/assets/images/posts/things-with-buzzers-building-them/lars-hess-andy-grunwald-fixing-bugs.jpg",
-    "/src/assets/images/posts/things-with-buzzers-building-them/coding-python-software-for-buzzers.jpg",
+    "../../assets/images/posts/things-with-buzzers-building-them/game-show-buzzers-raspberry-pi.jpg",
+    "../../assets/images/posts/things-with-buzzers-building-them/architecture-raspberry-pi-websocket-usb-game-show-buzzer-setup.png",
+    "../../assets/images/posts/things-with-buzzers-building-them/building-the-buzzers-workplace.jpg",
+    "../../assets/images/posts/things-with-buzzers-building-them/creating-the-pcb-prototype.jpg",
+    "../../assets/images/posts/things-with-buzzers-building-them/lars-hess-andy-grunwald-fixing-bugs.jpg",
+    "../../assets/images/posts/things-with-buzzers-building-them/coding-python-software-for-buzzers.jpg",
 ]
 categories: [
     "Community",
@@ -34,13 +34,19 @@ showHeaderImage: false
 import Figure from '../../components/Figure.astro';
 import UpdateBox from '../../components/UpdateBox.astro';
 import YouTube from '../../components/YouTube.astro';
+import imgGameShowBuzzersRaspberryPi from "../../assets/images/posts/things-with-buzzers-building-them/game-show-buzzers-raspberry-pi.jpg";
+import imgArchitectureRaspberryPiWebsocketUsbGameShowBuzzerSetup from "../../assets/images/posts/things-with-buzzers-building-them/architecture-raspberry-pi-websocket-usb-game-show-buzzer-setup.png";
+import imgBuildingTheBuzzersWorkplace from "../../assets/images/posts/things-with-buzzers-building-them/building-the-buzzers-workplace.jpg";
+import imgCreatingThePcbPrototype from "../../assets/images/posts/things-with-buzzers-building-them/creating-the-pcb-prototype.jpg";
+import imgLarsHessAndyGrunwaldFixingBugs from "../../assets/images/posts/things-with-buzzers-building-them/lars-hess-andy-grunwald-fixing-bugs.jpg";
+import imgCodingPythonSoftwareForBuzzers from "../../assets/images/posts/things-with-buzzers-building-them/coding-python-software-for-buzzers.jpg";
 
 **tl;dr**: We built custom game show buzzers, wrote a WebSocket server, and connected them to various applications.
 Finally, we documented and open-sourced everything. Check out the **things with buzzers** series _[hardware](https://github.com/andygrunwald/things-with-buzzers-hardware "things with buzzers hardware at GitHub")_, _[websocket](https://github.com/andygrunwald/things-with-buzzers-websocket "things with buzzers WebSocket software at GitHub")_ and a frontend like _[Jeopardy!](https://github.com/andygrunwald/things-with-buzzers-jeopardy "things with buzzers Jeopardy! game software at GitHub")_.
 Start today, and build your own!
 
 <Figure
-    path="/src/assets/images/posts/things-with-buzzers-building-them/game-show-buzzers-raspberry-pi.jpg"
+    src={imgGameShowBuzzersRaspberryPi}
     alt="things with buzzers: The final result - four game show buzzers, a raspberry pi, and a custom printed circuit board."
     title="things with buzzers: The final result - four game show buzzers, a raspberry pi, and a custom printed circuit board." />
 
@@ -70,7 +76,7 @@ I motivated my two friends [Lars](https://twitter.com/derebbe "Lars Heß at twit
 ## How it works
 
 <Figure
-    path="/src/assets/images/posts/things-with-buzzers-building-them/architecture-raspberry-pi-websocket-usb-game-show-buzzer-setup.png"
+    src={imgArchitectureRaspberryPiWebsocketUsbGameShowBuzzerSetup}
     alt="things with buzzers: Architecture diagram of how the single parts play together."
     title="things with buzzers: Architecture diagram of how the single parts play together." />
 
@@ -107,22 +113,22 @@ With a little bit of preparation, we met at Lars' home on the 15th of January 20
 Here are a few insights:
 
 <Figure
-    path="/src/assets/images/posts/things-with-buzzers-building-them/building-the-buzzers-workplace.jpg"
+    src={imgBuildingTheBuzzersWorkplace}
     alt="things with buzzers: The workplace to solder everything together."
     title="things with buzzers: The workplace to solder everything together." />
 
 <Figure
-    path="/src/assets/images/posts/things-with-buzzers-building-them/creating-the-pcb-prototype.jpg"
+    src={imgCreatingThePcbPrototype}
     alt="things with buzzers: Creating the custom printed circuit board."
     title="things with buzzers: Creating the custom printed circuit board." />
 
 <Figure
-    path="/src/assets/images/posts/things-with-buzzers-building-them/lars-hess-andy-grunwald-fixing-bugs.jpg"
+    src={imgLarsHessAndyGrunwaldFixingBugs}
     alt="things with buzzers: Lars Heß needs to fix Andy Grunwald's hardware bugs."
     title="things with buzzers: Lars Heß needs to fix Andy Grunwald's hardware bugs." />
 
 <Figure
-    path="/src/assets/images/posts/things-with-buzzers-building-them/coding-python-software-for-buzzers.jpg"
+    src={imgCodingPythonSoftwareForBuzzers}
     alt="things with buzzers: Coding session to figure out how different GPIO libraries work to catch buzzer signals."
     title="things with buzzers: Coding session to figure out how different GPIO libraries work to catch buzzer signals." />
 

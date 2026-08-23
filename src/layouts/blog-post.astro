@@ -4,7 +4,6 @@ import BaseLayout from "./BaseLayout.astro";
 import CategoryBadge from "../components/CategoryBadge.astro";
 import JsonLd from "../components/JsonLd.astro";
 import { formatDate } from "../lib/date";
-import { resolvePostImage } from "../lib/post-images";
 import { SITE_OG_IMAGE } from "../consts";
 import type { CollectionEntry } from "astro:content";
 
@@ -20,14 +19,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const title = `${content.title} - Andy Grunwald`;
 
-// First frontmatter image, resolved to an optimized asset when it has been
-// migrated into src/ (null while still a /public path or absent).
-const firstImage = content.images.length > 0 ? content.images[0] : null;
-const resolvedImage = firstImage ? await resolvePostImage(firstImage) : null;
-
-// Gate on the resolved asset, not the raw path: an unresolvable path used to
-// reach <Image> as null, which the types now reject outright.
-const headerImage = content.showHeaderImage ? resolvedImage : null;
+// The schema's image() helper already validated these at build time, so the
+// first entry is ImageMetadata rather than a path to resolve.
+const firstImage = content.images.at(0) ?? null;
+const headerImage = content.showHeaderImage ? firstImage : null;
 
 // Pre-existing, currently unused layout helpers (kept, marked intentional).
 let _imageWidthClass = "";
@@ -39,12 +34,7 @@ if (headerImage) {
 
 // Open graph / Twitter card image: prefer the optimized asset's URL, then the
 // raw path, then the default site card. MainHead absolutizes it via new URL().
-let metaTagImage = SITE_OG_IMAGE;
-if (resolvedImage) {
-  metaTagImage = resolvedImage.src;
-} else if (firstImage) {
-  metaTagImage = firstImage;
-}
+const metaTagImage = firstImage ? firstImage.src : SITE_OG_IMAGE;
 
 const blogPostingSchema = {
   "@context": "https://schema.org",

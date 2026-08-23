@@ -4,17 +4,20 @@ import { glob } from "astro/loaders";
 
 const blogPostsCollection = defineCollection({
   loader: glob({ pattern: "**/*.mdx", base: "./src/content/blog" }),
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    images: z.array(z.string()),
-    categories: z.array(z.string()),
-    keywords: z.array(z.string()),
-    tags: z.array(z.string()),
-    pubDate: z.date(),
-    lastmod: z.date(),
-    showHeaderImage: z.boolean(),
-  }),
+  // `image()` resolves each path relative to the entry and fails the build on a
+  // bad path, so posts get validated ImageMetadata instead of bare strings.
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      images: z.array(image()),
+      categories: z.array(z.string()),
+      keywords: z.array(z.string()),
+      tags: z.array(z.string()),
+      pubDate: z.date(),
+      lastmod: z.date(),
+      showHeaderImage: z.boolean(),
+    }),
 });
 
 const publicSpeakingCollection = defineCollection({
