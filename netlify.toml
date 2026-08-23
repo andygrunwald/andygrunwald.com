@@ -102,7 +102,7 @@ force = true
 
 [build]
 publish = "dist/"
-command = "astro build"
+command = "npm run build"
 
 [[plugins]]
 package = "netlify-purge-cloudflare-on-deploy"
