@@ -14,11 +14,9 @@ const { post } = Astro.props;
 <div class="flex flex-wrap items-center -mx-4 mb-20">
   <div class="w-full px-4">
     <div class="text-left">
-      {
-        post.data.categories.map((category) => (
-          <CategoryBadge category={category} />
-        ))
-      }
+      {post.data.categories.map((category) => (
+        <CategoryBadge category={category} />
+      ))}
       <h2 class="mb-4 text-3xl font-semibold font-heading">
         <a
           href={`/blog/${post.id}/`}
@@ -29,9 +27,9 @@ const { post } = Astro.props;
         </a>
       </h2>
       <span class="inline-block mb-6 text-sm text-gray-500">
-        <time class="date" datetime={post.data.pubDate.toISOString()}
-          >{formatDate(post.data.pubDate)}</time
-        >
+        <time class="date" datetime={post.data.pubDate.toISOString()}>
+          {formatDate(post.data.pubDate)}
+        </time>
       </span>
       <Markdown content={post.data.description} />
     </div>

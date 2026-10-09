@@ -35,20 +35,20 @@ const Heading = isFullListing ? "h1" : "h2";
       </p>
     </div>
 
-    {postsToShow.map((post) => <BlogPostPreview post={post} />)}
+    {postsToShow.map((post) => (
+      <BlogPostPreview post={post} />
+    ))}
 
-    {
-      !isFullListing && (
-        <div class="text-center">
-          <a
-            class="px-8 py-4 text-sm text-white font-semibold bg-red-400 hover:bg-red-300 rounded transition duration-200"
-            href="/blog/"
-            title="Blog of Andy Grunwald"
-          >
-            View all my writings
-          </a>
-        </div>
-      )
-    }
+    {!isFullListing && (
+      <div class="text-center">
+        <a
+          class="px-8 py-4 text-sm text-white font-semibold bg-red-400 hover:bg-red-300 rounded transition duration-200"
+          href="/blog/"
+          title="Blog of Andy Grunwald"
+        >
+          View all my writings
+        </a>
+      </div>
+    )}
   </div>
 </section>
