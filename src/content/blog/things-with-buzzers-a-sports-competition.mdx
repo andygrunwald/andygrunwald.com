@@ -42,7 +42,7 @@ import imgFinalGameShowBuzzerEventSetup from "../../assets/images/posts/things-w
 import imgScoreboardDuringRowingExercise from "../../assets/images/posts/things-with-buzzers-sports-competition/scoreboard-during-rowing-exercise.jpg";
 import imgScoreboardDuringWallballsExercise from "../../assets/images/posts/things-with-buzzers-sports-competition/scoreboard-during-wallballs-exercise.jpg";
 
-**tl;dr**: For the _[**things with-buzzers** series](https://github.com/andygrunwald/things-with-buzzers-hardware "things with buzzers hardware at GitHub")_ we created a frontend to run a sports competition at a local functional fitness gym. It stops the athlete's time and ranks them according to the fastest. It was an exceptional feeling to hit the buzzer at the end of the workout. Check it out at _[things with buzzers: sports competition](https://github.com/andygrunwald/things-with-buzzers-sports-competition "things with buzzer sport competition interface at GitHub")_.
+**tl;dr**: For the _[**things with buzzers** series](https://github.com/andygrunwald/things-with-buzzers-hardware "things with buzzers hardware at GitHub")_ we created a frontend to run a sports competition at a local functional fitness gym. It stops the athlete's time and ranks them according to the fastest. It was an exceptional feeling to hit the buzzer at the end of the workout. Check it out at _[things with buzzers: sports competition](https://github.com/andygrunwald/things-with-buzzers-sports-competition "things with buzzer sport competition interface at GitHub")_.
 
 <Figure
     src={imgThingsWithBuzzersSportsCompetitionInterface}
@@ -55,14 +55,14 @@ import imgScoreboardDuringWallballsExercise from "../../assets/images/posts/thin
 
 ## things with buzzers
 
-Inspired by [Hacker Jeopardy](https://media.ccc.de/search/?q=Hacker+Jeopardy "Hacker Jeopardy from the Chaos Computer Club") from the [Chaos Computer Club](https://www.ccc.de/en/ "Chaos Computer Club"), we got motivated to build a Jeopardy! Game and have fun with friends and colleagues.
-We 3d-printed game show buzzers, created a custom printed circuit board, and wrote software to connect with the hardware to be able to play games like Jeopardy!
+Inspired by [Hacker Jeopardy](https://media.ccc.de/search/?q=Hacker+Jeopardy "Hacker Jeopardy from the Chaos Computer Club") from the [Chaos Computer Club](https://www.ccc.de/en/ "Chaos Computer Club"), we got motivated to build a Jeopardy! game and have fun with friends and colleagues.
+We 3D-printed game show buzzers, created a custom printed circuit board, and wrote software to connect with the hardware to be able to play games like Jeopardy!
 
 Finally, we **open-sourced everything**.
 Check out the **things with buzzers** series **_[hardware](https://github.com/andygrunwald/things-with-buzzers-hardware "things with buzzers hardware at GitHub")_, _[websocket](https://github.com/andygrunwald/things-with-buzzers-websocket "things with buzzers WebSocket software at GitHub")_ and _[the Jeopardy! game show interface](https://github.com/andygrunwald/things-with-buzzers-jeopardy "things with buzzers Jeopardy! Game software at GitHub")_**.
 
 During the process of building it, a friend of mine approached me with an idea: Can we re-use the technology for a sports event?
-Why not giving it a try?
+Why not give it a try?
 This article is about a **frontend for sports competitions**.
 For more context about the hardware, I recommend reading the [things with buzzers: building them](/blog/things-with-buzzers-building-your-own-game-show-buzzers/ "things with buzzers: building your game-show buzzers") article.
 
@@ -75,23 +75,23 @@ For more context about the hardware, I recommend reading the [things with buzzer
 
 We built this frontend from scratch with the primary goal to automate manual effort of collecting athlete times and ranking them.
 The idea was to have a stopwatch to see who is the fastest athlete.
-On previous events, this was done manually with pen and paper.
+At previous events, this was done manually with pen and paper.
 
 Here is how it works:
 Athletes are starting in groups (so-called _heats_) of four.
-Every heat has a stopwatch that needs to be triggered manually once the heats start.
-Every athlete got a color assigned (visible next to the athlete's name on the scoreboard).
-Once the athlete completes the workout, she has to hit on the assigned buzzer color.
+Every heat has a stopwatch that needs to be triggered manually once the heat starts.
+Every athlete gets a color assigned (visible next to the athlete's name on the scoreboard).
+Once the athlete completes the workout, she has to hit the assigned buzzer color.
 By this, the time of the athlete will be stopped and shown on the scoreboard.
 All athletes are getting ranked according to their time.
 The fastest athlete wins.
 
-During the events, the set up works flawlessly.
+During the events, the setup worked flawlessly.
 A positive surprise: We underestimated how much fun it is for the athletes to hit the buzzer and stop their time at the end of an exhausting workout.
 I attended as well and tried it myself.
 Hitting the buzzer feels like a relief.
 
-The frontend itself is a static HTML page and a few lines of JavaScript with JQuery.
+The frontend itself is a static HTML page and a few lines of JavaScript with jQuery.
 The web server will serve the website, and the WebSocket server sends the buzzer pushes.
 
 ## Start your sports event today
@@ -102,8 +102,8 @@ The repository contains all instructions you need to set it up, create your work
 
 ## Impression of the events
 
-In the meantime, we used the setup already twice in a local function fitness gym.
-Below you find a few insights from the events.
+In the meantime, we have already used the setup twice in a local functional fitness gym.
+Below you will find a few insights from the events.
 
 <Figure
     src={imgInstallationOfSelfMadeGameShowBuzzer}
@@ -112,8 +112,8 @@ Below you find a few insights from the events.
 
 <Figure
     src={imgFinalGameShowBuzzerEventSetup}
-    alt="Final game show buzzer set up. Ready to go."
-    title="Final game show buzzer set up. Ready to go." />
+    alt="Final game show buzzer setup. Ready to go."
+    title="Final game show buzzer setup. Ready to go." />
 
 <Figure
     src={imgScoreboardDuringRowingExercise}

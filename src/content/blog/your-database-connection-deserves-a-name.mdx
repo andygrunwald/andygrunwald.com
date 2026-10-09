@@ -54,12 +54,12 @@ import imgRabbitmqConnectionClientName from "../../assets/images/posts/your-data
 **tl;dr**:
 In my last eight years working mainly on the scalability and reliability of [trivago](https://www.trivago.com/), I was involved in many outages where overloaded databases have been the root cause.
 Debugging these incidents is often not straightforward,
-primarily when multiple apps interact with the same database.
-**Assigning a name to each database connection** make a difference here.
-It will reduce the time to debug by multiple hours and finding the root cause faster.
+especially when multiple apps interact with the same database.
+**Assigning a name to each database connection** makes a difference here.
+It will reduce the time to debug by multiple hours and find the root cause faster.
 From the perspective of the database, you can differentiate the apps and their commands to identify the bad client.
 
-➡️ Want to see how it works? Checkout examples for
+➡️ Want to see how it works? Check out examples for
 [MongoDB](#how-to-assign-a-name-to-your-mongodb-connection), 
 [MSSQL / SQL-Server](#how-to-assign-a-name-to-your-mssql--sql-server-connection), 
 [MySQL](#how-to-assign-a-name-to-your-mysql-connection), 
@@ -101,7 +101,7 @@ In my last eight years working mainly on the scalability and reliability of [tri
 
 * [blocked and unresponsive Redis instances](https://tech.trivago.com/2017/01/25/learn-redis-the-hard-way-in-production/ "Learn Redis the hard way (in production) @ trivago tech blog")
 * blocked database tables due to inefficient queries
-* overloaded database servers due to raising traffic and query volumes
+* overloaded database servers due to rising traffic and query volumes
 * services that receive a large number of HTTP requests from unknown sources
 
 In all cases, identifying the client responsible for the trouble was the main entry point for the final solution.
@@ -118,7 +118,7 @@ Identifying all clients can help you achieve your goal quicker.
 In this case, the alternatives to connection naming would be:
 
 * Asking around "_Who is using the old currency conversion service?_" in the company chat
-* Shutting down the service and wait until other applications crash or people start to scream why something is not working as expected
+* Shutting down the service and waiting until other applications crash or people start to scream why something is not working as expected
 
 Both alternatives can be professionally solved with connection naming.
 
@@ -138,7 +138,7 @@ In case of trouble, the administrator can reach out.
 ## How to assign a name to a database connection
 
 This is different for each system.
-Below you find instructions for
+Below you will find instructions for
 
 - [MongoDB](#how-to-assign-a-name-to-your-mongodb-connection)
 - [MSSQL / SQL-Server](#how-to-assign-a-name-to-your-mssql--sql-server-connection)
@@ -147,7 +147,7 @@ Below you find instructions for
 - [PostgreSQL](#how-to-assign-a-name-to-your-postgresql-connection)
 - [redis](#how-to-assign-a-name-to-your-redis-connection)
 
-Non-database systems like Message Queues or HTTP based APIs also support connection naming:
+Non-database systems like Message Queues or HTTP-based APIs also support connection naming:
 
 - [NATS](#how-to-assign-a-name-to-your-nats-connection)
 - [RabbitMQ](#how-to-assign-a-name-to-your-rabbitmq-connection)
@@ -159,7 +159,7 @@ For systems that support user authentication, using separate user accounts for e
 
 Once **connection naming is supported**, it is usually **straightforward to implement without any engineering overhead**.
 
-In [andygrunwald/your-connection-deserves-a-name @ Github](https://github.com/andygrunwald/your-connection-deserves-a-name "Code examples on how to name a connection for Redis, RabbitMQ, PostgreSQL and more") I provide complete examples for different programming languages and systems on how to assign a name to a connection.
+In [andygrunwald/your-connection-deserves-a-name @ GitHub](https://github.com/andygrunwald/your-connection-deserves-a-name "Code examples on how to name a connection for Redis, RabbitMQ, PostgreSQL and more") I provide complete examples for different programming languages and systems on how to assign a name to a connection.
 
 ### How to assign a name to your _MongoDB_ connection
 
@@ -193,7 +193,7 @@ or check the server logs:
 }
 ```
 
-➡️ Checkout [screenshots and code examples for MongoDB at Github](https://github.com/andygrunwald/your-connection-deserves-a-name/tree/main/mongodb).
+➡️ Check out [screenshots and code examples for MongoDB at GitHub](https://github.com/andygrunwald/your-connection-deserves-a-name/tree/main/mongodb).
 
 🙏 Thanks to [Andreas Braun](https://twitter.com/alcaeus), who pointed me to this feature in MongoDB.
 
@@ -240,7 +240,7 @@ hostname       program_name                  loginame       cmd
 lap-dev        currency-conversion-app       sa             AWAITING COMMAND
 ```
 
-➡️ Checkout [the code examples for MSSQL / SQL-Server at Github](https://github.com/andygrunwald/your-connection-deserves-a-name/tree/main/mssql).
+➡️ Check out [the code examples for MSSQL / SQL-Server at GitHub](https://github.com/andygrunwald/your-connection-deserves-a-name/tree/main/mssql).
 
 ### How to assign a name to your _MySQL_ connection
 
@@ -248,7 +248,7 @@ While creating a [connection to MySQL, you can set connection attributes](https:
 Depending on the client library, this is either part of the data source name (DSN) or provided via a function call (mostly setting a kind of `set_option`).
 
 For the application name, the connection attribute `program_name` is suggested.
-Applications like [ProxySQL](https://github.com/sysown/proxysql/blob/5ede60ec9fb4217095fcf792c07cc515c195ea5f/lib/mysql_connection.cpp#L633) and [MySQL Workbench](https://github.com/mysql/mysql-workbench/blob/5e10b42aa539155128bd97d54ed2cdd7ca283b34/plugins/migration/copytable/copytable.cpp#L1799) using the same feature to identify themselves against the MySQL server.
+Applications like [ProxySQL](https://github.com/sysown/proxysql/blob/5ede60ec9fb4217095fcf792c07cc515c195ea5f/lib/mysql_connection.cpp#L633) and [MySQL Workbench](https://github.com/mysql/mysql-workbench/blob/5e10b42aa539155128bd97d54ed2cdd7ca283b34/plugins/migration/copytable/copytable.cpp#L1799) use the same feature to identify themselves against the MySQL server.
 
 Here is an example in Python with the [PyMySQL library](https://pypi.org/project/PyMySQL/):
 
@@ -264,7 +264,7 @@ client = pymysql.connect(
 )
 ```
 
-To see which clients are connected, you can query the [`performance_schema`](https://dev.mysql.com/doc/refman/8.0/en/performance-schema.html) and [`information_schema`](https://dev.mysql.com/doc/refman/8.0/en/information-schema.html) schema:
+To see which clients are connected, you can query the [`performance_schema`](https://dev.mysql.com/doc/refman/8.0/en/performance-schema.html) and [`information_schema`](https://dev.mysql.com/doc/refman/8.0/en/information-schema.html) schemas:
 
 ```sql
 SELECT
@@ -285,7 +285,7 @@ program_name        | ID | USER | HOST             | DB    | [...]
 unit-conversion-app | 11 | root | 172.17.0.1:56382 | dummy | [...]
 ```
 
-➡️ Checkout [screenshots and code examples for MySQL at Github](https://github.com/andygrunwald/your-connection-deserves-a-name/tree/main/mysql).
+➡️ Check out [screenshots and code examples for MySQL at GitHub](https://github.com/andygrunwald/your-connection-deserves-a-name/tree/main/mysql).
 
 🙏 Thanks to [Johannes Schlüter](https://twitter.com/johannescode), who pointed me to this feature in MySQL.
 
@@ -329,13 +329,13 @@ USERNAME        CLIENT_IDENTIFIER         MODULE          ACTION          SQL_TE
 DEMO            currency-conversion-app   oracle/go       main            SELECT sysdate FROM dual
 ```
 
-➡️ Checkout [code examples for Oracle at Github](https://github.com/andygrunwald/your-connection-deserves-a-name/tree/main/oracle).
+➡️ Check out [code examples for Oracle at GitHub](https://github.com/andygrunwald/your-connection-deserves-a-name/tree/main/oracle).
 
 🙏 Thanks to [Gerald Venzl](https://twitter.com/GeraldVenzl), who pointed me in the right direction with his information.
 
 ### How to assign a name to your _PostgreSQL_ connection
 
-While creating a connection to [PostgreSQL](https://www.postgresql.org/), you can provide a [`application_name`](https://www.postgresql.org/docs/9.0/runtime-config-logging.html#GUC-APPLICATION-NAME) in the data source name (DSN):
+While creating a connection to [PostgreSQL](https://www.postgresql.org/), you can provide an [`application_name`](https://www.postgresql.org/docs/9.0/runtime-config-logging.html#GUC-APPLICATION-NAME) in the data source name (DSN):
 
 ```go
 dsn := "postgres://user:pass@127.0.0.1/database?application_name=currency-conversion-app"
@@ -353,7 +353,7 @@ postgres=# SELECT usename, application_name, client_addr, backend_type FROM pg_s
  postgres | currency-conversion-app  | 172.17.0.1  | client backend
 ```
 
-➡️ Checkout [screenshots and code examples for PostgreSQL at Github](https://github.com/andygrunwald/your-connection-deserves-a-name/tree/main/postgresql).
+➡️ Check out [screenshots and code examples for PostgreSQL at GitHub](https://github.com/andygrunwald/your-connection-deserves-a-name/tree/main/postgresql).
 
 ### How to assign a name to your _redis_ connection
 
@@ -371,13 +371,13 @@ id=3 addr=172.17.0.1:62668 name=currency-conversion-app [...]
 id=4 addr=172.17.0.1:62676 name=stock-exchange-rates-app [...]
 ```
 
-➡️ Checkout [screenshots and code examples for redis at Github](https://github.com/andygrunwald/your-connection-deserves-a-name/tree/main/redis).
+➡️ Check out [screenshots and code examples for redis at GitHub](https://github.com/andygrunwald/your-connection-deserves-a-name/tree/main/redis).
 
 ### How to assign a name to your _NATS_ connection
 
-While creating a connection to [NATS](https://nats.io/), you can provide [client connection name](https://docs.nats.io/using-nats/developer/connecting/name "Connection Name @ NATS docs").
+While creating a connection to [NATS](https://nats.io/), you can provide a [client connection name](https://docs.nats.io/using-nats/developer/connecting/name "Connection Name @ NATS docs").
 
-This is how it looks like in Go:
+This is how it looks in Go:
 
 ```go
 client, err := nats.Connect("nats://127.0.0.1:4222", nats.Name("currency-conversion-app"))
@@ -402,7 +402,7 @@ $ curl http://127.0.0.1:8222/connz
 }
 ```
 
-➡️ Checkout [screenshots and code examples for NATS at Github](https://github.com/andygrunwald/your-connection-deserves-a-name/tree/main/nats).
+➡️ Check out [screenshots and code examples for NATS at GitHub](https://github.com/andygrunwald/your-connection-deserves-a-name/tree/main/nats).
 
 🙏 Thanks to [Waldemar Quevedo](https://twitter.com/wallyqs), who integrated NATS [via Pull Request](https://github.com/andygrunwald/your-connection-deserves-a-name/pull/2).
 
@@ -411,7 +411,7 @@ $ curl http://127.0.0.1:8222/connz
 While creating a connection to [RabbitMQ](https://www.rabbitmq.com/), you can provide AMQP options.
 One of the options is [`connection_name`](https://www.rabbitmq.com/connections.html#client-provided-names "AMQP Client-Provided Connection Name @ RabbitMQ docs").
 
-This is how it looks like in Go:
+This is how it looks in Go:
 
 ```go
 config := amqp.Config{
@@ -426,14 +426,14 @@ In the UI of Rabbit under the Connection tab, you can see all connected clients,
 
 <Figure
     src={imgRabbitmqConnectionClientName}
-    alt="RabbitMQ Connections: Showing clients name under the IP address"
-    title="RabbitMQ Connections: Showing clients name under the IP address" />
+    alt="RabbitMQ Connections: Showing client names under the IP address"
+    title="RabbitMQ Connections: Showing client names under the IP address" />
 
-➡️ Checkout [screenshots and code examples for RabbitMQ at Github](https://github.com/andygrunwald/your-connection-deserves-a-name/tree/main/rabbitmq).
+➡️ Check out [screenshots and code examples for RabbitMQ at GitHub](https://github.com/andygrunwald/your-connection-deserves-a-name/tree/main/rabbitmq).
 
 ### How to assign a name to your _HTTP_ connection
 
-The [User-Agent HTTP header field](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent "User-Agent at Mozilla Developer Network") was explicitly created for this use-case:
+The [User-Agent HTTP header field](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent "User-Agent at Mozilla Developer Network") was explicitly created for this use case:
 
 <Quote>
     [...] string that lets servers and network peers identify the application, operating system, vendor, and/or version [...]
