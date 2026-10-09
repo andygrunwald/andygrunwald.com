@@ -1,0 +1,129 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { formatShortDate } from "../lib/date";
+
+const title = "Speaking by Andy Grunwald - Talks at conferences and meetups";
+const description =
+  "Conference and meetup talks by Andy Grunwald on containers in production, Redis, code quality and open source.";
+
+const appearances = (await getCollection("speaking")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+// The same talk was given at several events, and that repetition is the point:
+// a talk is a thing that tours. Grouping by title says so; a flat list of nine
+// rows would hide it.
+const talks = [
+  ...new Map(appearances.map((a) => [a.data.title, []])).keys(),
+].map((talkTitle) => ({
+  title: talkTitle,
+  stops: appearances.filter((a) => a.data.title === talkTitle),
+}));
+
+const cities = new Set(appearances.map((a) => a.data.city));
+const years = appearances.map((a) => a.data.date.getFullYear());
+
+const summary = [
+  `${appearances.length} appearances`,
+  `${talks.length} talks`,
+  `${cities.size} cities`,
+  `${Math.min(...years)}–${Math.max(...years)}`,
+];
+
+// Only render a link row when the entry actually has something behind it.
+const linkFields = [
+  { key: "slides", label: "Slides" },
+  { key: "videolink", label: "Video" },
+  { key: "twittermoments", label: "Reactions" },
+  { key: "ratinglink", label: "Ratings" },
+] as const;
+---
+
+<BaseLayout {title} {description}>
+  <section class="py-20">
+    <div class="container px-4 mx-auto">
+      <div class="mb-16 max-w-3xl">
+        <h1 class="mt-8 mb-10 text-4xl font-semibold font-heading">
+          things i talked about
+        </h1>
+        <p class="text-xl text-gray-500">
+          Talks I gave at conferences and meetups, mostly about running
+          containers and databases in production. A talk is rarely given once,
+          so they are grouped by topic with every stage it reached underneath.
+        </p>
+      </div>
+
+      <ul
+        class="flex flex-wrap gap-x-8 gap-y-2 mb-20 text-xs font-semibold uppercase tracking-widest text-gray-500 tabular-nums"
+      >
+        {summary.map((item) => <li>{item}</li>)}
+      </ul>
+
+      <div class="max-w-4xl">
+        {
+          talks.map((talk) => (
+            <article class="mb-16">
+              <h2 class="mb-6 text-2xl font-semibold font-heading">
+                {talk.title}
+              </h2>
+
+              <ol class="border-l border-gray-200">
+                {talk.stops.map((stop) => (
+                  <li class="relative pl-6 pb-8 last:pb-0">
+                    {/* Marker sits on the rule so the stops read as one route. */}
+                    <span
+                      class="absolute left-0 top-2 -translate-x-1/2 w-2 h-2 rounded-full bg-red-400"
+                      aria-hidden="true"
+                    />
+
+                    <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                      <h3 class="text-lg font-semibold">
+                        {stop.data.eventlink ? (
+                          <a
+                            href={stop.data.eventlink}
+                            class="hover:underline hover:text-red-300"
+                          >
+                            {stop.data.eventtitle}
+                          </a>
+                        ) : (
+                          stop.data.eventtitle
+                        )}
+                      </h3>
+                      <span class="inline-block text-xs px-2 py-1 bg-blue-50 rounded uppercase text-blue-400 font-semibold">
+                        {stop.data.eventtype}
+                      </span>
+                    </div>
+
+                    <p class="mt-1 text-sm text-gray-500 tabular-nums">
+                      <time datetime={stop.data.date.toISOString()}>
+                        {formatShortDate(stop.data.date)}
+                      </time>
+                      {" · "}
+                      {stop.data.city}, {stop.data.country}
+                    </p>
+
+                    <ul class="flex flex-wrap gap-x-4 mt-2">
+                      {linkFields.map(({ key, label }) =>
+                        stop.data[key] ? (
+                          <li>
+                            <a
+                              href={stop.data[key]}
+                              class="text-sm font-medium text-red-400 hover:underline"
+                            >
+                              {label}
+                            </a>
+                          </li>
+                        ) : null,
+                      )}
+                    </ul>
+                  </li>
+                ))}
+              </ol>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

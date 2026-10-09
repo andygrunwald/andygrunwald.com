@@ -1,0 +1,158 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { formatShortDate } from "../lib/date";
+import { getSortedBlogPosts } from "../lib/blog";
+
+const title = "Projects by Andy Grunwald - Communities and events";
+const description =
+  "Side projects by Andy Grunwald: the Web Engineering Meetup Düsseldorf and the localhost conference.";
+
+// The blogposts field holds absolute URLs to this site, so the real post
+// titles can be recovered instead of showing a bare count or a slug.
+const blogPosts = await getSortedBlogPosts();
+const postByPath = new Map(
+  blogPosts.map((post) => [`/blog/${post.id}/`, post]),
+);
+
+const entries = (await getCollection("project")).sort(
+  (a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf(),
+);
+
+// These projects differ mostly in how long they ran: eleven years against a
+// single day. Plotting them on one shared axis makes that the first thing you
+// see, rather than a fact buried in two date fields.
+const axisStart = new Date(
+  Math.min(...entries.map((e) => e.data.startDate.valueOf())),
+);
+const axisEnd = new Date(
+  Math.max(...entries.map((e) => e.data.endDate.valueOf())),
+);
+const axisSpan = axisEnd.valueOf() - axisStart.valueOf();
+
+const DAY = 1000 * 60 * 60 * 24;
+
+function span(startDate: Date, endDate: Date) {
+  const offset = (startDate.valueOf() - axisStart.valueOf()) / axisSpan;
+  const days = Math.round((endDate.valueOf() - startDate.valueOf()) / DAY);
+  const years = Math.round(days / 365);
+  return {
+    left: `${offset * 100}%`,
+    // Floor the width so a single-day project stays visible as a tick.
+    width: `max(0.5rem, ${((endDate.valueOf() - startDate.valueOf()) / axisSpan) * 100}%)`,
+    duration:
+      days < 2 ? "one day" : years < 1 ? `${days} days` : `${years} years`,
+  };
+}
+
+function relatedPosts(urls: string[]) {
+  return urls
+    .map((url) => postByPath.get(new URL(url).pathname))
+    .filter((post) => post !== undefined);
+}
+
+function labelFor(url: string) {
+  return new URL(url).hostname.replace(/^www\./, "");
+}
+---
+
+<BaseLayout {title} {description}>
+  <section class="py-20">
+    <div class="container px-4 mx-auto">
+      <div class="mb-16 max-w-3xl">
+        <h1 class="mt-8 mb-10 text-4xl font-semibold font-heading">
+          things i ran
+        </h1>
+        <p class="text-xl text-gray-500">
+          Communities and events I started or organised. They are laid out on a
+          shared timeline, because what separates them is mostly how long they
+          lasted.
+        </p>
+      </div>
+
+      <div class="max-w-4xl">
+        <div
+          class="flex justify-between mb-2 text-xs font-semibold uppercase tracking-widest text-gray-500 tabular-nums"
+        >
+          <span>{axisStart.getFullYear()}</span>
+          <span>{axisEnd.getFullYear()}</span>
+        </div>
+        <div class="h-px bg-gray-200 mb-12"></div>
+
+        {
+          entries.map((entry) => {
+            const bar = span(entry.data.startDate, entry.data.endDate);
+            return (
+              <article class="mb-16 pb-16 border-b border-gray-100 last:border-b-0">
+                <h2 class="mb-4 text-2xl font-semibold font-heading">
+                  <a
+                    href={entry.data.website}
+                    class="hover:underline hover:text-red-300"
+                  >
+                    {entry.data.name}
+                  </a>
+                </h2>
+
+                {/* Decorative: the same information is written out below it. */}
+                <div
+                  class="relative h-2 mb-3 rounded-full bg-gray-100"
+                  aria-hidden="true"
+                >
+                  <div
+                    class="absolute h-2 rounded-full bg-red-400"
+                    style={`left: ${bar.left}; width: ${bar.width};`}
+                  />
+                </div>
+
+                <p class="mb-6 text-sm text-gray-500 tabular-nums">
+                  <time datetime={entry.data.startDate.toISOString()}>
+                    {formatShortDate(entry.data.startDate)}
+                  </time>
+                  {" – "}
+                  <time datetime={entry.data.endDate.toISOString()}>
+                    {formatShortDate(entry.data.endDate)}
+                  </time>
+                  {" · "}
+                  {bar.duration}
+                </p>
+
+                <ul class="flex flex-wrap gap-x-4 gap-y-2">
+                  {[entry.data.website, ...entry.data.links].map((link) => (
+                    <li>
+                      <a
+                        href={link}
+                        class="text-sm font-medium text-red-400 hover:underline"
+                      >
+                        {labelFor(link)}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+
+                {relatedPosts(entry.data.blogposts).length > 0 && (
+                  <div class="mt-8">
+                    <h3 class="mb-3 text-xs font-semibold uppercase tracking-widest text-gray-500">
+                      Wrote about it
+                    </h3>
+                    <ul>
+                      {relatedPosts(entry.data.blogposts).map((post) => (
+                        <li class="mb-1">
+                          <a
+                            href={`/blog/${post.id}/`}
+                            class="text-sm text-gray-500 hover:underline hover:text-red-300"
+                          >
+                            {post.data.title}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </article>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
