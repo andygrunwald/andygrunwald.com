@@ -1,6 +1,6 @@
 ---
 title: "Migrate your local PHP 7.2 setup to Homebrew v1.5"
-description: "Homebrew v1.5 changed the way how the PHP programming language packages are installed. This blog post is a small guide on how you migrate your local Homebrew PHP setup while updating to Homebrew v1.5."
+description: "Homebrew v1.5 changed the way the PHP programming language packages are installed. This blog post is a small guide on how you migrate your local Homebrew PHP setup while updating to Homebrew v1.5."
 images: []
 categories: [
     "Open Source",
@@ -26,7 +26,7 @@ showHeaderImage: false
 ---
 import UpdateBox from '../../components/UpdateBox.astro';
 
-Last week, [Hans Puac](https://twitter.com/hanspuac "Hans Puac at twitter"), a colleague of mine, wrote a small guide into our internal company chat on how to migrate your local PHP environment on macOS to the new Homebrew version 1.5.*.
+Last week, [Hans Puac](https://twitter.com/hanspuac "Hans Puac at twitter"), a colleague of mine, wrote a small guide in our internal company chat on how to migrate your local PHP environment on macOS to the new Homebrew version 1.5.*.
 The guide helped a lot of other engineers inside [trivago](https://www.trivago.com/ "trivago").
 
 I thought it might help more people from the internet.
@@ -36,7 +36,7 @@ So kudos belongs to him.
 <UpdateBox>
     **Update (July 2021): Homebrew project structure changed**
 
-    Due to a new homebrew / tap structure, this article might not be up to date anymore.
+    Due to a new Homebrew / tap structure, this article might not be up to date anymore.
     Please check out the latest state of the [PHP Homebrew formula](https://formulae.brew.sh/formula/php "PHP Homebrew formula").
 </UpdateBox>
 
@@ -92,7 +92,7 @@ below.
 
 ## 5. Install Extensions
 
-The `intl` is now already built-in.
+The `intl` extension is now already built-in.
 Install all other required extensions via [PECL](https://pecl.php.net/) (gets installed together with PHP).
 
 Installation via pecl requires autoconf (`brew install autoconf`):
@@ -107,13 +107,13 @@ pecl install imagick
 
 ### Particular version of an extension
 
-If your app depends on a particular version of an extension, e.g. [redis in v3.1.6](https://pecl.php.net/package/redis "PECL Redis Extension")
+If your app depends on a particular version of an extension, e.g. [redis in v3.1.6](https://pecl.php.net/package/redis "PECL Redis Extension"),
 specify the version explicitly via `pecl install redis-3.1.6`.
 
 ### Extension `snmp`
 
 If you rely on the [SNMP Extension](https://www.php.net/manual/en/book.snmp.php "PHP SNMP Extension"), I have to disappoint you right now.
-This extension is, state of now (2018-04-10), not part of this PHP build:
+This extension is, as of now (2018-04-10), not part of this PHP build:
 
     SNMP was excluded from the build because it crashes Apache.
 
@@ -144,7 +144,7 @@ Example Warnings:
 - `PHP Warning:  Module '[some module]' already loaded in Unknown on line 0`
 - `PHP Warning:  PHP Startup: Unable to load dynamic library '[some module]' ([...]) in Unknown on line 0`
 
-During the installation of an extension, pecl adds the extension to the `php.ini` file but not removing it
+During the installation of an extension, pecl adds the extension to the `php.ini` file but does not remove it
 during uninstall. In this case, edit your `php.ini` manually and remove deprecated `extension="[some module]"` lines.
 
 
