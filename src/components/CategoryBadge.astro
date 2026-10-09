@@ -4,8 +4,27 @@ export interface Props {
 }
 
 const { category } = Astro.props;
+
+// Full class names are required so Tailwind can detect them in the source.
+const colors: Record<string, string> = {
+  Security: "bg-red-100 text-red-700",
+  Community: "bg-orange-100 text-orange-700",
+  Meetups: "bg-yellow-100 text-yellow-700",
+  Productivity: "bg-lime-100 text-lime-700",
+  "Open Source": "bg-emerald-100 text-emerald-700",
+  Engineering: "bg-sky-100 text-sky-700",
+  "Public Speaking": "bg-indigo-100 text-indigo-700",
+  "Lessons Learned": "bg-violet-100 text-violet-700",
+  "Side Project": "bg-fuchsia-100 text-fuchsia-700",
+  Reading: "bg-teal-100 text-teal-700",
+  Hardware: "bg-slate-100 text-slate-700",
+};
+
+const color = colors[category] ?? "bg-blue-50 text-blue-400";
 ---
 
-<span class="inline-block mb-3 mr-2 text-xs px-2 py-1 bg-blue-50 rounded uppercase text-blue-400 font-semibold">
+<span
+  class={`inline-block mb-3 mr-2 text-xs px-2 py-1 rounded uppercase font-semibold ${color}`}
+>
   {category}
 </span>
