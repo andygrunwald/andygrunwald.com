@@ -18,7 +18,7 @@ export async function GET(context) {
   return rss({
     title: "Andy Grunwald (andygrunwald.com)",
     description:
-      "Software Engineer and Engineering Manager. Open Source enthusiast with a passion for Backend, Infrastructure, Reliability and Engineering Culture.",
+      "Engineering Manager and Software Engineer. Open Source enthusiast with a passion for Backend, Infrastructure, Reliability and Engineering Culture.",
     site: context.site,
     stylesheet: "/rss/styles.xsl",
     items: blogPosts.map((post) => ({
