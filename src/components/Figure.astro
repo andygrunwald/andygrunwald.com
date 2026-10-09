@@ -14,17 +14,13 @@ const { src, title, alt, link } = Astro.props;
 
 <div class="mb-10">
   <figure>
-    {
-      link ? (
-        <a href={link}>
-          <Image {src} {alt} {title} layout="constrained" class="rounded-lg" />
-        </a>
-      ) : (
+    {link ? (
+      <a href={link}>
         <Image {src} {alt} {title} layout="constrained" class="rounded-lg" />
-      )
-    }
-    <figcaption>
-      {title}
-    </figcaption>
+      </a>
+    ) : (
+      <Image {src} {alt} {title} layout="constrained" class="rounded-lg" />
+    )}
+    <figcaption>{title}</figcaption>
   </figure>
 </div>
