@@ -1,6 +1,6 @@
 ---
 title: "things with buzzers: building your own game-show buzzers"
-description: "We built our own game show buzzers with the help of a raspberry pi, a 3d printer, and some software. Here is all you need to create your own game show buzzers."
+description: "We built our own game show buzzers with the help of a Raspberry Pi, a 3D printer, and some software. Here is all you need to create your own game show buzzers."
 images: [
     "../../assets/images/posts/things-with-buzzers-building-them/game-show-buzzers-raspberry-pi.jpg",
     "../../assets/images/posts/things-with-buzzers-building-them/architecture-raspberry-pi-websocket-usb-game-show-buzzer-setup.png",
@@ -48,11 +48,11 @@ Start today, and build your own!
 
 <Figure
     src={imgGameShowBuzzersRaspberryPi}
-    alt="things with buzzers: The final result - four game show buzzers, a raspberry pi, and a custom printed circuit board."
-    title="things with buzzers: The final result - four game show buzzers, a raspberry pi, and a custom printed circuit board." />
+    alt="things with buzzers: The final result - four game show buzzers, a Raspberry Pi, and a custom printed circuit board."
+    title="things with buzzers: The final result - four game show buzzers, a Raspberry Pi, and a custom printed circuit board." />
 
 <UpdateBox>
-    If you like this article, you might want to read [things with buzzers: playing Jeopardy!](/blog/things-with-buzzers-playing-a-jeopardy-game/ "Playing Jeopardy! with self-made game show buzzers") and [things with buzzers: a sports competition](/blog/things-with-buzzers-building-your-own-game-show-buzzers/ "Running a local fitness compatition with self-made game show buzzers") as well.
+    If you like this article, you might want to read [things with buzzers: playing Jeopardy!](/blog/things-with-buzzers-playing-a-jeopardy-game/ "Playing Jeopardy! with self-made game show buzzers") and [things with buzzers: a sports competition](/blog/things-with-buzzers-building-your-own-game-show-buzzers/ "Running a local fitness competition with self-made game show buzzers") as well.
 </UpdateBox>
 
 ## Why we did it
@@ -87,10 +87,10 @@ The _[(3) hardware](https://github.com/andygrunwald/things-with-buzzers-hardware
 The buzzers connect via USB sockets to a [Raspberry Pi](https://www.raspberrypi.org/ "Raspberry Pi") (Pi).
 A PCB was built and placed onto the GPIO of the Pi (a so-called _hat_).
 
-The _[(2) websocket](https://github.com/andygrunwald/things-with-buzzers-websocket "things with buzzers WebSocket software at GitHub")_ part is a software installed on the Pi.
+The _[(2) websocket](https://github.com/andygrunwald/things-with-buzzers-websocket "things with buzzers WebSocket software at GitHub")_ part is software installed on the Pi.
 It does two things:
 
-1. Listen to the GPIO for signals and transforms them into "a buzzer was pushed" activity.
+1. Listen to the GPIO for signals and transform them into "a buzzer was pushed" activity.
 2. Host a webserver to serve static files and a WebSocket server to push out the buzzer-push signals to clients.
 
 The _(1) frontends_ (e.g., [Jeopardy!](https://github.com/andygrunwald/things-with-buzzers-jeopardy "things with buzzers Jeopardy game software at GitHub") or [a sports competition scoreboard](https://github.com/andygrunwald/things-with-buzzers-sports-competition "things with buzzers fitness competition scoreboard at GitHub")) can be either static single-page apps served by the webserver or applications written in a language of your choice installed on the Pi.
@@ -138,6 +138,6 @@ Here are a few insights:
 ## Credits
 
 A big **thank you** to [Lars](https://twitter.com/derebbe "Lars Heß at twitter") and [Matthias](https://twitter.com/matthiasendler "Matthias Endler at twitter").
-Without them, this project would not happen.
+Without them, this project would not have happened.
 Lars has designed and built the complete hardware.
 Matthias helped a lot with the software and motivation part. 😀
