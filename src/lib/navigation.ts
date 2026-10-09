@@ -5,7 +5,7 @@ export interface NavigationLink {
 }
 
 export const navigationLinks: NavigationLink[] = [
-  { label: "✍️ Blog", href: "/blog/", title: "Blog of Andy Grunwald" },
+  { label: "✍️ Blog", href: "/blog/", title: "Blog by Andy Grunwald" },
   { label: "👨‍🔬 About", href: "/about/", title: "About Andy Grunwald" },
   {
     label: "🎙️ Engineering Kiosk Podcast",

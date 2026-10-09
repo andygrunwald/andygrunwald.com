@@ -2,6 +2,7 @@ import rss from "@astrojs/rss";
 import MarkdownIt from "markdown-it";
 import sanitizeHtml from "sanitize-html";
 import { getSortedBlogPosts } from "../lib/blog";
+import { SITE_DESCRIPTION } from "../consts";
 
 // Post descriptions are authored as Markdown and rendered on the site through
 // astro-remote. Feed readers do not render Markdown, so without this the raw
@@ -17,8 +18,7 @@ export async function GET(context) {
   const blogPosts = await getSortedBlogPosts();
   return rss({
     title: "Andy Grunwald (andygrunwald.com)",
-    description:
-      "Engineering Manager and Software Engineer. Open Source enthusiast with a passion for Backend, Infrastructure, Reliability and Engineering Culture.",
+    description: SITE_DESCRIPTION,
     site: context.site,
     stylesheet: "/rss/styles.xsl",
     items: blogPosts.map((post) => ({

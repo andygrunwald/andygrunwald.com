@@ -1,8 +1,8 @@
 # [andygrunwald.com](https://andygrunwald.com/)
 
-The website [andygrunwald.com](https://andygrunwald.com) based on [Astro](https://astro.build/).
+The source code of [andygrunwald.com](https://andygrunwald.com), built with [Astro](https://astro.build/).
 
-Most of the following chapters are for the future me, who cannot remember everything.
+Most of the following sections are for my future self, who cannot remember everything.
 
 ## Starting the development server
 
@@ -19,5 +19,5 @@ $ make build
 
 ## Contributions welcome
 
-Feel free to contribute if you found a typo, want to fix something, or hand in a suggestion to change a blog post.
-[Open a new issue](https://github.com/andygrunwald/andygrunwald.com/issues/new) or [apply a pull request](https://github.com/andygrunwald/andygrunwald.com/compare).
+Feel free to contribute if you find a typo, want to fix something, or want to suggest a change to a blog post.
+[Open an issue](https://github.com/andygrunwald/andygrunwald.com/issues/new) or [submit a pull request](https://github.com/andygrunwald/andygrunwald.com/compare).
